@@ -1,0 +1,215 @@
+<?php
+
+/**
+ * @file
+ * Provides a "Getting Started" screen, with main help topics for Kickstart.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function commerce_kickstart_help_menu() {
+  $items = array();
+
+  // View help topic.
+  $items['admin/help'] = array(
+    'title' => 'First Steps',
+    'description' => 'Your first steps in Commerce Kickstart.',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'first-steps'),
+    'access arguments' => array('view advanced help topic'),
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => -200,
+  );
+  $items['admin/help/first-steps'] = array(
+    'title' => 'Introduction',
+    'description' => 'Your first steps in Commerce Kickstart.',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'first-steps'),
+    'access arguments' => array('view advanced help topic'),
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => -200,
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  // View help topic.
+  $items['admin/help/getting-started'] = array(
+    'title' => 'Kickstart Advanced Help',
+    'description' => 'Find all the help you need to start using your store.',
+    'page callback' => 'advanced_help_topic_page',
+    'page arguments' => array('commerce_kickstart_help', 'getting-started'),
+    'access arguments' => array('view advanced help topic'),
+    'file path' => drupal_get_path('module', 'advanced_help'),
+    'weight' => -200,
+    'type' => MENU_LOCAL_TASK,
+);
+
+  return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function commerce_kickstart_help_menu_alter(&$items) {
+  $items['admin/tasks']['type'] =  MENU_CALLBACK;
+  $items['admin/index']['type'] = MENU_CALLBACK;
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function commerce_kickstart_help_preprocess_page(&$vars) {
+  if ((arg(0) == 'help' && arg(1) == 'commerce_kickstart_help') ||
+    arg(0) == 'admin' && arg(1) == 'help' && arg(2) == 'getting-started') {
+    // Add libraries
+    drupal_add_library('system', 'drupal.ajax');
+    drupal_add_library('system', 'jquery.form');
+    drupal_add_library('system', 'ui.accordion');
+    drupal_add_js(drupal_get_path('module', 'commerce_kickstart_help') . '/commerce_kickstart_help.js', 'file');
+    drupal_set_breadcrumb(array(l(t('Home'), '<front>'), l(t('Help'), 'admin/advanced_help'), l(t('Getting Started'), 'admin/getting-started')));
+
+    $vars['page']['content']['system_main']['help_text'] = array(
+      '#weight' => -12,
+      '#markup' => "<div id='commerce-kickstart-help'><p>Find all the help you need to start using your store.</p></div>",
+    );
+    // Add 'Go to my store' link, only once.
+    if (variable_get('getting_started_seen', FALSE) == FALSE) {
+      variable_set('getting_started_seen', TRUE);
+      $vars['page']['content']['system_main']['help_button'] = array(
+        '#weight' => -11,
+        '#markup' => "<div id='commerce-kickstart-help-button' class='form-actions'><a class='overlay-close'><input type='submit' value='". t('Go to my store') . "' class='form-submit' id='edit-submit'></a></div>",
+      );
+    }
+  }
+}
+
+/**
+ * Page callback.
+ */
+function commerce_kickstart_help_ajax_callback($type = 'ajax', $var) {
+  if ($type == 'ajax') {
+    $commands = array();
+    $help = variable_get('kickstart_help', array());
+    $help[$var] == TRUE ? $help[$var] = FALSE : $help[$var] = TRUE;
+    $help[$var] == TRUE ? $value = 'uncheck' : $value = 'check';
+    variable_set('kickstart_help', $help);
+  }
+}
+
+/**
+ * Implements hook_advanced_help_topic_alter().
+ */
+function commerce_kickstart_help_advanced_help_topic_alter(&$output, $popup) {
+  preg_match_all('#\#\#(.*)\#\##', $output, $matches);
+  array_shift($matches);
+  foreach ($matches[0] as $match) {
+    $form = drupal_get_form('commerce_kickstart_help_form_ajax', $match);
+    $output = str_replace('##' . $match . '##', render($form), $output);
+  }
+}
+
+/**
+ * Form callback.
+ */
+function commerce_kickstart_help_form_ajax($form, &$form_state, $id) {
+  $values = variable_get('kickstart_help', array());
+  $form['changed_command_example'] = array(
+    '#title' => t(''),
+    '#type' => 'checkbox',
+    '#default_value' => isset($values[$id]) ? $values[$id] : FALSE,
+    '#ajax' => array(
+      'callback' => 'commerce_kickstart_ajax_help_checked_callback',
+    ),
+  );
+  return $form;
+}
+
+/**
+ * Ajax callback.
+ */
+function commerce_kickstart_ajax_help_checked_callback($form, $form_state) {
+  $id = $form_state['build_info']['args'][0];
+
+  $help = variable_get('kickstart_help', array());
+  $help[$id] == TRUE ? $help[$id] = FALSE : $help[$id] = TRUE;
+  $help[$id] == TRUE ? $value = 'uncheck' : $value = 'check';
+  variable_set('kickstart_help', $help);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function commerce_kickstart_help_block_info() {
+  $blocks['commerce_kickstart_ressources'] = array(
+    'info' => t('Kickstart Help'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => implode("\n", array(
+      'help/commerce_kickstart_help/getting-started',
+      'admin/getting-started'
+    )),
+    'region' => 'content',
+    'status' => TRUE,
+    'weight' => 50,
+  );
+  $blocks['commerce_kickstart_community'] = array(
+    'info' => t('Kickstart community'),
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => implode("\n", array(
+      'help/commerce_kickstart_help/getting-started',
+      'admin/getting-started'
+    )),
+    'region' => 'content',
+    'status' => TRUE,
+    'weight' => 51,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function commerce_kickstart_help_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'commerce_kickstart_ressources':
+      $block['subject'] = t('Additional Site Builder Resources');
+      $block['content'] = commerce_kickstart_help_contents($delta);
+      break;
+    case 'commerce_kickstart_community':
+      $block['subject'] = t('Connect with the Community');
+      $block['content'] = commerce_kickstart_help_contents($delta);
+      break;
+  }
+  return $block;
+}
+
+/**
+ * A module-defined block content function.
+ */
+function commerce_kickstart_help_contents($which_block) {
+  switch ($which_block) {
+    case 'commerce_kickstart_ressources':
+      $links = array(
+        l(t('Drupal Commerce Site Builder Guide'), 'http://www.drupalcommerce.org/user-guide'),
+        l(t('Commerce Kickstart User Guide (Link TBD)'), ''),
+        l(t('Commerce Guys Videos'), 'https://vimeo.com/channels/commerceguys'),
+        l(t('Learn Views'), 'http://nodeone.se/en/taming-the-beast-learn-views-with-nodeone'),
+        l(t('Learn Rules'), 'http://nodeone.se/node/32'),
+        l(t('Books about Drupal'), 'http://drupal.org/books'),
+      );
+      break;
+
+    case 'commerce_kickstart_community':
+      $links = array(
+        t('IRC, freenode.net: #drupal-commerce (<a href="@url">Setting up and using IRC</a>)', array('@url' => 'http://drupal.org/irc/setting-up')),
+        l(t('DrupalCommerce.org'), 'http://drupalcommerce.org'),
+        l(t('drupal.org'), 'http://drupal.org'),
+        l(t('Drupal Commerce Discussions'), 'http://www.drupalcommerce.org/discussions'),
+        l(t('Drupal Commerce Q&A'), 'http://www.drupalcommerce.org/questions'),
+      );
+      break;
+  }
+  return array('#markup' => implode('<br />', $links) . '<br />');
+}
+

@@ -1,0 +1,25 @@
+name = Commerce Kickstart Social
+description = Social features for Commerce kickstart.
+core = 7.x
+package = Commerce Kickstart
+php = 5.2.4
+dependencies[] = block
+dependencies[] = connector_action_default_register_form
+dependencies[] = features
+dependencies[] = oauth_common
+dependencies[] = oauthconnector
+dependencies[] = service_links
+dependencies[] = widget_services
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:1
+features[user_permission][] = administer oauth
+features[user_permission][] = administer oauth connector
+features[user_permission][] = oauth authorize any consumers
+features[user_permission][] = oauth register any consumers
+
+; Information added by drupal.org packaging script on 2012-07-20
+version = "7.x-2.0-alpha3"
+core = "7.x"
+project = "commerce_kickstart"
+datestamp = "1342812389"
+
