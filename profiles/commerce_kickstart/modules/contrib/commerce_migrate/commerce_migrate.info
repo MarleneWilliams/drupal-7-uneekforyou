@@ -11,9 +11,9 @@ files[] = plugins/destinations/commerce_product_type.inc
 files[] = plugins/destinations/commerce_product.inc
 files[] = plugins/destinations/fields.inc
 
-; Information added by drupal.org packaging script on 2012-07-11
-version = "7.x-1.x-dev"
+; Information added by drupal.org packaging script on 2012-09-14
+version = "7.x-1.0"
 core = "7.x"
 project = "commerce_migrate"
-datestamp = "1341965383"
+datestamp = "1347666727"
 

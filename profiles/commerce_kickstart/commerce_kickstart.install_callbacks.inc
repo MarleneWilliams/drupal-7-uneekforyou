@@ -10,9 +10,59 @@
  *
  * @see commerce_kickstart_install_additional_modules()
  */
+function _commerce_kickstart_enable_theme($theme, &$context) {
+  theme_enable(array($theme));
+  variable_set('theme_default', $theme);
+
+  $context['message'] = st('Installed the default theme.');
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_install_additional_modules()
+ */
 function _commerce_kickstart_enable_module($module, $module_name, &$context) {
   module_enable(array($module), FALSE);
   $context['message'] = st('Installed %module module.', array('%module' => $module_name));
+}
+
+/**
+ * BatchAPI callback.
+ *
+ * @see commerce_kickstart_install_additional_modules()
+ */
+function _commerce_kickstart_setup_localization($operation, &$context) {
+  require_once DRUPAL_ROOT . '/includes/language.inc';
+  $context['message'] = t('@operation', array('@operation' => $operation));
+
+  // Enable en prefix for english language.
+  db_update('languages')
+    ->fields(array(
+      'prefix' => 'en',
+    ))
+    ->condition('language',  'en')
+    ->execute();
+
+  // Enable language detection via url.
+  $negotiation['locale-url'] = array(
+    'types' => array(
+      'language_content',
+      'language',
+      'language_url',
+    ),
+    'callbacks' => array(
+      'language' => 'locale_language_from_url',
+      'switcher' => 'locale_language_switcher_url',
+      'url_rewrite' => 'locale_language_url_rewrite_url',
+    ),
+    'file' => 'includes/locale.inc',
+    'weight' => '-8,',
+    'name' => 'URL',
+    'description' => t('Determine the language from the URL (Path prefix or domain).'),
+    'config' => 'admin/config/regional/language/configure/url',
+  );
+  language_negotiation_set('language', $negotiation);
 }
 
 /**
@@ -214,52 +264,27 @@ function _commerce_kickstart_example_user($operation, &$context) {
 function _commerce_kickstart_post_import($operation, &$context) {
   $context['message'] = t('@operation', array('@operation' => $operation));
 
-  $install_demo_store = variable_get('commerce_kickstart_demo_store', FALSE);
-  if (!$install_demo_store) {
-    _commerce_kickstart_setup_omega_theme();
-  }
-
-  features_rebuild();
-  drupal_static_reset();
+  _commerce_kickstart_setup_blocks();
+  _commerce_kickstart_setup_crumbs();
 }
 
 /**
- * Configures blocks for the theme during base install (no demo store).
+ * Configures the theme and assign blocks to the appropriate regions.
  */
-function _commerce_kickstart_setup_omega_theme() {
-  $default_theme = 'omega';
+function _commerce_kickstart_setup_blocks() {
   $admin_theme = 'commerce_kickstart_admin';
-  theme_enable(array($default_theme, $admin_theme));
-  variable_set('theme_default', $default_theme);
-  variable_set('admin_theme', $admin_theme);
-  variable_set('node_admin_theme', '1');
-  // Don't show the grid by default.
-  $omega_settings = array(
-    'alpha_debug_grid_active' => FALSE,
-  );
-  variable_set('theme_omega_settings', $omega_settings);
+  $default_theme = variable_get('theme_default', 'omega_kickstart');
 
   $blocks = array(
     array(
       'module' => 'system',
-      'delta' => 'main',
-      'theme' => $default_theme,
+      'delta' => 'help',
+      'theme' => $admin_theme,
       'status' => 1,
       'weight' => 0,
-      'region' => 'content',
-      'pages' => '<front>', // Do not show the block on front.
-      'visibility' => 0,
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'navigation',
-      'theme' => $default_theme,
-      'status' => 0, // Do not enable the navigation menu block.
-      'weight' => 0,
-      'region' => 'sidebar_first',
+      'region' => 'help',
       'pages' => '',
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     array(
       'module' => 'system',
@@ -269,37 +294,18 @@ function _commerce_kickstart_setup_omega_theme() {
       'weight' => 0,
       'region' => 'preface_first',
       'pages' => '',
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     array(
       'module' => 'system',
       'delta' => 'main',
-      'theme' => $admin_theme,
+      'theme' => $default_theme,
       'status' => 1,
       'weight' => 0,
       'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'system',
-      'delta' => 'help',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 0,
-      'region' => 'help',
-      'pages' => '',
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'user',
-      'delta' => 'login',
-      'theme' => $admin_theme,
-      'status' => 1,
-      'weight' => 10,
-      'region' => 'content',
-      'pages' => '',
-      'cache' => -1,
+      'pages' => '<front>', // Do not show the block on front.
+      'visibility' => 0,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     // Connector.
     array(
@@ -311,7 +317,7 @@ function _commerce_kickstart_setup_omega_theme() {
       'region' => 'content',
       'pages' => "user\r\nuser/login",
       'visibility' => BLOCK_VISIBILITY_LISTED,
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     // Search sorting.
     array(
@@ -323,52 +329,7 @@ function _commerce_kickstart_setup_omega_theme() {
       'region' => 'content',
       'pages' => '',
       'visibility' => 0,
-      'cache' => -1,
-    ),
-    // Commerce Kickstart Content.
-    array(
-      'module' => 'commerce_kickstart_content',
-      'delta' => 'social',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -30,
-      'region' => 'footer_second',
-      'pages' => '',
-      'visibility' => 0,
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'commerce_kickstart_content',
-      'delta' => 'social',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -30,
-      'region' => 'footer_second',
-      'pages' => '',
-      'visibility' => 0,
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'commerce_kickstart_content',
-      'delta' => 'payment',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -30,
-      'region' => 'footer_second',
-      'pages' => '',
-      'visibility' => 0,
-      'cache' => -1,
-    ),
-    array(
-      'module' => 'commerce_kickstart_content',
-      'delta' => 'powered_drupal_commerce',
-      'theme' => $default_theme,
-      'status' => 1,
-      'weight' => -30,
-      'region' => 'footer_first',
-      'pages' => '',
-      'visibility' => 0,
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
     ),
     // Commerce checkout progress
     array(
@@ -377,10 +338,10 @@ function _commerce_kickstart_setup_omega_theme() {
       'theme' => $default_theme,
       'status' => 1,
       'weight' => -10,
-      'region' => 'content',
+      'region' => 'breadcrumb',
       'pages' => "checkout/*\ncart",
       'visibility' => BLOCK_VISIBILITY_LISTED,
-      'cache' => -1,
+      'cache' => DRUPAL_NO_CACHE,
       'title' => '<none>',
     ),
   );
@@ -399,6 +360,14 @@ function _commerce_kickstart_setup_omega_theme() {
       ->condition('theme', $theme)
       ->execute();
   }
+}
+
+/**
+ * Configures the Crumbs module and enables the required plugins.
+ */
+function _commerce_kickstart_setup_crumbs() {
+  variable_set('crumbs_show_current_page', TRUE);
+  variable_set('crumbs_weights', commerce_kickstart_crumbs_get_info());
 }
 
 /*

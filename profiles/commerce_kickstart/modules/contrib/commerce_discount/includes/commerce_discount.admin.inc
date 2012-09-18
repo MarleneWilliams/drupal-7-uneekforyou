@@ -107,19 +107,6 @@ function commerce_discount_form($form, &$form_state, CommerceDiscount $commerce_
     $options[$type] = $info['label'];
   }
 
-  // Show a list of commerce discounts.
-  $form['commerce_discount_type'] = array(
-    '#title' => t('Choose discount type'),
-    '#type' => 'radios',
-    '#options' => $options,
-    '#required' => TRUE,
-    '#default_value' => $commerce_discount->type,
-    '#ajax' => array(
-       'callback' => 'commerce_discount_fields_ajax_callback',
-       'wrapper' => 'commerce-discount-fields-wrapper',
-    ),
-  );
-
   $form['label'] = array(
     '#title' => t('Admin title'),
     '#type' => 'textfield',
@@ -128,10 +115,24 @@ function commerce_discount_form($form, &$form_state, CommerceDiscount $commerce_
     '#required' => TRUE,
   );
 
+  // Show a list of commerce discounts.
+  $form['commerce_discount_type'] = array(
+    '#title' => t('Choose discount type'),
+    '#type' => 'radios',
+    '#options' => $options,
+    '#required' => FALSE,
+    '#default_value' => $commerce_discount->type,
+    '#ajax' => array(
+       'callback' => 'commerce_discount_fields_ajax_callback',
+       'wrapper' => 'commerce-discount-fields-wrapper',
+    ),
+  );
+
   // Machine-readable type name.
   $form['name'] = array(
     '#type' => 'machine_name',
-    '#default_value' => isset($commerce_discount->name) ? $commerce_discount->name : '',
+    // Strip the 'discount_' prefix from the beginning of the string
+    '#default_value' => isset($commerce_discount->name) ? substr($commerce_discount->name, 9) : '',
     '#disabled' => $commerce_discount->hasStatus(ENTITY_IN_CODE),
     '#machine_name' => array(
       'exists' => '_commerce_discount_name_exists',
@@ -152,15 +153,34 @@ function commerce_discount_form($form, &$form_state, CommerceDiscount $commerce_
     '#parents' => array('commerce_discount_fields'),
   );
   field_attach_form('commerce_discount', $commerce_discount, $form['commerce_discount_fields'], $form_state);
+  // Remove the title and surrounding fieldset from the offer reference field.
+  $form['commerce_discount_fields']['commerce_discount_offer'][LANGUAGE_NONE]['#title'] = NULL;
+  $form['commerce_discount_fields']['commerce_discount_offer'][LANGUAGE_NONE]['#type'] = 'container';
+
+  // Add a class to custom fields for easier styling.
+  // Ignore the offer reference field and any date fields. Date fields are
+  // ignored because their markup makes them hard to style generically.
+  foreach (element_get_visible_children($form['commerce_discount_fields']) as $field_name) {
+    $field = field_info_field($field_name);
+    if ($field_name == 'commerce_discount_offer' || in_array($field['type'], array('date', 'datestamp', 'datetime'))) {
+      continue;
+    }
+
+    $field_form = &$form['commerce_discount_fields'][$field_name];
+    if (!isset($field_form['#attributes']['class'])) {
+      $field_form['#attributes']['class'] = array();
+    }
+    $field_form['#attributes']['class'][] = 'commerce-discount-box';
+  }
 
   $form['enabled'] = array(
     '#title' => t('Discount status'),
-    '#type' => 'radios',
+    '#type' => 'select',
     '#options' => array(
       TRUE => t('Enabled'),
       FALSE => t('Disabled'),
     ),
-    '#required' => TRUE,
+    '#required' => FALSE,
     '#default_value' => $commerce_discount->enabled,
   );
 
@@ -169,6 +189,7 @@ function commerce_discount_form($form, &$form_state, CommerceDiscount $commerce_
     '#type' => 'submit',
     '#value' => t('Save discount'),
     '#weight' => 40,
+    '#ief_submit_all' => TRUE,
   );
 
   if (!$commerce_discount->hasStatus(ENTITY_IN_CODE) && $op != 'add') {
@@ -184,6 +205,7 @@ function commerce_discount_form($form, &$form_state, CommerceDiscount $commerce_
   // Add assets.
   $form['#attached']['js'][] = drupal_get_path('module', 'commerce_discount') . '/js/commerce_discount.js';
   $form['#attached']['css'][] = drupal_get_path('module', 'commerce_discount') . '/css/commerce_discount.css';
+  $form['#attributes']['class'][] = 'commerce-discount-form';
 
   return $form;
 }

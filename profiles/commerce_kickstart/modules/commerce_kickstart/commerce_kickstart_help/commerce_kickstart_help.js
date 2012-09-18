@@ -1,68 +1,31 @@
 (function ($) {
-
   Drupal.behaviors.kickstarthelp = {
     attach:function () {
-
-      $("#accordion").accordion({
-        header: 'h2',
-        autoHeight: false,
-        collapsible: true,
-        navigation:true,
-        change: function(event, ui) {
-          if (ui.newHeader.length > 0) {
-            $('html, body').animate({ scrollTop: $(ui.newHeader).offset().top - 80}, 300);
-          }
+      // Disable search if we are not online.
+      if (!navigator.onLine) {
+        $('#edit-submit, #edit-text').attr('disabled', true);
+        $('#edit-text').attr('placeholder', "You are not able to search DrupalCommerce.org while offline.");
+      }
+      $('#edit-text').bind('keypress', function (event) {
+        var c = event.which ? event.which : event.keyCode;
+        if (c == 13) {
+          event.preventDefault();
+          var e = document.createEvent('MouseEvents');
+          e.initEvent('click', true, true );
+          $('#edit-submit')[0].dispatchEvent(e);
         }
       });
-
-      $('.accordion-section').each(function () {
-
-       var TotalCount = $(this).find('input:checkbox').length;
-       var CheckedCount = $(this).find('input:checkbox').filter(':checked').length;
-       if (TotalCount == CheckedCount && CheckedCount != 0) {
-         $(this).find('h2').addClass('checked');
-       } else {
-         $(this).find('h2').removeClass('checked');
-       }
+      $('#edit-submit').bind('click', function (event) {
+        var dc_search_url = 'http://www.drupalcommerce.org/search/node/';
+        var search = $('#edit-text').val().trim();
+        if (!search.length || !navigator.onLine) {
+          event.preventDefault();
+          return false;
+        }
+        search = encodeURI(search).replace('%2f', '/');
+        var url = dc_search_url + search;
+        $(this).attr('href', url);
       });
-
-      $('.help-section').each(function () {
-
-        // Tipsy
-        $('.tipsy-link', $(this)).attr('title', ($('.child', this).html()));
-        $('.tipsy-link', $(this)).tipsy({
-          trigger:'manual',
-          gravity:'w',
-          html:true,
-          opacity: 1.0,
-          offset: 45
-        });
-
-        var timer;
-        var context_local = $(this);
-        var hideTipsy = function () {
-          $('.tipsy-link', context_local).tipsy('hide');
-        };
-
-        $('.tipsy').live('mouseover', function (e) {
-          clearTimeout(timer);
-        });
-
-        $('.tipsy').live('mouseout', function (e) {
-          timer = setTimeout(hideTipsy, 200);
-        });
-
-        $('.tipsy-link', $(this)).bind('mouseover', function (e) {
-          $(this).tipsy('show');
-        });
-
-        $('.tipsy-link', $(this)).bind('mouseout', function (e) {
-          timer = setTimeout(hideTipsy, 200);
-        });
-
-      });
-
-
     }
   }
 })(jQuery);

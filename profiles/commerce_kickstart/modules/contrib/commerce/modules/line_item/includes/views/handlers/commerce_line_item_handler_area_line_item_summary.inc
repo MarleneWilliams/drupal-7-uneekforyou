@@ -84,7 +84,7 @@ class commerce_line_item_handler_area_line_item_summary extends views_handler_ar
   }
 
   function render($empty = FALSE) {
-    if (!$empty) {
+    if (!$empty || !empty($this->options['empty'])) {
       // Build an array of line item IDs from the View results that we will load
       // and use for calculating totals.
       $line_item_ids = array();

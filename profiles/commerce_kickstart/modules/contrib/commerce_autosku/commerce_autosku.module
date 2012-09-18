@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Module hooks and helper functions for commerce_autosku
+ */
+
 define('COMMERCE_AUTOSKU_DISALLOWED', '@[^A-Z|a-z|0-9|\-|_]@');
 define('COMMERCE_AUTOSKU_REPLACEMENT', '');
 
@@ -190,5 +195,8 @@ function _commerce_autosku_default_settings() {
  * API helper to reduce a SKU to a set of allowed characters.
  */
 function commerce_autosku_cleanstring($string) {
+  if (module_exists('transliteration')) {
+    $string = transliteration_get($string);
+  }
   return preg_replace(COMMERCE_AUTOSKU_DISALLOWED, COMMERCE_AUTOSKU_REPLACEMENT, $string);
 }

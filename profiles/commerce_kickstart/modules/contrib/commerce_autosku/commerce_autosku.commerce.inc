@@ -10,7 +10,11 @@
  * Implements hook_commerce_product_type_update().
  */
 function commerce_autosku_commerce_product_type_update($type) {
+  if(isset($type['autosku_status']) && !$type['autosku_status']) {
+    $type['autosku']['pattern'] = FALSE;
+  }
   $existing = db_query("SELECT 1 FROM {commerce_autosku_patterns} WHERE product_type = :type", array(':type' => $type['type']))->fetch();
+  $record = new stdClass();
   $record->product_type = $type['type'];
   $record->pattern = !empty($type['autosku']['pattern']) ? $type['autosku']['pattern'] : FALSE;
   $record->advanced = $type['autosku']['advanced'];
@@ -26,6 +30,10 @@ function commerce_autosku_commerce_product_type_update($type) {
  * Implements hook_commerce_product_type_insert().
  */
 function commerce_autosku_commerce_product_type_insert($type) {
+  if(isset($type['autosku_status']) && !$type['autosku_status']) {
+    $type['autosku']['pattern'] = FALSE;
+  }
+  $record = new stdClass();
   $record->product_type = $type['type'];
   $record->pattern = !empty($type['autosku']['pattern']) ? $type['autosku']['pattern'] : FALSE;
   $record->advanced = isset($type['autosku']['advanced']) ? $type['autosku']['advanced'] : array();
@@ -64,19 +72,19 @@ function commerce_autosku_commerce_product_presave($product) {
       $product->sku = _commerce_autosku_get_temporary_sku();
     }
     //@todo: Replace TRUE with a check if we should update existing SKUS.
-    elseif (empty($product->sku) || $settings['advanced']['update_existing']) {
+    elseif (empty($product->sku) || _commerce_autosku_is_temporary_sku($product->sku) || $settings['advanced']['update_existing']) {
       $data = array('commerce-product' => $product);
       $sku = token_replace($settings['pattern'], $data);
+      $sku = commerce_autosku_cleanstring($sku);
       if ($settings['advanced']['case']) {
         switch ($settings['advanced']['case']) {
           case 'uppercase':
-            $sku = strtoupper($sku);
+            $sku = drupal_strtoupper($sku);
             break;
           case 'lowercase':
-            $sku = strtolower($sku);
+            $sku = drupal_strtolower($sku);
         }
       }
-      $sku = commerce_autosku_cleanstring($sku);
 
       //Borrowed from pathauto...
       if (!commerce_product_validate_sku_unique($sku, $product->product_id)) {
@@ -105,7 +113,7 @@ function commerce_autosku_commerce_product_type_info_alter(&$types) {
 
     foreach ($result as $record) {
       $record['advanced'] = unserialize($record['advanced']);
-      if(!is_array($record['advanced'])) {
+      if (!is_array($record['advanced'])) {
         $record['advanced'] = _commerce_autosku_default_settings();
       }
       $patterns[$record['product_type']] = $record;

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * Install and update hooks for commerce_autosku
+ */
+
 function commerce_autosku_schema() {
   $schema['commerce_autosku_patterns'] = array(
   'description' => 'TODO: please describe this table!',

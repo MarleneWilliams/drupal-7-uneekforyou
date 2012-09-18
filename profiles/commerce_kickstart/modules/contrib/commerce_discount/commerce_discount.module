@@ -7,6 +7,91 @@
  */
 
 /**
+ * Implements hook_commerce_order_presave().
+ *
+ * Remove any existing commerce discount line item.
+ */
+function commerce_discount_commerce_order_presave($order) {
+  $wrapper = entity_metadata_wrapper('commerce_order', $order);
+
+  // Remove all discount refrences from the order.
+  $wrapper->commerce_discounts->set(array());
+
+  // Remove discount components from the order total price.
+  commerce_discount_remove_discount_components($wrapper->commerce_order_total);
+
+  foreach ($wrapper->commerce_line_items as $delta => $wrapper_line_item) {
+    // If the line item is a discount remove it.
+    if ($wrapper_line_item->getBundle() == 'commerce_discount') {
+      // Delete the line item, and remove it from the order.
+      // TODO: In this case the line item should be deleted, the only problem is
+      // the deletion causes the order to be saved again.
+      // See commerce_line_item_delete_references().
+      // $wrapper_line_item->delete();
+
+      $wrapper->commerce_line_items->offsetUnset($delta);
+    }
+    // If the line item is not a discount, delete discount components from its
+    // price.
+    else {
+      // Remove discount components from the line item unit price.
+      commerce_discount_remove_discount_components($wrapper_line_item->commerce_unit_price);
+
+      // Remove discount components from the line item total price.
+      commerce_discount_remove_discount_components($wrapper_line_item->commerce_total);
+
+      $wrapper_line_item->save();
+    }
+  }
+
+  // Invoke all the rules that apply discounts to a given order after doing the
+  // cleanup.
+  rules_invoke_event('commerce_discount_order', $order);
+}
+
+/**
+ * Implements hook_commerce_cart_order_refresh().
+ */
+function commerce_discount_commerce_cart_order_refresh($order_wrapper) {
+  $order = $order_wrapper->value();
+  rules_invoke_event('commerce_discount_order', $order);
+}
+
+/**
+ * Remove discount components from a given price and recalculate the total.
+ *
+ * @param $price_wrapper
+ *   Wrapped commerce price.
+ */
+function commerce_discount_remove_discount_components($price_wrapper) {
+  $data = $price_wrapper->data->value();
+  $component_removed = FALSE;
+  // Remove price components belonging to order discounts.
+  foreach ($data['components'] as $key => $component) {
+    if ($component['name'] != 'discount') {
+      continue;
+    }
+    $discount_name = $component['price']['data']['discount_name'];
+    $wrapper = entity_metadata_wrapper('commerce_discount', $discount_name);
+    if ($wrapper->type->value() == 'order_discount') {
+      unset($data['components'][$key]);
+      $component_removed = TRUE;
+    }
+  }
+  // Don't alter the price components if no components were removed.
+  if (!$component_removed) {
+    return;
+  }
+
+  // Re-save the price without the discounts (if existed).
+  $price_wrapper->data->set($data);
+
+  // Re-set the total price.
+  $total = commerce_price_component_total($price_wrapper->value());
+  $price_wrapper->amount->set($total['amount']);
+}
+
+/**
  * Implements hook_entity_info().
  */
 function commerce_discount_entity_info() {
@@ -77,7 +162,7 @@ function commerce_discount_entity_info() {
  */
 function commerce_discount_modules_enabled($modules) {
   foreach (commerce_discount_types() as $type => $value) {
-    if (!field_info_instance('commerce_discount', 'commerce_discount_offer', $type)) {
+    if (!field_read_instance('commerce_discount', 'commerce_discount_offer', $type, array('include_inactive' => TRUE))) {
       $instance = array(
         'field_name' => 'commerce_discount_offer',
         'entity_type' => 'commerce_discount',
@@ -112,7 +197,7 @@ function commerce_discount_permission() {
 function commerce_discount_views_api($module, $api) {
   if ($module == 'views') {
     return array(
-      'version' => 2,
+      'version' => 3,
       'path' => drupal_get_path('module','commerce_discount') . '/includes/views',
     );
   }
@@ -233,7 +318,6 @@ function commerce_discount_set_enabled($discount_id, $enabled, $type = 'ajax') {
     return;
   }
 
-
   $entity = entity_load_single('commerce_discount', $discount_id);
   $entity->enabled = $enabled;
   $entity->save();
@@ -294,7 +378,7 @@ function commerce_discount_commerce_discount_type_info() {
   $types = array();
   $types['order_discount'] = array(
     'label' => t('Order Discount'),
-    'event' => 'commerce_order_presave',
+    'event' => 'commerce_discount_order',
     'entity type' => 'commerce_order',
   );
   $types['product_discount'] = array(
@@ -315,11 +399,13 @@ function commerce_discount_commerce_discount_offer_type_info() {
   $types['fixed_amount'] = array(
     'label' => t('$ off'),
     'action' => 'commerce_discount_fixed_amount',
+    'entity types' => array('commerce_order', 'commerce_line_item'),
   );
 
   $types['percentage'] = array(
     'label' => t('% off'),
     'action' => 'commerce_discount_percentage',
+    'entity types' => array('commerce_order', 'commerce_line_item'),
   );
 
   return $types;
