@@ -621,8 +621,12 @@ class EntityAPIControllerExportable extends EntityAPIController {
     if ($conditions) {
       foreach ($entities as $key => $entity) {
         $entity_values = (array) $entity;
-        if (array_diff_assoc($conditions, $entity_values)) {
-          unset($entities[$key]);
+
+        foreach ($conditions as $c_key => $c_value) {
+          if (!isset($entity_values[$c_key]) || serialize($c_value) != serialize($entity_values[$c_key])) {
+            unset($entities[$key]);
+            break;
+          }
         }
       }
     }

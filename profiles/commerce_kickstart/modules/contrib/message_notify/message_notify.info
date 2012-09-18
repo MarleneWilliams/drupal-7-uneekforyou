@@ -3,9 +3,17 @@ description = "Message notify."
 core = 7.x
 package = Message
 dependencies[] = message
-; Information added by drupal.org packaging script on 2012-06-19
-version = "7.x-1.1"
+dependencies[] = ctools
+
+; Notifier plugins
+files[] = includes/message_notify.exception.inc
+files[] = plugins/notifier/abstract.inc
+
+; Tests
+files[] = message_notify.test
+; Information added by drupal.org packaging script on 2012-08-31
+version = "7.x-2.2"
 core = "7.x"
 project = "message_notify"
-datestamp = "1340125279"
+datestamp = "1346449319"
 

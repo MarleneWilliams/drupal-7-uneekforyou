@@ -122,7 +122,9 @@ function oauth_common_form_authorize() {
       // Pick the callback url apart and add the token parameter
       $callback = parse_url($consumer->callback_url);
       $query = array();
-      parse_str($callback['query'], $query);
+      if (!empty($callback['query'])) {
+        parse_str($callback['query'], $query);
+      }
       $query['oauth_token'] = $token->key;
       $callback['query'] = http_build_query($query, 'idx_', '&');
 
@@ -233,7 +235,10 @@ function oauth_common_form_authorize() {
   else {
     $query = $_GET;
     unset($query['q']); // why are there so few q's?
-    drupal_goto('user/login', array('query' => array(
+    // Allow this path to be set to something other than the standard
+    // login page in case the site has a mobile-enhanced login page.
+    $path = variable_get('oauth_common_login_path', OAUTH_COMMON_LOGIN_PATH);
+    drupal_goto($path, array('query' => array(
       'destination' => url('oauth/authorize', array(
         'query' => $query,
       )),
@@ -379,7 +384,7 @@ function oauth_common_callback_access_token() {
     // Set the expiry time based on context settings or get parameter
     $expires = !empty($context->authorization_options['access_token_lifetime']) ?
       REQUEST_TIME + $context->authorization_options['access_token_lifetime'] : 0;
-    if ($_GET['expires'] && intval($_GET['expires'])) {
+    if (!empty($_GET['expires']) && intval($_GET['expires'])) {
       $hint = intval($_GET['expires']);
       // Only accept more restrictive expiry times
       if ($expires == 0 || $hint < $expires) {

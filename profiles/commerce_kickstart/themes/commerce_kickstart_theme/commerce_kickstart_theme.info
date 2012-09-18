@@ -3,7 +3,7 @@ description = ''
 package = Commerce Kickstart
 core = 7.x
 screenshot = screenshot.png
-base theme = omega
+base theme = omega_kickstart
 
 ; REQUIRED CORE REGIONS
 
@@ -56,11 +56,13 @@ zones[footer2] = Footer second
 
 ; OPTIONAL STYLESHEETS
 
-css[global.css][name] = Your custom global styles
-css[global.css][description] = This file holds all the globally active custom CSS of your theme.
-css[global.css][options][weight] = 10
+css[commerce_kickstart_style.css][name] = Commerce Kickstart theme global style.
+css[commerce_kickstart_style.css][description] = This file holds all the globally active custom CSS of Commerce Kickstart theme.
+css[commerce_kickstart_style.css][options][weight] = 11
+settings[alpha_css][commerce_kickstart_style.css] = 'commerce_kickstart_style.css'
 
 ; OPTIONAL LIBRARIES
+
 libraries[commerce_kickstart_theme_custom][name] = Commerce kickstart theme JS
 libraries[commerce_kickstart_theme_custom][description] = This file holds all the custom JS.
 libraries[commerce_kickstart_theme_custom][js][0][file] = commerce_kickstart_theme_custom.js
@@ -418,9 +420,9 @@ settings[alpha_region_footer2_second_suffix] = ''
 settings[alpha_region_footer2_second_weight] = '2'
 settings[alpha_region_footer2_second_css] = ''
 
-; Information added by drupal.org packaging script on 2012-07-20
-version = "7.x-2.0-alpha3"
+; Information added by drupal.org packaging script on 2012-09-17
+version = "7.x-2.0-rc1"
 core = "7.x"
 project = "commerce_kickstart"
-datestamp = "1342812389"
+datestamp = "1347893544"
 

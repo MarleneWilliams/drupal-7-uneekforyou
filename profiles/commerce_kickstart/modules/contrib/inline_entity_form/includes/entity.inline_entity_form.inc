@@ -8,7 +8,7 @@
 class EntityInlineEntityFormController {
 
   protected $entityType;
-  protected $settings;
+  public $settings;
 
   public function __construct($entityType, array $settings) {
     $this->entityType = $entityType;
@@ -56,7 +56,7 @@ class EntityInlineEntityFormController {
   /**
    * Returns an array of fields (which can be either Field API fields or
    * properties defined through hook_entity_property_info()) that should be
-   * used to represent a selected entity.
+   * used to represent a selected entity in the IEF table.
    *
    * The IEF widget can have its own fields specified in the widget settings,
    * in which case the output of this function is ignored.
@@ -77,12 +77,14 @@ class EntityInlineEntityFormController {
    */
   public function defaultFields($bundles) {
     $info = entity_get_info($this->entityType);
+    $metadata = entity_get_property_info($this->entityType);
+
     $fields = array();
     if (!empty($info['entity keys']['label'])) {
       $label_key = $info['entity keys']['label'];
       $fields[$label_key] = array(
         'type' => 'property',
-        'label' => t('Label'),
+        'label' => $metadata ? $metadata['properties'][$label_key]['label'] : t('Label'),
         'visible' => TRUE,
         'weight' => 1,
       );
@@ -91,9 +93,18 @@ class EntityInlineEntityFormController {
       $id_key = $info['entity keys']['id'];
       $fields[$id_key] = array(
         'type' => 'property',
-        'label' => t('ID'),
+        'label' => $metadata ? $metadata['properties'][$id_key]['label'] : t('ID'),
         'visible' => TRUE,
         'weight' => 1,
+      );
+    }
+    if (count($bundles) > 1) {
+      $bundle_key = $info['entity keys']['bundle'];
+      $fields[$bundle_key] = array(
+        'type' => 'property',
+        'label' => $metadata ? $metadata['properties'][$bundle_key]['label'] : t('Type'),
+        'visible' => TRUE,
+        'weight' => 2,
       );
     }
 
@@ -104,7 +115,12 @@ class EntityInlineEntityFormController {
    * Returns an array of default settings in the form of key => value.
    */
   public function defaultSettings() {
-    return array();
+    $defaults = array();
+    $defaults['allow_existing'] = FALSE;
+    $defaults['match_operator'] = 'CONTAINS';
+    $defaults['delete_references'] = FALSE;
+
+    return $defaults;
   }
 
   /**
@@ -118,7 +134,38 @@ class EntityInlineEntityFormController {
    * @param $instance
    *   The definition of the reference field instance.
    */
-  public function settingsForm($field, $instance) {}
+  public function settingsForm($field, $instance) {
+    $labels = $this->labels();
+
+    $form = array();
+    $form['allow_existing'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Allow users to add existing @label.', array('@label' => $labels['plural'])),
+      '#default_value' => $this->settings['allow_existing'],
+    );
+    $form['match_operator'] = array(
+      '#type' => 'select',
+      '#title' => t('Autocomplete matching'),
+      '#default_value' => $this->settings['match_operator'],
+      '#options' => array(
+        'STARTS_WITH' => t('Starts with'),
+        'CONTAINS' => t('Contains'),
+      ),
+      '#description' => t('Select the method used to collect autocomplete suggestions. Note that <em>Contains</em> can cause performance issues on sites with thousands of nodes.'),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="instance[widget][settings][type_settings][allow_existing]"]' => array('checked' => TRUE),
+        ),
+      ),
+    );
+    $form['delete_references'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Delete referenced @label when the parent entity is deleted.', array('@label' => $labels['plural'])),
+      '#default_value' => $this->settings['delete_references'],
+    );
+
+    return $form;
+  }
 
   /**
    * Returns the entity form to be shown through the IEF widget.

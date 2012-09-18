@@ -44,8 +44,14 @@ class SearchApiSort extends Entity {
     parent::__construct($values, 'search_api_sort');
     if (empty($this->options['field_name'])) {
       $index = search_api_index_load($this->index_id);
-      $fields = $index->getFields();
-      $this->options['field_name'] = isset($fields[$this->field]['name']) ? $fields[$this->field]['name'] : $this->field;
+      if (is_object($index)) {
+        $fields = $index->getFields();
+        $this->options['field_name'] = isset($fields[$this->field]['name']) ? $fields[$this->field]['name'] : $this->field;
+      }
+      else {
+        $this->options['field_name'] = $this->field;
+      }
     }
   }
+
 }

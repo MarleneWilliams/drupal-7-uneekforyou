@@ -347,8 +347,9 @@ function message_entity_delete($entity, $entity_type) {
     $messages = message_load_multiple(array_keys($check_mids));
     foreach ($messages as $message) {
       foreach ($check_mids[$message->mid] as $field_name) {
+        $field = field_info_field($field_name);
         $wrapper = entity_metadata_wrapper('message', $message);
-        $count = $wrapper->$field_name->count();
+        $count = $field['cardinality'] == 1 ? 1 : $wrapper->{$field_name}->count();
 
         // The amount of entities actually referenced with this field.
         // Would have been nicer to use $count to determine the amount of
@@ -438,6 +439,35 @@ function message_get_purgeable_by_type(&$purge_limit, $message_type_name, $purge
 }
 
 /**
+ * Implements hook_field_extra_fields().
+ */
+function message_field_extra_fields() {
+  $return = array();
+  foreach (message_type_load() as $message_type) {
+    $wrapper = entity_metadata_wrapper('message_type', $message_type);
+    // Iterate over any "message-text" field.
+    foreach (field_info_instances('message_type', $message_type->category) as $field_name => $value) {
+      $field = field_info_field($field_name);
+      if (empty($field['settings']['message_text'])) {
+        continue;
+      }
+
+      $count = $field['cardinality'] == 1 ? 1 : $wrapper->{$field_name}->count();
+      for ($delta = 0; $delta < $count; $delta++) {
+        $params = array('@label' => $value['label'], '@delta' => $delta);
+        $return['message'][$message_type->name]['display']['message__' . $field['field_name'] . '__' . $delta] = array(
+          'label' => $count == 1 ? $value['label'] : t('@label @delta partial', $params),
+          'description' => $count == 1 ? t('Complete rendered message text.') : t('Rendered message text of the @delta partial', $params),
+          'weight' => $delta,
+        );
+      }
+    }
+  }
+
+  return $return;
+}
+
+/**
  * Creates a new message type category.
  *
  * If a message type category already exists, an exception will be thrown.
@@ -449,7 +479,7 @@ function message_type_category_create($category, $values = array()) {
   global $language;
   // Make sure the message type doesn't already exist, to prevent duplicate key
   // error.
-  if (message_type_category($category)) {
+  if (message_type_category_load($category)) {
     throw new MessageException('Message type category' . check_plain($category) . ' already exists.');
   }
   $values['category'] = $category;

@@ -1,13 +1,13 @@
 /*!
- * jQuery Expander Plugin v1.4.3
+ * jQuery Expander Plugin v1.4.4
  *
- * Date: Tue Jun 19 11:54:00 2012 EDT
+ * Date: Sun Sep 16 21:07:05 2012 EDT
  * Requires: jQuery v1.3+
  *
  * Copyright 2011, Karl Swedberg
  * Dual licensed under the MIT and GPL licenses (just like jQuery):
  * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl.html
+ *
  *
  *
  *
@@ -16,7 +16,7 @@
 
 (function($) {
   $.expander = {
-    version: '1.4.3',
+    version: '1.4.4',
     defaults: {
       // the number of characters at which the contents will be sliced into two parts.
       slicePoint: 100,
@@ -109,19 +109,23 @@
               }).length,
               el = hasBlocks ? 'div' : 'span',
               detailSelector = el + '.' + o.detailClass,
-              moreSelector = 'span.' + o.moreClass,
+              moreClass = o.moreClass + '',
+              lessClass = o.lessClass + '',
               expandSpeed = o.expandSpeed || 0,
               allHtml = $.trim( $this.html() ),
               allText = $.trim( $this.text() ),
               summaryText = allHtml.slice(0, o.slicePoint);
 
+          // allow multiple classes for more/less links
+          o.moreSelector = 'span.' + moreClass.split(' ').join('.');
+          o.lessSelector = 'span.' + lessClass.split(' ').join('.');
           // bail out if we've already set up the expander on this element
           if ( $.data(this, 'expanderInit') ) {
             return;
           }
 
           $.data(this, 'expanderInit', true);
-
+          $.data(this, 'expander', o);
           // determine which callback functions are defined
           $.each(['onSlice','beforeExpand', 'afterExpand', 'onCollapse'], function(index, val) {
             defined[val] = $.isFunction(o[val]);
@@ -213,7 +217,7 @@
 
             lastCloseTag = '';
           }
-          o.moreLabel = $this.find(moreSelector).length ? '' : buildMoreLabel(o);
+          o.moreLabel = $this.find(o.moreSelector).length ? '' : buildMoreLabel(o);
 
           if (hasBlocks) {
             detailText = allHtml;
@@ -242,20 +246,20 @@
 
           // set up details and summary for expanding/collapsing
           $thisDetails = $this.find(detailSelector);
-          $readMore = $this.find(moreSelector);
+          $readMore = $this.find(o.moreSelector);
           $thisDetails[o.collapseEffect](0);
           $readMore.find('a').unbind('click.expander').bind('click.expander', expand);
 
           $summEl = $this.find('div.' + o.summaryClass);
 
-          if ( o.userCollapse && !$this.find('span.' + o.lessClass).length ) {
+          if ( o.userCollapse && !$this.find(o.lessSelector).length ) {
             $this
             .find(detailSelector)
             .append('<span class="' + o.lessClass + '">' + o.userCollapsePrefix + '<a href="#">' + o.userCollapseText + '</a></span>');
           }
 
           $this
-          .find('span.' + o.lessClass + ' a')
+          .find(o.lessSelector + ' a')
           .unbind('click.expander')
           .bind('click.expander', function(event) {
             event.preventDefault();
@@ -285,19 +289,25 @@
         }); // this.each
       },
       destroy: function() {
-        if ( !this.data('expander') ) {
-          return;
-        }
-        this.removeData('expander');
-        this.each(function() {
-          var $this = $(this),
-              o = $.meta ? $.extend({}, opts, $this.data()) : opts,
-              details = $this.find('.' + o.detailClass).contents();
 
-          $this.find('.' + o.moreClass).remove();
+        this.each(function() {
+          var o, details,
+              $this = $(this);
+
+          if ( !$this.data('expanderInit') ) {
+            return;
+          }
+
+          o = $.extend({}, $this.data('expander') || {}, opts),
+          details = $this.find('.' + o.detailClass).contents();
+
+          $this.removeData('expanderInit');
+          $this.removeData('expander');
+
+          $this.find(o.moreSelector).remove();
           $this.find('.' + o.summaryClass).remove();
           $this.find('.' + o.detailClass).after(details).remove();
-          $this.find('.' + o.lessClass).remove();
+          $this.find(o.lessSelector).remove();
 
         });
       }

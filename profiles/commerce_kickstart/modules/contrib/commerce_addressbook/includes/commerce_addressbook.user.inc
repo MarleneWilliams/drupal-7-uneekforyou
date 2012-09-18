@@ -141,6 +141,21 @@ function commerce_addressbook_profile_options_default($account, $customer_profil
 }
 
 /**
+ * Access callback for path /user/%user/addressbook.
+ *
+ * Displays first enabled profile type addressbook page if user is logged in, or access denied for anonymous
+ */
+function commerce_addressbook_page() {
+  global $user;
+  if ($user->uid) {
+    if ($type = commerce_addressbook_page_access()) {
+      menu_set_active_item('user/' . $user->uid . '/addressbook/' . $type);
+      return menu_execute_active_handler(NULL, FALSE);
+    }
+  }
+  return FALSE;
+}
+/**
  * Page callback for listing customer profiles of a certain type.
  *
  * Embeds a view that shows the current default profile, and a view that shows

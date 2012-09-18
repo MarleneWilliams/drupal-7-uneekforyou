@@ -38,22 +38,15 @@ function commerce_addressbook_menu() {
 
   $items['user/%user/addressbook'] = array(
     'title' => 'Address Book',
-    'page callback' => 'commerce_addressbook_profile_page',
-    'page arguments' => array(1),
-    'access callback' => 'commerce_addressbook_profile_page_access',
-    'access arguments' => array(1),
+    'page callback' => 'commerce_addressbook_page',
+    'access callback' => 'commerce_addressbook_page_access',
     'type' => MENU_LOCAL_TASK,
     'file' => 'includes/commerce_addressbook.user.inc',
   );
 
   // Custom administrative components for managing customer profile entities
   // from the user pages.
-  $first = TRUE;
-  $enabled = FALSE;
   foreach (commerce_customer_profile_types() as $type => $profile_type) {
-    if (variable_get('commerce_customer_profile_' . $type . '_addressbook', FALSE)) {
-      $enabled = TRUE;
-    }
     $items['user/%user/addressbook/' . $type] = array(
       'page callback' => 'commerce_addressbook_profile_page',
       'page arguments' => array(1, $type),
@@ -61,16 +54,9 @@ function commerce_addressbook_menu() {
       'access arguments' => array(1, $type),
       'title' => $profile_type['name'],
       'title callback' => FALSE,
-      'type' => ($first && $enabled) ? MENU_DEFAULT_LOCAL_TASK : MENU_LOCAL_TASK,
+      'type' => MENU_LOCAL_TASK,
       'file' => 'includes/commerce_addressbook.user.inc',
     );
-    if ($first && $enabled) {
-      // The parent menu item needs to point to the first profile type.
-      $items['user/%user/addressbook']['page arguments'][] = $type;
-      $items['user/%user/addressbook']['access arguments'][] = $type;
-      $first = FALSE;
-    }
-
     $items['user/%user/addressbook/' . $type . '/create'] = array(
       'page callback' => 'commerce_addressbook_profile_create',
       'page arguments' => array(1, $type),
@@ -107,6 +93,20 @@ function commerce_addressbook_menu() {
   }
 
   return $items;
+}
+
+/**
+ * Access callback for path /user/%user/addressbook.
+ *
+ * Return the first enabled profile type if there's one, or FALSE
+ */
+function commerce_addressbook_page_access() {
+  foreach (commerce_customer_profile_types() as $type => $profile_type) {
+    if (variable_get('commerce_customer_profile_' . $type . '_addressbook', FALSE)) {
+      return $type;
+    }
+  }
+  return FALSE;
 }
 
 /**

@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Widgets for facets rendered as UI sliders with Min/Max respect.
+ * Widgets for facets rendered as test link ranges.
  */
 
 /**
- * Widget that renders facets as a UI slider.
+ * Widget that renders facets as a series of text links.
  */
-class SearchApiRangesWidgetUISlider extends FacetapiWidget {
+class SearchApiRangesWidgetLinks extends FacetapiWidgetLinks {
 
   /**
    * Renders the links.
@@ -16,13 +16,31 @@ class SearchApiRangesWidgetUISlider extends FacetapiWidget {
   public function execute() {
     $element = &$this->build[$this->facet['field alias']];
 
-    $theme_suffix  = '';
-    $theme_suffix .= '__' . preg_replace('/\W+/', '_', $this->facet->getAdapter()->getSearcher());
-    $theme_suffix .= '__' . preg_replace('/\W+/', '_', $this->facet['field alias']);
+    // Get Search API stuff
+    $searcher = $this->facet->getAdapter()->getSearcher();
+    $index_id = explode('@', $searcher);
+    $index = search_api_index_load($index_id[1]);
+    list($query, $results) = $this->facet->getAdapter()->getCurrentSearch();
 
+    // Prepare variables for min/max query
+    $variables = array(
+      'element' => $element,
+      'index' => $index,
+      'range_field' => $this->facet['field alias'],
+      'query' => $query,
+      'prefix' => $this->settings->settings['prefix'],
+      'suffix' => $this->settings->settings['suffix'],
+    );
+ 
+    // Generate the ranges to the be used for the text links
+    $element = search_api_ranges_generate_ranges_simple($variables, $this->settings->settings['range_simple']);
+
+    // Sets each item's theme hook, builds item list.
+    $this->setThemeHooks($element);
     $element = array(
-      '#theme'  => 'search_api_ranges_slider' . $theme_suffix,
-      '#slider' => $this->_buildUISliderForm(),
+      '#theme' => 'item_list',
+      '#items' => $this->buildListItems($element),
+      '#attributes' => $this->build['#attributes'],
     );
   }
 
@@ -45,7 +63,7 @@ class SearchApiRangesWidgetUISlider extends FacetapiWidget {
       '#type' => 'textfield',
       '#title' => t('Prefix'),
       '#default_value' => $this->settings->settings['prefix'],
-      '#description' => t('Adds a prefix to the slider, e.g. $, #.'),
+      '#description' => t('Adds a prefix to the text links, e.g. $, #.'),
       '#states' => array(
         'visible' => array(
           'select[name="widget"]' => array('value' => $this->id),
@@ -56,7 +74,29 @@ class SearchApiRangesWidgetUISlider extends FacetapiWidget {
       '#type' => 'textfield',
       '#title' => t('Suffix'),
       '#default_value' => $this->settings->settings['suffix'],
-      '#description' => t('Adds a suffix to the slider, e.g. &euro;, pcs., etc.'),
+      '#description' => t('Adds a suffix to the text links, e.g. &euro;, pcs., etc.'),
+      '#states' => array(
+        'visible' => array(
+          'select[name="widget"]' => array('value' => $this->id),
+        ),
+      ),
+    );
+    $form['widget']['widget_settings']['links'][$this->id]['range_simple'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Simple range'),
+      '#default_value' => $this->settings->settings['range_simple'],
+      '#description' => t('Add a fixed range to create "range facet". For example, "10" on a price field will create 10 - 20, 20 - 30 etc.'),
+      '#states' => array(
+        'visible' => array(
+          'select[name="widget"]' => array('value' => $this->id),
+        ),
+      ),
+    );
+    $form['widget']['widget_settings']['links'][$this->id]['range_advanced'] = array(
+      '#type' => 'textarea',
+      '#title' => t('Advanced range'),
+      '#default_value' => $this->settings->settings['range_advanced'],
+      '#description' => t('Add a pre-defined list of ranges to create "range facets". For examples, refer to README in search api range.'),
       '#states' => array(
         'visible' => array(
           'select[name="widget"]' => array('value' => $this->id),
@@ -73,69 +113,9 @@ class SearchApiRangesWidgetUISlider extends FacetapiWidget {
       'name' => '',
       'prefix' => '',
       'suffix' => '',
+      'range_simple' => 10,
+      'range_advanced' => '',
     );
   }
 
-  /**
-   * Builds a UI slider themed form.
-   * Performs min/max queries through Search API.
-   */
-  public function _buildUISliderForm() {
-    $slider = array();
-
-    // Get Search API stuff
-    $searcher = $this->facet->getAdapter()->getSearcher();
-    $index_id = explode('@', $searcher);
-    $index = search_api_index_load($index_id[1]);
-    list($query, $results) = $this->facet->getAdapter()->getCurrentSearch();
-
-    // Prepare variables for min/max query
-    $variables = array(
-      'index' => $index,
-      'range_field' => $this->facet['field alias'],
-      'query' => $query,
-    );
-    
-    // Query the min/max values for the range slider
-    $min_value = search_api_ranges_minmax($variables, 'ASC');
-    $max_value = search_api_ranges_minmax($variables, 'DESC');
-
-    // Kill widget if there is nothing to do
-    if (empty($min_value) && empty($max_value)) {
-      return array();
-    }
-
-    // Calculate user input from/to values (different concept than min/max)
-    foreach ($this->facet->getAdapter()->getAllActiveItems() as $key => $active_item) {
-      if ($active_item['field alias'] == $this->facet['field alias']) {
-        $values = explode(' ', substr($active_item['value'], 1, -1));
-        $from_value = round($values[0]);
-        $to_value = round($values[2]);
-        break;
-      }
-    }
-
-    // User from/to cannot exceed queried min/max, adjust if needed
-    if (!isset($from_value) || $from_value < $min_value) {
-      $from_value = $min_value;
-    }
-    if (!isset($to_value) || $max_value < $to_value) {
-      $to_value = $max_value;
-    }
-
-    // Prepare the slider variables and return themed form
-    // @see search-api-ranges-slider.tpl.php
-    $variables = array(
-      'range_field' => rawurlencode($this->facet['field alias']),
-      'name' => $this->settings->settings['name'],
-      'prefix' => $this->settings->settings['prefix'],
-      'suffix' => $this->settings->settings['suffix'],
-      'min' => $min_value,
-      'max' => $max_value,
-      'from' => $from_value,
-      'to' => $to_value,
-      'active_items' => $this->facet->getAdapter()->getAllActiveItems(),
-    );
-    return drupal_get_form('search_api_ranges_block_view_form', $variables);
-  }
 }

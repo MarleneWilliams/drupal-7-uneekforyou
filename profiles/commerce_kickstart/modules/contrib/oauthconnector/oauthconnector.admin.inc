@@ -50,7 +50,7 @@ function oauthconnector_list_fields() {
         'title' => check_plain($field['title']),
         'operations' => theme('links', array('links' => $operations, 'attributes' => array('class' => array('links', 'inline')))),
       ),
-      'class' => (!empty($provider->disabled) ? ' oauthconnector-provider-disabled' : ''),
+      'class' => (!empty($provider->disabled) ? array('oauthconnector-provider-disabled') : ''),
     );
   }
   $build['table'] = array(
@@ -145,7 +145,7 @@ function oauthconnector_list_provider($js = NULL) {
         'storage' => $provider->type,
         'operations' => theme('links', array('links' => $operations, 'attributes' => array('class' => array('links', 'inline')))),
       ),
-      'class' => (!empty($provider->disabled) ? ' oauthconnector-provider-disabled' : ''),
+      'class' => (!empty($provider->disabled) ? array('oauthconnector-provider-disabled') : ''),
     );
 
     if (empty($rows[$provider->name]['data']['callback_url'])) {

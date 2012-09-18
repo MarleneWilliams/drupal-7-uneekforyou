@@ -109,6 +109,18 @@ function search_api_sorts_block_info() {
 }
 
 /**
+ * Implements hook_ctools_block_info().
+ *
+ * @see http://drupal.org/node/1763954
+ */
+function search_api_sorts_ctools_block_info($module, $delta, &$info) {
+  // Give the Search API Sorts block it's own category.
+  $info['category'] = t('Search API Sorts');
+  // Allow blocks to be used before the search results in Panels.
+  $info['render last'] = TRUE;
+}
+
+/**
  * Implements hook_block_view().
  */
 function search_api_sorts_block_view($delta = '') {
@@ -159,7 +171,7 @@ function search_api_sorts_block_search_sorts_view() {
     return;
   }
 
-  $path = $_GET['q'];
+  $path = ltrim(parse_url(request_uri(), PHP_URL_PATH), '/');
   $params = drupal_get_query_parameters($_GET, array('q', 'page'));
 
   if (isset($params['search_api_views_fulltext'])) {
@@ -168,7 +180,7 @@ function search_api_sorts_block_search_sorts_view() {
   else {
     $default_sort = _search_api_sorts_get_default_sort($search_sorts);
   }
-  
+
   $sort = $default_sort->field;
   if (isset($params['sort']) && !empty($params['sort'])) {
     $sort = $params['sort'];
@@ -181,7 +193,6 @@ function search_api_sorts_block_search_sorts_view() {
 
   $items = array();
   foreach ($search_sorts as $key => $data) {
-    $path = $_GET['q'];
     $options = array(
       'query' => array(
         'sort' => $data->field,
@@ -211,7 +222,7 @@ function search_api_sorts_block_search_sorts_view() {
 
       $items[] = array(
         '#theme' => 'search_api_sorts_sort',
-        '#name'  => $data->name,
+        '#name'  => t($data->name),
         '#path' => $path,
         '#options' => $options,
         '#order_options' => $order_options,
@@ -224,7 +235,7 @@ function search_api_sorts_block_search_sorts_view() {
       // regular sort field logic
       $items[] = array(
         '#theme' => 'search_api_sorts_sort',
-        '#name'  => $data->name,
+        '#name'  => t($data->name),
         '#path' => $path,
         '#options' => $options,
         '#active' => FALSE,

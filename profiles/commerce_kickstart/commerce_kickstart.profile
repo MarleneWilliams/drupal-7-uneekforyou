@@ -1,16 +1,40 @@
 <?php
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function commerce_kickstart_image_default_styles() {
+  $styles = array();
+  $styles['frontpage_block'] = array(
+    'name' => 'frontpage_block',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => '270',
+          'height' => '305',
+        ),
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_form_alter().
  *
  * Allows the profile to alter the site configuration form.
  */
 function commerce_kickstart_form_install_configure_form_alter(&$form, $form_state) {
-  // Since any module can add a drupal_set_message, this can bug the user
-  // when we display this page. For a better user experience,
-  // remove all the messages.
-  drupal_get_messages(NULL, TRUE);
-
   // Set a default name for the dev site and change title's label.
   $form['site_information']['site_name']['#title'] = 'Store name';
   $form['site_information']['site_mail']['#title'] = 'Store email address';
@@ -57,6 +81,7 @@ function commerce_kickstart_form_install_configure_form_alter(&$form, $form_stat
   // Make a "copy" of the original name and pass form fields.
   $form['admin_account']['setup_account']['account']['name'] = $form['admin_account']['account']['name'];
   $form['admin_account']['setup_account']['account']['pass'] = $form['admin_account']['account']['pass'];
+  $form['admin_account']['setup_account']['account']['pass']['#value'] = array('pass1' => 'admin', 'pass2' => 'admin');
 
   // Use "admin" as the default username.
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
@@ -86,9 +111,9 @@ function commerce_kickstart_custom_setting(&$form, &$form_state) {
       $form_state['values']['account']['name'] = $form_state['values']['name'];
       $form_state['values']['account']['pass'] = $form_state['input']['pass']['pass1'];
     }
-  else {
-      form_set_error('pass', t('The specified passwords do not match.'));
-    }
+    else {
+        form_set_error('pass', t('The specified passwords do not match.'));
+      }
   }
 }
 
@@ -161,3 +186,33 @@ function commerce_kickstart_update_status_alter(&$projects) {
     }
   }
 }
+
+/**
+ * Provides a list of Crumbs plugins and their weights.
+ */
+function commerce_kickstart_crumbs_get_info() {
+  $crumbs = array(
+    'crumbs.home_title' => 0
+  );
+
+  foreach (module_implements('commerce_kickstart_crumb_info') as $module) {
+    // The module-provided item might be just the name of the plugin, or it
+    // might be an array in the form of $plugin_name => $weight.
+    foreach (module_invoke($module, 'commerce_kickstart_crumb_info') as $crumb) {
+      if (is_array($crumb)) {
+        $crumbs += $crumb;
+      }
+      else {
+        $crumbs[$crumb] = count($crumbs);
+      }
+    }
+  }
+
+  // Add the fallback wildcard.
+  $crumbs['*'] = count($crumbs);
+
+  asort($crumbs);
+
+  return $crumbs;
+}
+
