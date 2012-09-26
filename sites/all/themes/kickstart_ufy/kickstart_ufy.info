@@ -1,4 +1,4 @@
-name = 'UneekForYou Theme XYZ'
+name = 'UneekForYou Theme'
 description = 'Clean, simple starting point for building <a href="http://drupal.org/project/omega target="_blank">Omega</a> subthemes for Commerce Kickstart. <br />HTML5, Responsive, ready to customize...'
 core = '7.x'
 engine = 'phptemplate'

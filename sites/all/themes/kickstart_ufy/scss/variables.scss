@@ -5,5 +5,15 @@
 // Importing old variables
 @import "kickstart-variables";
 
+// Importing Compass extensions
+@import "compass";
+@import "compass/css3";
+
 // Colors
-$white: #fff;
+$white: 		#fff;
+$black:			#000;
+$pink:  		#d80081;
+$blue:  		#009ecc;
+$orange:		#ff6633;
+$green:			#36dc36;
+$yellow:		#ffff3f;

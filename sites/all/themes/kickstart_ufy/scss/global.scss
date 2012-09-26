@@ -10,12 +10,118 @@
 // Import the old global styles 
 @import "kickstart-global";
 
+/*
+ * Elements
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	color: $orange;
+}
+
+a, a:link, a:visited {
+	color: $blue;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus {
+	border-bottom: 0 none;
+	color: $green;
+	text-decoration: none;
+}
+
+
+/*
+ * Layout / page sections
+ */
+
+body {
+	background: #e1dfcf; // Old browsers
+	@include filter-gradient($white, #e1dfcf, horizontal); // IE6-8 fallback on horizontal gradient
+	// IE9 SVG, needs conditional override of 'filter' to 'none'
+	$experimental-support-for-svg: true;
+	@include background-image(radial-gradient(center top, #ffffff 0%,#e1dfcf 100%));
+	background-repeat: no-repeat;
+}
+
+/* Branding */
+.zone-branding {
+	.branding-data {
+		.site-name {
+			margin-top: .25em;
+			a, a:link, a:visited {
+				color: $pink;
+				font-family: georgia, serif;
+				font-size: 1.25em;
+		    font-style: italic;
+		    padding: 0 0 0 0.25em;
+		    text-decoration: none;
+			}
+			a:hover, a:active, a:focus {
+			}
+		}
+	}
+}
+
+/* Navigation */
+.zone-menu {
+	.navigation {
+		margin: .25em 0;
+		.primary-menu,
+		.second-menu {
+			ul {
+				li {
+					a, a:link, a:visited {
+						background-color: transparent;
+						border: 0 none;
+						color: $blue;
+						font-size: 1.2em;
+					}
+					a:hover, a:focus, a:active, a.active, a.active-trail {
+						background-color: $white;
+						border: 0 none;
+						color: $green;
+					}
+				}
+			}
+		}
+	}
+}
+
+.breadcrumb {
+  background-color: transparent;
+  border: 0 none;
+  color: #898A8C;
+  margin: 1.5em 0;
+  padding: 0;
+}
+
+/* Content */
+.section-content {
+	.region {
+		background: $white;
+		margin-bottom: 1em;
+		@include box-shadow(gray 0px 1px 5px);
+		.region-inner {
+			padding: 1.5em;
+		}
+	}
+	.region:before,
+	.region:after {
+		background: url("../images/pallette-tatto.jpg") repeat scroll 0 0 transparent;
+    content: "";
+    display: block;
+    height: 0.35em;
+	}
+	.zone-preface {
+		background-color: transparent;
+	}
+}
+
 
 /*
  * Menus
  */
 
-/* Quicklins */
+/* Quicklinks */
 .block-menu-quicklinks {
 	.menu {
 		li {
@@ -68,5 +174,26 @@
 	.view-footer {
 		clear: both;
 		text-align: right;
+	}
+}
+
+/*
+ * Slideshows
+ */
+
+.skin-default {
+	.views-slideshow-galleria {
+		.galleria-container {
+			background-color: transparent;
+			.galleria-stage {
+				left: 0px;
+				right: 0;
+				top: 0;
+			}
+			.galleria-thumbnails-container {
+				left: 0;
+				right: 0;
+			}
+		}
 	}
 }
