@@ -3344,7 +3344,7 @@ body {
   background: url("../images/pallette-tatto.jpg") repeat scroll 0 0 transparent;
   content: "";
   display: block;
-  height: 0.35em; }
+  height: 0.5em; }
 /* line 114, ../scss/global.scss */
 .section-content .zone-preface {
   background-color: transparent; }
