@@ -3282,11 +3282,29 @@ body {
   background-image: radial-gradient(center top, #ffffff 0%, #e1dfcf 100%);
   background-repeat: no-repeat; }
 
-/* Branding */
+/* Grid fixes */
 /* line 48, ../scss/global.scss */
+.content .container-24.grid-8 {
+  width: 30%; }
+/* line 51, ../scss/global.scss */
+.content .container-24.grid-14 {
+  width: 60%; }
+
+/* Toolbar */
+/* line 58, ../scss/global.scss */
+#toolbar {
+  z-index: 1001; }
+
+/* User menu */
+/* line 64, ../scss/global.scss */
+.section-header .zone-user-wrapper {
+  z-index: 1000; }
+
+/* Branding */
+/* line 72, ../scss/global.scss */
 .zone-branding .branding-data .site-name {
   margin-top: .25em; }
-  /* line 50, ../scss/global.scss */
+  /* line 74, ../scss/global.scss */
   .zone-branding .branding-data .site-name a, .zone-branding .branding-data .site-name a:link, .zone-branding .branding-data .site-name a:visited {
     color: #d80081;
     font-family: georgia, serif;
@@ -3296,10 +3314,10 @@ body {
     text-decoration: none; }
 
 /* Navigation */
-/* line 66, ../scss/global.scss */
+/* line 90, ../scss/global.scss */
 .zone-menu .navigation {
   margin: .25em 0; }
-  /* line 72, ../scss/global.scss */
+  /* line 96, ../scss/global.scss */
   .zone-menu .navigation .primary-menu ul li a, .zone-menu .navigation .primary-menu ul li a:link, .zone-menu .navigation .primary-menu ul li a:visited,
   .zone-menu .navigation .second-menu ul li a,
   .zone-menu .navigation .second-menu ul li a:link,
@@ -3308,7 +3326,7 @@ body {
     border: 0 none;
     color: #009ecc;
     font-size: 1.2em; }
-  /* line 78, ../scss/global.scss */
+  /* line 102, ../scss/global.scss */
   .zone-menu .navigation .primary-menu ul li a:hover, .zone-menu .navigation .primary-menu ul li a:focus, .zone-menu .navigation .primary-menu ul li a:active, .zone-menu .navigation .primary-menu ul li a.active, .zone-menu .navigation .primary-menu ul li a.active-trail,
   .zone-menu .navigation .second-menu ul li a:hover,
   .zone-menu .navigation .second-menu ul li a:focus,
@@ -3319,7 +3337,7 @@ body {
     border: 0 none;
     color: #36dc36; }
 
-/* line 89, ../scss/global.scss */
+/* line 113, ../scss/global.scss */
 .breadcrumb {
   background-color: transparent;
   border: 0 none;
@@ -3328,24 +3346,24 @@ body {
   padding: 0; }
 
 /* Content */
-/* line 99, ../scss/global.scss */
+/* line 123, ../scss/global.scss */
 .section-content .region {
   background: white;
   margin-bottom: 1em;
   -webkit-box-shadow: gray 0px 1px 5px;
   -moz-box-shadow: gray 0px 1px 5px;
   box-shadow: gray 0px 1px 5px; }
-  /* line 103, ../scss/global.scss */
+  /* line 127, ../scss/global.scss */
   .section-content .region .region-inner {
     padding: 1.5em; }
-/* line 108, ../scss/global.scss */
+/* line 132, ../scss/global.scss */
 .section-content .region:before,
 .section-content .region:after {
   background: url("../images/pallette-tatto.jpg") repeat scroll 0 0 transparent;
   content: "";
   display: block;
   height: 0.5em; }
-/* line 114, ../scss/global.scss */
+/* line 138, ../scss/global.scss */
 .section-content .zone-preface {
   background-color: transparent; }
 
@@ -3353,26 +3371,26 @@ body {
  * Menus
  */
 /* Quicklinks */
-/* line 127, ../scss/global.scss */
+/* line 151, ../scss/global.scss */
 .block-menu-quicklinks .menu li {
   float: left;
   list-style: none;
   margin: 0;
   padding: .5em 1em; }
-/* line 133, ../scss/global.scss */
+/* line 157, ../scss/global.scss */
 .block-menu-quicklinks .menu .first {
   padding-left: 0; }
-/* line 136, ../scss/global.scss */
+/* line 160, ../scss/global.scss */
 .block-menu-quicklinks .menu a, .block-menu-quicklinks .menu a:link, .block-menu-quicklinks .menu a:visited {
   color: white; }
-/* line 140, ../scss/global.scss */
+/* line 164, ../scss/global.scss */
 .block-menu-quicklinks .menu:after {
   clear: both; }
 
 /*
  * Galleries
  */
-/* line 149, ../scss/global.scss */
+/* line 172, ../scss/global.scss */
 .field-name-field-gallery-image {
   float: left;
   height: 300px;
@@ -3381,7 +3399,7 @@ body {
   width: 200px; }
 
 /* Gallery teaser on home page */
-/* line 159, ../scss/global.scss */
+/* line 181, ../scss/global.scss */
 .block-gallery-teaser-block-1 {
   background-color: #e6e6e6;
   float: right;
@@ -3391,13 +3409,13 @@ body {
   position: relative;
   width: 300px;
   z-index: 1; }
-  /* line 168, ../scss/global.scss */
+  /* line 190, ../scss/global.scss */
   .block-gallery-teaser-block-1 .views-row {
     float: left;
     height: 150px;
     text-align: center;
     width: 150px; }
-  /* line 174, ../scss/global.scss */
+  /* line 196, ../scss/global.scss */
   .block-gallery-teaser-block-1 .view-footer {
     clear: both;
     text-align: right; }
@@ -3405,15 +3423,60 @@ body {
 /*
  * Slideshows
  */
-/* line 186, ../scss/global.scss */
+/* line 207, ../scss/global.scss */
 .skin-default .views-slideshow-galleria .galleria-container {
   background-color: transparent; }
-  /* line 188, ../scss/global.scss */
+  /* line 209, ../scss/global.scss */
   .skin-default .views-slideshow-galleria .galleria-container .galleria-stage {
     left: 0px;
     right: 0;
     top: 0; }
-  /* line 193, ../scss/global.scss */
+  /* line 214, ../scss/global.scss */
   .skin-default .views-slideshow-galleria .galleria-container .galleria-thumbnails-container {
     left: 0;
     right: 0; }
+
+/*
+ * Taxonomy / product listings
+ */
+/* line 226, ../scss/global.scss */
+.view-collection-taxonomy-term .view-header {
+  background-color: transparent; }
+  /* line 228, ../scss/global.scss */
+  .view-collection-taxonomy-term .view-header .taxonomy-title {
+    color: #ff6633;
+    font-family: Georgia, serif;
+    font-size: 1.4em;
+    font-style: italic;
+    font-weight: 700;
+    left: auto;
+    line-height: 1.4em;
+    margin: 0;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    top: 0; }
+
+/*
+ * Product displays
+ */
+/* line 251, ../scss/global.scss */
+.node-product-display .container-24.grid-14 {
+  padding-left: 0;
+  width: 45%; }
+/* line 255, ../scss/global.scss */
+.node-product-display .container-24.grid-8 {
+  width: 50%; }
+/* line 259, ../scss/global.scss */
+.node-product-display .product-title {
+  color: #36dc36;
+  font-family: Georgia, serif;
+  font-size: 2.5em;
+  font-style: italic;
+  font-weight: bold; }
+/* line 266, ../scss/global.scss */
+.node-product-display .field-type-commerce-price {
+  border: 2px dotted #ffff3f;
+  float: right;
+  padding: 1em 1.5em; }
