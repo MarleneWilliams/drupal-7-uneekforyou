@@ -96,9 +96,6 @@ class SearchApiRangesAlter extends SearchApiAbstractAlterCallback {
         foreach ($fields as $name => $f) {
           $name = str_replace(':', '_', $name);
           if (!empty($f['value'])) {
-            if (!is_array($f['value'])) {
-              $f['value'] = array($f['value']);
-            }
             $item->{$name . '_asc'} = min($f['value']);
             $item->{$name . '_desc'} = max($f['value']);
           }
