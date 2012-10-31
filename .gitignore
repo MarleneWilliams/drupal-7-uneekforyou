@@ -6,4 +6,5 @@ sites/*/files
 sites/*/private
 
 # Iignore SASS caches
+*/.sass-cache/*
 *.sass-cache*
