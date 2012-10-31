@@ -5,3 +5,13 @@
 // Importing old mixins
 @import "kickstart-mixins";
 
+// Import variables
+@import "variables";
+
+// Font face
+@include font-face("Lobster",
+  font-files(
+    "Lobster-fontfacekit/Lobster_1.3-webfont.woff", woff,
+    "Lobster-fontfacekit/Lobster_1.3-webfont.ttf", ttf,
+    "Lobster-fontfacekit/Lobster_1.3-webfont.svg", svg),
+  "Lobster-fontfacekit/Lobster_1.3-webfont.eot");

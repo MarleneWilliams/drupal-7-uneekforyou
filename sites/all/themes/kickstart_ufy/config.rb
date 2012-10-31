@@ -23,3 +23,7 @@ color_output = false
 # preferred_syntax = :sass
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
+
+
+# Directory where font files use in font-face declarations are stored
+fonts_dir = "sites/all/themes/kickstart_ufy/fonts"

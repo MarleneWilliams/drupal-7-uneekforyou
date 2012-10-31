@@ -1,5 +1,7 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
 @import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 /*
  * Global styles for the UneekForYou theme
  *
@@ -8,6 +10,11 @@
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 /* Override Omega */
 /* Include Default Variables & Mixins */
+@font-face {
+  font-family: "Lobster";
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot');
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('eot'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
+
 /* End Variables & Mixins */
 /*------------------------------------------------
 [Table of contents]
@@ -844,65 +851,21 @@ select {
   /* line 840, ../scss/kickstart-global.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper,
   #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window {
-    /**
-     * For modern browsers
-     * 1. The space content is one way to avoid an Opera bug when the
-     *    contenteditable attribute is included anywhere else in the document.
-     *    Otherwise it causes space to appear at the top and bottom of elements
-     *    that are clearfixed.
-     * 2. The use of `table` rather than `block` is only necessary if using
-     *    `:before` to contain the top-margins of child elements.
-     */
-    /**
-     * For IE 6/7 only
-     * Include this rule to trigger hasLayout and contain floats.
-     */
+    overflow: hidden;
     *zoom: 1;
     height: auto;
     padding-bottom: 0;
     overflow: visible !important;
     width: 100% !important; }
-    /* line 11, ../scss/kickstart-mixins.scss */
-    #block-views-demo-content-slideshow-block-1 .bx-wrapper:before,
-    #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window:before {
-      content: " ";
-      /* 1 */
-      display: table;
-      /* 2 */ }
-    /* line 20, ../scss/kickstart-mixins.scss */
-    #block-views-demo-content-slideshow-block-1 .bx-wrapper:after,
-    #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window:after {
-      clear: both; }
   /* line 849, ../scss/kickstart-global.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider {
     width: 100%; }
     /* line 852, ../scss/kickstart-global.scss */
     #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li {
-      /**
-       * For modern browsers
-       * 1. The space content is one way to avoid an Opera bug when the
-       *    contenteditable attribute is included anywhere else in the document.
-       *    Otherwise it causes space to appear at the top and bottom of elements
-       *    that are clearfixed.
-       * 2. The use of `table` rather than `block` is only necessary if using
-       *    `:before` to contain the top-margins of child elements.
-       */
-      /**
-       * For IE 6/7 only
-       * Include this rule to trigger hasLayout and contain floats.
-       */
+      overflow: hidden;
       *zoom: 1;
       margin: 0 auto;
       width: 100%; }
-      /* line 11, ../scss/kickstart-mixins.scss */
-      #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li:before {
-        content: " ";
-        /* 1 */
-        display: table;
-        /* 2 */ }
-      /* line 20, ../scss/kickstart-mixins.scss */
-      #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li:after {
-        clear: both; }
       /* line 857, ../scss/kickstart-global.scss */
       #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li a {
         display: block; }
@@ -2333,29 +2296,8 @@ ol.inline.commerce-checkout-progress {
 **/
 /* line 2305, ../scss/kickstart-global.scss */
 .page-user-orders .field-name-commerce-order-total {
-  /**
-   * For modern browsers
-   * 1. The space content is one way to avoid an Opera bug when the
-   *    contenteditable attribute is included anywhere else in the document.
-   *    Otherwise it causes space to appear at the top and bottom of elements
-   *    that are clearfixed.
-   * 2. The use of `table` rather than `block` is only necessary if using
-   *    `:before` to contain the top-margins of child elements.
-   */
-  /**
-   * For IE 6/7 only
-   * Include this rule to trigger hasLayout and contain floats.
-   */
+  overflow: hidden;
   *zoom: 1; }
-  /* line 11, ../scss/kickstart-mixins.scss */
-  .page-user-orders .field-name-commerce-order-total:before {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  /* line 20, ../scss/kickstart-mixins.scss */
-  .page-user-orders .field-name-commerce-order-total:after {
-    clear: both; }
   /* line 2308, ../scss/kickstart-global.scss */
   .page-user-orders .field-name-commerce-order-total:after {
     content: ".";
@@ -3307,9 +3249,9 @@ body {
   /* line 74, ../scss/global.scss */
   .zone-branding .branding-data .site-name a, .zone-branding .branding-data .site-name a:link, .zone-branding .branding-data .site-name a:visited {
     color: #d80081;
-    font-family: georgia, serif;
+    font-family: "Lobster", georgia, serif;
     font-size: 1.25em;
-    font-style: italic;
+    font-weight: normal;
     padding: 0 0 0 0.25em;
     text-decoration: none; }
 

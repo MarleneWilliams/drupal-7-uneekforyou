@@ -1,6 +1,13 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
 @import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 /* Include Default Variables & Mixins */
+@font-face {
+  font-family: "Lobster";
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot');
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('eot'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
+
 /* End Variables & Mixins */
 /**************************************************
 * --
@@ -184,31 +191,8 @@ ol.inline.commerce-checkout-progress li.last {
 /* line 168, ../scss/ie-lte-7.scss */
 .page-user .section-footer,
 .page-checkout .section-footer {
-  /**
-   * For modern browsers
-   * 1. The space content is one way to avoid an Opera bug when the
-   *    contenteditable attribute is included anywhere else in the document.
-   *    Otherwise it causes space to appear at the top and bottom of elements
-   *    that are clearfixed.
-   * 2. The use of `table` rather than `block` is only necessary if using
-   *    `:before` to contain the top-margins of child elements.
-   */
-  /**
-   * For IE 6/7 only
-   * Include this rule to trigger hasLayout and contain floats.
-   */
+  overflow: hidden;
   *zoom: 1; }
-  /* line 11, ../scss/kickstart-mixins.scss */
-  .page-user .section-footer:before,
-  .page-checkout .section-footer:before {
-    content: " ";
-    /* 1 */
-    display: table;
-    /* 2 */ }
-  /* line 20, ../scss/kickstart-mixins.scss */
-  .page-user .section-footer:after,
-  .page-checkout .section-footer:after {
-    clear: both; }
 
 /* Address book */
 /* line 176, ../scss/ie-lte-7.scss */
