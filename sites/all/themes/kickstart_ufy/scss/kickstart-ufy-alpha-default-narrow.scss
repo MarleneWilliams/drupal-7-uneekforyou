@@ -1,84 +1,130 @@
-/* This file will hold styles that are loaded using the same media query as the narrow grid. */
-/* If you are using the default media queries provided by Omega, these styles will also
- *  apply to the normal and widescreen layouts. You may override these styles in the normal
- *  and widescreen CSS files as appropriate. */
+//
+// Imports
+//
 
-/**************************************************
-* --
-* 3. Section content
-* --
-**************************************************/
-/**********************************************
-* 3.2. Zone content
-**********************************************/
-/*******************************************
-* 3.2.1. Sidebar first
-*******************************************/
-/* Price range */
-#search-api-ranges-block-slider-view-form label {
-  float: none;
-}
-/*******************************************
-* 3.2.2. Content
-*******************************************/
-#promotional_banner .promotional_banner_special_offer {
-  float: right;
-  line-height: 22px;
-  margin-top: 4px;
-}
+// Import the old narrow styles 
+@import "kickstart-narrow";
 
-#block-views-demo-content-slideshow-block-1 {
-  /* HP blocks: Slideshow */
-  .bx-wrapper,
-  .bx-wrapper .bx-window {
-    //height: 437px !important;
-    //max-height: 407px;
-    padding-bottom: 0;
+// Mixins
+@import "mixins";
+
+
+/*
+ * Layout / page sections
+ */
+
+/* Branding */
+.zone-branding {
+  .region-branding {
+    margin-top: 30px;
   }
-  .bx-wrapper ul.event-slider {
-    //max-height: 357px;
-
-    li {
-      height: 357px;
-      //margin: 0;
-      width: 700px;
+  .branding-data {
+    .site-name-slogan {
+      float: left;
     }
-    /*li {
-      min-height: 168px;
-      height: 357px;
-      max-height: 480px;
+    .site-name {
+      margin: 1em 0 .5em 0;
+      text-align: center;
+      a, a:link, a:visited {
+        font-size: 1.5em;
+        padding: 0 0 0 0.25em;
+      }
+      a:hover, a:active, a:focus {
+      }
+    }
+  }
+  #block-views-exp-display-products-page {
+    padding-top: 28px;
+    right: 0;
+    .views-exposed-form {
+      .views-exposed-widgets {
+        margin: 0;
+        padding: 0;
+      }
+      .views-submit-button {
+        .form-submit {
+        }
+      }
+    }
+  }
+}
+
+/* Navigation */
+.zone-menu {
+  .navigation {
+    background-color: transparent;
+    border: 0px none;
+    margin: 0 0 1em 0;
+    padding: 0;
+    .primary-menu,
+    .second-menu {
       margin: 0;
-      min-width: 330px;
-      width: 700px;
-      max-width: 940px;
-    }*/
+      padding: 0;
+      ul {
+        margin-left: 0;
+        padding: 0;
+        li {
+          font-size: 1.25em;
+          margin: 0;
+          padding: 0 1.25em 0 0;
+          &.last {
+            padding-right: 0;
+            a:hover, a:focus, a:active, a.active, a.active-trail {
+              border-bottom: $green 3px solid;
+            }
+          }
+          a, a:link, a:visited {
+            background-color: transparent;
+            border: 0 none;
+            color: $blue;
+            font-size: 1em;
+            padding: .25em 0 0 0;
+          }
+          a:hover, a:focus, a:active, a.active, a.active-trail {
+            background-color: transparent;
+            border: 0 none;
+            border-bottom: $green 3px solid;
+            color: $green;
+          }
+          a.active, a.active-trail {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .second-menu {
+      ul {
+        li.last a {
+          border: 0 none;
+        }
+      }
+    }
   }
 }
-/**************************************************
-* --
-* 5. Commerce specific
-* --
-**************************************************/
-/**********************************************
-* 5.1. Search & Collection page
-**********************************************/
-.view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list {
-  display: block;
-  float: none;
+
+.breadcrumb {
+  margin: .25em 0 1.5em 0;
 }
-/**********************************************
-* 5.3. Product page
-**********************************************/
-.node-product-type {
-  .commerce-product-field .cloud-zoom-container {
-    #wrap {
-      float: right;
-    }
-    .cloud-zoom-gallery-thumbs {
-      /*float: left;*/
-      clear: none;
-      .cloud-zoom-gallery {
-        margin: 5px;
+
+/* Sidebar first */
+.region-sidebar-first {
+  .block-cart {
+    .view-commerce-cart-block {
+      table {
+        td {
+          display: block;
+        }
+      }
+      .view-footer {
+        ul.inline {
+          li {
+            display: block;
+            float: left;
+            margin: 0 .25em 0 0;
+            padding: 0 .5em 0 0;
+            text-align: left;
+          }
+        }
       }
     }
   }

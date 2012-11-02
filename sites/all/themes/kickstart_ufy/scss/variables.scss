@@ -17,3 +17,8 @@ $blue:  		#009ecc;
 $orange:		#ff6633;
 $green:			#36dc36;
 $yellow:		#ffff3f;
+
+$gray:      lighten($black, 50%);
+
+// Font stacks
+$lobster:   "Lobster", georgia, serif;

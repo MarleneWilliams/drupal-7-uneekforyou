@@ -15,3 +15,24 @@
     "Lobster-fontfacekit/Lobster_1.3-webfont.ttf", ttf,
     "Lobster-fontfacekit/Lobster_1.3-webfont.svg", svg),
   "Lobster-fontfacekit/Lobster_1.3-webfont.eot");
+
+// Default transition
+@mixin transition-default {
+  @include single-transition(all, .3s, false, false);
+}
+
+// Default button style
+@mixin button-default {
+  @include background-image(linear-gradient(lighten($blue, 20%), $blue));
+  @include border-radius(3px);
+  @include single-box-shadow(lighten($blue, 30%), 0, 1px, 1px, 0, true);
+  @include single-text-shadow(1px, 1px, 2px, 0, $gray);
+  @include transition-default;
+  border: $blue 1px solid;
+  color: $white;
+  padding: .25em .75em;
+  &:hover, &:focus, &:active {
+    @include background-image(linear-gradient($blue, $blue));
+    @include single-box-shadow(lighten($blue, 10%), 0, -1px, 1px, 0, true);
+  }
+}

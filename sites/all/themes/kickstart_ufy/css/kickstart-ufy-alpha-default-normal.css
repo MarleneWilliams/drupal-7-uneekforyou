@@ -20,7 +20,7 @@
 /*******************************************
 * 2.1.1. Region user first
 *******************************************/
-/* line 17, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 17, ../scss/kickstart-normal.scss */
 .block-menu-user-menu .block-inner {
   float: right;
   margin-right: 10px; }
@@ -31,7 +31,7 @@
 /**
 * Navigation
 */
-/* line 31, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 31, ../scss/kickstart-normal.scss */
 .navigation .primary-menu .links li,
 .navigation .second-menu .links li {
   font-size: 1em; }
@@ -44,7 +44,7 @@
 /**********************************************
 * 3.2. Zone content
 **********************************************/
-/* line 46, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 46, ../scss/kickstart-normal.scss */
 .zone-content-wrapper .zone-content .region-content-inner {
   margin-bottom: 10px; }
 
@@ -52,33 +52,33 @@
 * 3.2.1. Sidebar first
 *******************************************/
 /* Price range */
-/* line 57, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 57, ../scss/kickstart-normal.scss */
 #search-api-ranges-block-slider-view-form .range-box-left .form-item,
 #search-api-ranges-block-slider-view-form .range-box-right .form-item {
   margin-top: 0; }
-/* line 61, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 61, ../scss/kickstart-normal.scss */
 #search-api-ranges-block-slider-view-form .range-box-left,
 #search-api-ranges-block-slider-view-form .range-box-right {
   position: absolute;
   top: -30px; }
-  /* line 64, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 64, ../scss/kickstart-normal.scss */
   #search-api-ranges-block-slider-view-form .range-box-left label,
   #search-api-ranges-block-slider-view-form .range-box-right label {
     display: none; }
-/* line 68, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 68, ../scss/kickstart-normal.scss */
 #search-api-ranges-block-slider-view-form .range-box-left {
   left: 0; }
-/* line 71, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 71, ../scss/kickstart-normal.scss */
 #search-api-ranges-block-slider-view-form .range-box-right {
   right: 0; }
-  /* line 73, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 73, ../scss/kickstart-normal.scss */
   #search-api-ranges-block-slider-view-form .range-box-right #edit-range-to {
     text-align: right; }
-/* line 77, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 77, ../scss/kickstart-normal.scss */
 #search-api-ranges-block-slider-view-form .range-slider-box {
   display: block;
   margin-top: 25px; }
-/* line 82, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 82, ../scss/kickstart-normal.scss */
 #search-api-ranges-block-slider-view-form #edit-range-from,
 #search-api-ranges-block-slider-view-form #edit-range-to {
   background: none;
@@ -87,12 +87,12 @@
   font-weight: 300;
   padding: 0;
   width: auto; }
-/* line 90, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 90, ../scss/kickstart-normal.scss */
 #search-api-ranges-block-slider-view-form #edit-submit {
   display: none; }
 
 /* Category */
-/* line 95, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 95, ../scss/kickstart-normal.scss */
 .region-sidebar-first .block-facetapi.field_category .item-list {
   border: 1px solid #d9d9d9;
   height: 220px;
@@ -103,7 +103,7 @@
 * 3.2. Zone content
 **********************************************/
 /* HP blocks: Top advert */
-/* line 106, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 106, ../scss/kickstart-normal.scss */
 #promotional_banner .promotional_banner_saving {
   display: inline-block;
   width: auto;
@@ -111,32 +111,32 @@
   margin: 10px 0 0 0;
   line-height: 38px; }
 
-/* line 113, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 113, ../scss/kickstart-normal.scss */
 #promotional_banner .promotional_banner_special_offer {
   top: 15px; }
 
-/* line 117, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 117, ../scss/kickstart-normal.scss */
 #block-views-demo-content-slideshow-block-1 {
   /* HP blocks: Slideshow */ }
-  /* line 120, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 120, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper,
   #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window {
     height: 580px !important;
     max-height: 580px;
     min-width: 940px; }
-  /* line 125, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 125, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window {
     overflow: visible !important; }
-  /* line 130, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 130, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li {
     height: 480px;
     width: 940px; }
-    /* line 133, ../scss/kickstart-ufy-alpha-default-normal.scss */
+    /* line 133, ../scss/kickstart-normal.scss */
     #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li img {
       overflow: hidden;
       height: 480px;
       width: 940px; }
-  /* line 141, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 141, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .views-field-nothing {
     background: #888;
     border: 1px solid #CCC;
@@ -145,7 +145,7 @@
     position: absolute;
     bottom: -100px;
     left: 34%; }
-  /* line 151, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 151, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .bx-prev,
   #block-views-demo-content-slideshow-block-1 .bx-next {
     color: #000000;
@@ -155,11 +155,11 @@
     display: block;
     margin-top: 15px;
     padding-bottom: 5px; }
-    /* line 159, ../scss/kickstart-ufy-alpha-default-normal.scss */
+    /* line 159, ../scss/kickstart-normal.scss */
     #block-views-demo-content-slideshow-block-1 .bx-prev:hover,
     #block-views-demo-content-slideshow-block-1 .bx-next:hover {
       background: #FFF; }
-  /* line 166, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 166, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .views-field-nothing,
   #block-views-demo-content-slideshow-block-1 .bx-prev,
   #block-views-demo-content-slideshow-block-1 .bx-next {
@@ -169,7 +169,7 @@
     text-indent: 0;
     width: 32%;
     margin-right: 2%; }
-    /* line 174, ../scss/kickstart-ufy-alpha-default-normal.scss */
+    /* line 174, ../scss/kickstart-normal.scss */
     #block-views-demo-content-slideshow-block-1 .views-field-nothing span.field-content,
     #block-views-demo-content-slideshow-block-1 .bx-prev span.field-content,
     #block-views-demo-content-slideshow-block-1 .bx-next span.field-content {
@@ -181,7 +181,7 @@
       line-height: 28px;
       padding: 10px 25px 0;
       overflow: hidden; }
-      /* line 184, ../scss/kickstart-ufy-alpha-default-normal.scss */
+      /* line 184, ../scss/kickstart-normal.scss */
       #block-views-demo-content-slideshow-block-1 .views-field-nothing span.field-content em,
       #block-views-demo-content-slideshow-block-1 .bx-prev span.field-content em,
       #block-views-demo-content-slideshow-block-1 .bx-next span.field-content em {
@@ -191,13 +191,13 @@
         font-weight: 900;
         text-decoration: none;
         text-transform: uppercase; }
-  /* line 195, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 195, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .bx-prev {
     margin-left: 0;
     float: left;
     position: absolute;
     bottom: 0; }
-  /* line 201, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  /* line 201, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .bx-next {
     margin-right: 0;
     float: right;
@@ -208,7 +208,7 @@
 /**********************************************
 * 3.3. Zone postscript
 **********************************************/
-/* line 216, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 216, ../scss/kickstart-normal.scss */
 #zone-postscript .view-ad-push .views-row .views-field-field-tagline .field-content,
 #zone-postscript .block-blog-block .views-field-title .field-content {
   font-size: 18px;
@@ -225,7 +225,7 @@
 /**
 * Connect with us
 */
-/* line 232, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 232, ../scss/kickstart-normal.scss */
 #block-menu-menu-social-connection h2 {
   line-height: inherit;
   padding: 0 0 22px 25px; }
@@ -241,10 +241,10 @@
 /**
 * Collection page
 */
-/* line 248, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 248, ../scss/kickstart-normal.scss */
 .view-collection-taxonomy-term .view-header .taxonomy-title {
   font-size: 3em; }
-/* line 251, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 251, ../scss/kickstart-normal.scss */
 .view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list {
   display: block;
   float: none; }
@@ -255,31 +255,53 @@
 /**
 * Add to cart popin.
 */
-/* line 264, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 264, ../scss/kickstart-normal.scss */
 div.messages.commerce-kickstart-add-to-cart .message-inner .added-product-title {
   padding-left: 20px;
   width: auto; }
 
-/* line 272, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 272, ../scss/kickstart-normal.scss */
 .commerce-kickstart-add-to-cart .commerce-product-title,
 .commerce-kickstart-add-to-cart .field,
 .commerce-kickstart-add-to-cart .commerce-product-sku {
   clear: none; }
 
-/* line 276, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 276, ../scss/kickstart-normal.scss */
 .commerce-kickstart-add-to-cart .field,
 .commerce-kickstart-add-to-cart .commerce-product-sku {
   clear: none;
   float: none; }
 
-/* line 280, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 280, ../scss/kickstart-normal.scss */
 .commerce-kickstart-add-to-cart .field-name-field-images {
   float: left; }
 
 /* Cloud zoom */
-/* line 286, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 286, ../scss/kickstart-normal.scss */
 .node-product-type .commerce-product-field .cloud-zoom-container .cloud-zoom-gallery-thumbs .cloud-zoom-gallery {
   margin: 5px 0; }
-/* line 291, ../scss/kickstart-ufy-alpha-default-normal.scss */
+/* line 291, ../scss/kickstart-normal.scss */
 .node-product-type .field-name-field-product form.commerce-add-to-cart label {
   float: left; }
+
+/*
+ * Layout / page sections
+ */
+/* Navigation */
+/* line 19, ../scss/kickstart-ufy-alpha-default-normal.scss */
+.zone-menu .navigation .primary-menu ul li,
+.zone-menu .navigation .second-menu ul li {
+  font-size: 1.35em;
+  padding: 0 1.5em 0 0; }
+
+/* Sidebar first */
+/* line 35, ../scss/kickstart-ufy-alpha-default-normal.scss */
+.region-sidebar-first .block-cart .view-commerce-cart-block table td {
+  display: table-cell; }
+
+/*
+ * Taxonomy / product listings / search pages
+ */
+/* line 48, ../scss/kickstart-ufy-alpha-default-normal.scss */
+.page-products .view-display-products li.views-row {
+  width: 32%; }

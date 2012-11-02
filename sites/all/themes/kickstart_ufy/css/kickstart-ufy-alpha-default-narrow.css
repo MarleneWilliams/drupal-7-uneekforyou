@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 /* This file will hold styles that are loaded using the same media query as the narrow grid. */
 /* If you are using the default media queries provided by Omega, these styles will also
  *  apply to the normal and widescreen layouts. You may override these styles in the normal
@@ -14,22 +16,27 @@
 * 3.2.1. Sidebar first
 *******************************************/
 /* Price range */
+/* line 18, ../scss/kickstart-narrow.scss */
 #search-api-ranges-block-slider-view-form label {
   float: none; }
 
 /*******************************************
 * 3.2.2. Content
 *******************************************/
+/* line 24, ../scss/kickstart-narrow.scss */
 #promotional_banner .promotional_banner_special_offer {
   float: right;
   line-height: 22px;
   margin-top: 4px; }
 
+/* line 30, ../scss/kickstart-narrow.scss */
 #block-views-demo-content-slideshow-block-1 {
   /* HP blocks: Slideshow */ }
+  /* line 33, ../scss/kickstart-narrow.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper,
   #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window {
     padding-bottom: 0; }
+  /* line 38, ../scss/kickstart-narrow.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider {
     /*li {
       min-height: 168px;
@@ -40,6 +47,7 @@
       width: 700px;
       max-width: 940px;
     }*/ }
+    /* line 41, ../scss/kickstart-narrow.scss */
     #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li {
       height: 357px;
       width: 700px; }
@@ -52,6 +60,7 @@
 /**********************************************
 * 5.1. Search & Collection page
 **********************************************/
+/* line 65, ../scss/kickstart-narrow.scss */
 .view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list {
   display: block;
   float: none; }
@@ -59,10 +68,126 @@
 /**********************************************
 * 5.3. Product page
 **********************************************/
+/* line 74, ../scss/kickstart-narrow.scss */
 .node-product-type .commerce-product-field .cloud-zoom-container #wrap {
   float: right; }
+/* line 77, ../scss/kickstart-narrow.scss */
 .node-product-type .commerce-product-field .cloud-zoom-container .cloud-zoom-gallery-thumbs {
   /*float: left;*/
   clear: none; }
+  /* line 80, ../scss/kickstart-narrow.scss */
   .node-product-type .commerce-product-field .cloud-zoom-container .cloud-zoom-gallery-thumbs .cloud-zoom-gallery {
     margin: 5px; }
+
+@font-face {
+  font-family: "Lobster";
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot');
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('eot'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
+
+/*
+ * Layout / page sections
+ */
+/* Branding */
+/* line 18, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.zone-branding .region-branding {
+  margin-top: 30px; }
+/* line 22, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.zone-branding .branding-data .site-name-slogan {
+  float: left; }
+/* line 25, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.zone-branding .branding-data .site-name {
+  margin: 1em 0 .5em 0;
+  text-align: center; }
+  /* line 28, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  .zone-branding .branding-data .site-name a, .zone-branding .branding-data .site-name a:link, .zone-branding .branding-data .site-name a:visited {
+    font-size: 1.5em;
+    padding: 0 0 0 0.25em; }
+/* line 36, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.zone-branding #block-views-exp-display-products-page {
+  padding-top: 28px;
+  right: 0; }
+  /* line 40, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  .zone-branding #block-views-exp-display-products-page .views-exposed-form .views-exposed-widgets {
+    margin: 0;
+    padding: 0; }
+
+/* Navigation */
+/* line 54, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.zone-menu .navigation {
+  background-color: transparent;
+  border: 0px none;
+  margin: 0 0 1em 0;
+  padding: 0; }
+  /* line 60, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  .zone-menu .navigation .primary-menu,
+  .zone-menu .navigation .second-menu {
+    margin: 0;
+    padding: 0; }
+    /* line 63, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+    .zone-menu .navigation .primary-menu ul,
+    .zone-menu .navigation .second-menu ul {
+      margin-left: 0;
+      padding: 0; }
+      /* line 66, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+      .zone-menu .navigation .primary-menu ul li,
+      .zone-menu .navigation .second-menu ul li {
+        font-size: 1.25em;
+        margin: 0;
+        padding: 0 1.25em 0 0; }
+        /* line 70, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+        .zone-menu .navigation .primary-menu ul li.last,
+        .zone-menu .navigation .second-menu ul li.last {
+          padding-right: 0; }
+          /* line 72, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+          .zone-menu .navigation .primary-menu ul li.last a:hover, .zone-menu .navigation .primary-menu ul li.last a:focus, .zone-menu .navigation .primary-menu ul li.last a:active, .zone-menu .navigation .primary-menu ul li.last a.active, .zone-menu .navigation .primary-menu ul li.last a.active-trail,
+          .zone-menu .navigation .second-menu ul li.last a:hover,
+          .zone-menu .navigation .second-menu ul li.last a:focus,
+          .zone-menu .navigation .second-menu ul li.last a:active,
+          .zone-menu .navigation .second-menu ul li.last a.active,
+          .zone-menu .navigation .second-menu ul li.last a.active-trail {
+            border-bottom: #36dc36 3px solid; }
+        /* line 76, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+        .zone-menu .navigation .primary-menu ul li a, .zone-menu .navigation .primary-menu ul li a:link, .zone-menu .navigation .primary-menu ul li a:visited,
+        .zone-menu .navigation .second-menu ul li a,
+        .zone-menu .navigation .second-menu ul li a:link,
+        .zone-menu .navigation .second-menu ul li a:visited {
+          background-color: transparent;
+          border: 0 none;
+          color: #009ecc;
+          font-size: 1em;
+          padding: .25em 0 0 0; }
+        /* line 83, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+        .zone-menu .navigation .primary-menu ul li a:hover, .zone-menu .navigation .primary-menu ul li a:focus, .zone-menu .navigation .primary-menu ul li a:active, .zone-menu .navigation .primary-menu ul li a.active, .zone-menu .navigation .primary-menu ul li a.active-trail,
+        .zone-menu .navigation .second-menu ul li a:hover,
+        .zone-menu .navigation .second-menu ul li a:focus,
+        .zone-menu .navigation .second-menu ul li a:active,
+        .zone-menu .navigation .second-menu ul li a.active,
+        .zone-menu .navigation .second-menu ul li a.active-trail {
+          background-color: transparent;
+          border: 0 none;
+          border-bottom: #36dc36 3px solid;
+          color: #36dc36; }
+        /* line 89, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+        .zone-menu .navigation .primary-menu ul li a.active, .zone-menu .navigation .primary-menu ul li a.active-trail,
+        .zone-menu .navigation .second-menu ul li a.active,
+        .zone-menu .navigation .second-menu ul li a.active-trail {
+          font-weight: bold; }
+  /* line 97, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  .zone-menu .navigation .second-menu ul li.last a {
+    border: 0 none; }
+
+/* line 105, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.breadcrumb {
+  margin: .25em 0 1.5em 0; }
+
+/* Sidebar first */
+/* line 114, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.region-sidebar-first .block-cart .view-commerce-cart-block table td {
+  display: block; }
+/* line 120, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.region-sidebar-first .block-cart .view-commerce-cart-block .view-footer ul.inline li {
+  display: block;
+  float: left;
+  margin: 0 .25em 0 0;
+  padding: 0 .5em 0 0;
+  text-align: left; }
