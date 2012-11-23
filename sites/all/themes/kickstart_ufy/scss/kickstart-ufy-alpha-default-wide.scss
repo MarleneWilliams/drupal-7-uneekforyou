@@ -1,30 +1,43 @@
-/* This file will hold styles that are loaded using the same media query as the wide grid. */
+//
+// Imports
+//
 
-/**********************************************
-* 3.2. Zone content
-**********************************************/
-#block-views-demo-content-slideshow-block-1 {
-/* HP blocks: Slideshow */
-  .bx-wrapper,
-  .bx-wrapper .bx-window {
-    height: 838px !important;
-    max-height: 838px;
-    min-width: 1180px;
-  }
-  .bx-wrapper .bx-window {
+// Import the old wide styles 
+@import "kickstart-wide";
 
-  }
-  .bx-wrapper ul.event-slider {
+// Mixins
+@import "mixins";
 
-    li {
-      height: 738px;
-      width: 1180px;
 
-      img {
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
+/*
+ * Layout / page sections
+ */
+
+/* Navigation */
+.zone-menu {
+  .navigation {
+    .primary-menu,
+    .second-menu {
+      ul {
+        li {
+          font-size: 2em;
+          padding: 0 1.75em 0 0;
+          a, a:link, a:visited {
+          }
+        }
       }
+    }
+  }
+}
+
+/* Sidebar first */
+.region-sidebar-first {
+  h2 {
+    padding-bottom: .5em;
+  }
+  .field_product_commerce_price_amount_float {
+    h2 {
+      padding-bottom: 1.75em;
     }
   }
 }

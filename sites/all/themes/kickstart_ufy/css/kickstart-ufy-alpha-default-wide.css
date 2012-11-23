@@ -1,18 +1,47 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 /* This file will hold styles that are loaded using the same media query as the wide grid. */
 /**********************************************
 * 3.2. Zone content
 **********************************************/
+/* line 6, ../scss/kickstart-wide.scss */
 #block-views-demo-content-slideshow-block-1 {
   /* HP blocks: Slideshow */ }
+  /* line 9, ../scss/kickstart-wide.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper,
   #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window {
     height: 838px !important;
     max-height: 838px;
     min-width: 1180px; }
+  /* line 19, ../scss/kickstart-wide.scss */
   #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li {
     height: 738px;
     width: 1180px; }
+    /* line 23, ../scss/kickstart-wide.scss */
     #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li img {
       overflow: hidden;
       height: 100%;
       width: 100%; }
+
+@font-face {
+  font-family: "Lobster";
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot');
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('eot'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
+
+/*
+ * Layout / page sections
+ */
+/* Navigation */
+/* line 22, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.zone-menu .navigation .primary-menu ul li,
+.zone-menu .navigation .second-menu ul li {
+  font-size: 2em;
+  padding: 0 1.75em 0 0; }
+
+/* Sidebar first */
+/* line 35, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.region-sidebar-first h2 {
+  padding-bottom: .5em; }
+/* line 39, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.region-sidebar-first .field_product_commerce_price_amount_float h2 {
+  padding-bottom: 1.75em; }

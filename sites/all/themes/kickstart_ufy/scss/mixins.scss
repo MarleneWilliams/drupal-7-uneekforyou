@@ -21,6 +21,11 @@
   @include single-transition(all, .3s, false, false);
 }
 
+// Inset text shadow
+@mixin inset-text {
+  @include text-shadow($white 1px 1px 2px);
+}
+
 // Default button style
 @mixin button-default {
   @include background-image(linear-gradient(lighten($blue, 20%), $blue));

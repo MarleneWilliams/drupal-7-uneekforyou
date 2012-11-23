@@ -291,7 +291,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .added-product-title 
 /* line 19, ../scss/kickstart-ufy-alpha-default-normal.scss */
 .zone-menu .navigation .primary-menu ul li,
 .zone-menu .navigation .second-menu ul li {
-  font-size: 1.35em;
+  font-size: 1.75em;
   padding: 0 1.5em 0 0; }
 
 /* Sidebar first */
@@ -304,4 +304,34 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .added-product-title 
  */
 /* line 48, ../scss/kickstart-ufy-alpha-default-normal.scss */
 .page-products .view-display-products li.views-row {
-  width: 32%; }
+  margin: 0 2% 2em 0;
+  padding: 0;
+  width: 31%; }
+  /* line 52, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  .page-products .view-display-products li.views-row:nth-child(3n) {
+    padding-right: 0; }
+  /* line 55, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  .page-products .view-display-products li.views-row:nth-child(3n+4) {
+    clear: left; }
+  /* line 58, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  .page-products .view-display-products li.views-row.views-row-odd {
+    margin-right: 2%; }
+  /* line 61, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  .page-products .view-display-products li.views-row.views-row-even {
+    padding-right: 0; }
+  /* line 64, ../scss/kickstart-ufy-alpha-default-normal.scss */
+  .page-products .view-display-products li.views-row .views-field-rendered-entity {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    padding: .25em; }
+    /* line 68, ../scss/kickstart-ufy-alpha-default-normal.scss */
+    .page-products .view-display-products li.views-row .views-field-rendered-entity:hover {
+      border: 1px solid transparent; }
+      /* line 69, ../scss/kickstart-ufy-alpha-default-normal.scss */
+      .page-products .view-display-products li.views-row .views-field-rendered-entity:hover img {
+        -webkit-box-shadow: 0 0 25px 0 #8deb8d;
+        -moz-box-shadow: 0 0 25px 0 #8deb8d;
+        box-shadow: 0 0 25px 0 #8deb8d; }
