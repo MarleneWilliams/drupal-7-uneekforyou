@@ -58,12 +58,15 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
 
 /* Global */
 body {
-	background: #e1dfcf; // Old browsers
-	@include filter-gradient($white, #e1dfcf, horizontal); // IE6-8 fallback on horizontal gradient
+	// needs latest Compass, add '@import "compass"' to your scss
+	background-color: $bgcolor; // Old browsers
+	@include filter-gradient($white, $bgcolor, horizontal); // IE6-8
 	// IE9 SVG, needs conditional override of 'filter' to 'none'
 	$experimental-support-for-svg: true;
-	@include background-image(radial-gradient(center top, #ffffff 0%,#e1dfcf 100%));
-	background-repeat: no-repeat;
+	@include background-image(linear-gradient(left, $bgcolor 0%,$white 50%,$bgcolor 100%));
+}
+.page {
+	background: transparent url(../images/diagonal_waves_clear.png);
 }
 
 /* Toolbar */
@@ -76,6 +79,7 @@ body {
 	.zone-user-wrapper {
 		@include box-shadow(lighten($black, 60%) 0px 0px 4px);
 		background-color: $blue;
+		background-image: url(../images/light_toast_clear.png);
 	  z-index: 1000;
 	  .block-shopping-cart-block {
 	  	.content {
@@ -206,13 +210,18 @@ body {
   margin: 0 0 1.5em 0;
   padding: 0;
 }
+.front {
+	.breadcrumb {
+		display: none;
+	}
+}
 
 /* Content */
 .section-content {
 	.region {
 		background: $white;
 		margin-bottom: 1em;
-		@include box-shadow(gray 0px 1px 5px);
+		@include box-shadow(lighten($gray, 30%) 0px 1px 5px);
 		.region-inner {
 			padding: 1.5em;
 		}
@@ -269,6 +278,17 @@ body {
 		}
 	}
 }
+
+/* Postscripts */
+.zone-postscript-wrapper {
+	.region-inner {
+		min-height: 91%;
+		.block-title {
+			margin-bottom: 1.5em;
+		}
+	}
+}
+
 
 /*
  * Messages
@@ -330,20 +350,13 @@ div.messages {
 }
 
 /* Gallery teaser on home page */
-.block-gallery-teaser-block-1 {
-	background-color: darken($white, 10%);
-	float: right;
-	max-width: 50%;
-	margin: 0 0 1em 1em;
-	padding: 1.5em;
-	position: relative;
-	width: 300px;
-	z-index: 1;
+.gallery-teaser {
 	.views-row {
 		float: left;
-		height: 150px;
+		height: 17em;
+		margin: 0 2% 0 0;
 		text-align: center;
-		width: 150px;
+		width: 48%;
 	}
 	.view-footer {
 		clear: both;
@@ -385,6 +398,12 @@ div.messages {
 /* Front page slideshow */
 .front {
 	.section-content {
+		.region-preface-first {
+			margin-bottom: 2em;
+			&:before, &:after {
+				content: none;
+			}
+		}
 		.region-preface-first-inner {
 			background-color: $black;
 			padding: 0;
@@ -576,3 +595,142 @@ div.messages {
   	}
   }
 }
+
+
+/*
+ * Reusable styles
+ */
+
+/* Colorful-ul */
+.colorful-ul {
+  ul {
+    margin: 0 -1.5em -1.5em -1.5em;
+    li {
+    	@include transition-default;
+      list-style: none;
+      list-style-image: none;
+      margin: 0;
+      padding: .5em 1.75em;
+    }
+		.pink {
+			border-left: .25em $pink solid;
+			border-right: .25em $pink solid;
+			&:hover, &:active, &:focus {
+				background-color: lighten($pink, 52%);
+			}
+		}
+		.blue {
+			border-left: .25em $blue solid;
+			border-right: .25em $blue solid;
+			&:hover, &:active, &:focus {
+				background-color: lighten($blue, 50%);
+			}
+		}
+		.orange {
+			border-left: .25em $orange solid;
+			border-right: .25em $orange solid;
+			&:hover, &:active, &:focus {
+				background-color: lighten($orange, 28%);
+			}
+		}
+		.green {
+			border-left: .25em $green solid;
+			border-right: .25em $green solid;
+			&:hover, &:active, &:focus {
+				background-color: lighten($green, 28%);
+			}
+		}
+		.yellow {
+			border-left: .25em $yellow solid;
+			border-right: .25em $yellow solid;
+			&:hover, &:active, &:focus {
+				background-color: lighten($yellow, 21%);
+			}
+		}
+  }
+}
+
+/*
+ * Front page styles
+ */
+
+.front {
+	.section-content {
+    .region-content {
+    	@include single-box-shadow(none);
+    	background: transparent;
+    	&:before, &:after {
+    		content: none;
+    	}
+    	.region-inner {
+    		margin: 0;
+    		padding: 0;
+    	}
+    	.cta-buttons {
+	    	.content a {
+	    		@include button-default;
+	    		margin: .5em 0;
+	    		padding: 1em;
+	    		width: 100%;
+    			color: $white;
+    			display: block;
+					font-size: 1.25em;
+					text-decoration: none;
+	    		/*&.first {
+					  background-color: $blue; // Old browsers
+					  @include filter-gradient(lighten($blue, 20%), $blue, vertical); // IE6-8
+					  // IE9 SVG, needs conditional override of 'filter' to 'none'
+					  $experimental-support-for-svg: true;
+					  @include background-image(linear-gradient(top,  lighten($blue, 20%) 0%,lighten($blue, 5%) 50%,$blue 51%,lighten($blue, 20%) 100%));
+
+					  @include border-radius(3px);
+					  @include single-box-shadow(lighten($blue, 30%), 0, 1px, 1px, 0, true);
+					  @include single-text-shadow(1px, 1px, 2px, 0, $gray);
+					  @include transition-default;
+					  border: $blue 1px solid;
+					  color: $white;
+					  padding: .25em .75em;
+					  &:hover, &:focus, &:active {
+					    background-color: lighten($blue, 20%);
+					    @include filter-gradient($blue, $blue, vertical); // IE6-8
+					    // IE9 SVG, needs conditional override of 'filter' to 'none'
+					    $experimental-support-for-svg: true;
+					    @include background-image(linear-gradient(top,  lighten($blue, 22%) 0%,lighten($blue, 7%) 50%,$blue 51%,lighten($blue, 22%) 100%));
+					    @include single-box-shadow(lighten($blue, 10%), 0, -1px, 1px, 0, true);
+					  }
+	    		}*/
+	    	}
+    	}
+    }
+	}
+}
+.latest-hats-block,
+.latest-beards-block {
+	.views-row {
+		.product-title {
+			font-size: 1em;
+			h2 {
+				font-size: 1em;
+			}
+		}
+		.field-type-commerce-price {
+			font-size: 1.5em;
+			margin-top: 2em;
+		}
+	}
+}
+
+.related-products {
+	h2 {
+		font-size: 1.5em;
+		margin-top: 2em;
+	}
+	.views-row {
+		h3,
+		.field-type-commerce-price {
+			font-size: 1em;
+			margin: 0;
+		}
+	}
+}
+

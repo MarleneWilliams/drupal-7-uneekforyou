@@ -28,7 +28,13 @@
 
 // Default button style
 @mixin button-default {
-  @include background-image(linear-gradient(lighten($blue, 20%), $blue));
+/*  @include background-image(linear-gradient(lighten($blue, 20%), $blue));*/
+  background-color: $blue; // Old browsers
+  @include filter-gradient(lighten($blue, 20%), $blue, vertical); // IE6-8
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
+  $experimental-support-for-svg: true;
+  @include background-image(linear-gradient(top,  lighten($blue, 20%) 0%,lighten($blue, 5%) 50%,$blue 51%,lighten($blue, 20%) 100%));
+
   @include border-radius(3px);
   @include single-box-shadow(lighten($blue, 30%), 0, 1px, 1px, 0, true);
   @include single-text-shadow(1px, 1px, 2px, 0, $gray);
@@ -37,7 +43,11 @@
   color: $white;
   padding: .25em .75em;
   &:hover, &:focus, &:active {
-    @include background-image(linear-gradient($blue, $blue));
+    background-color: lighten($blue, 20%);
+    @include filter-gradient($blue, $blue, vertical); // IE6-8
+    // IE9 SVG, needs conditional override of 'filter' to 'none'
+    $experimental-support-for-svg: true;
+    @include background-image(linear-gradient(top,  lighten($blue, 22%) 0%,lighten($blue, 7%) 50%,$blue 51%,lighten($blue, 22%) 100%));
     @include single-box-shadow(lighten($blue, 10%), 0, -1px, 1px, 0, true);
   }
 }

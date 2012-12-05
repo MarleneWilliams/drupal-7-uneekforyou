@@ -223,90 +223,138 @@
   padding: 0 .5em 0 0;
   text-align: left; }
 
+/* Gallery teaser on home page */
+/* line 171, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.gallery-teaser {
+  float: right;
+  width: 47%; }
+
 /*
  * Taxonomy / product listings / search pages
  */
-/* line 175, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 185, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .page-products .view-display-products li.views-row {
   float: left;
   width: 47%; }
-  /* line 178, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 188, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   .page-products .view-display-products li.views-row:nth-child(3n+4) {
     clear: none; }
-  /* line 181, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 191, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   .page-products .view-display-products li.views-row:nth-child(3n) {
     padding-right: 5px; }
-  /* line 184, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 194, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   .page-products .view-display-products li.views-row.views-row-odd {
     margin-right: 4%; }
-  /* line 187, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 197, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   .page-products .view-display-products li.views-row.views-row-even {
     padding-right: 0; }
 
 /*
  * Product displays
  */
-/* line 199, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 209, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .node-product-display .container-24.grid-14 {
   padding-left: 0;
   width: 45%; }
-/* line 203, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 213, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .node-product-display .container-24.grid-8 {
   width: 50%; }
-/* line 207, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 217, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .node-product-display .product-title {
   font-size: 2.5em; }
-/* line 210, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 220, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .node-product-display .field-type-commerce-price {
   color: #d80081;
   float: right;
   font-family: "Lobster", georgia, serif;
   font-size: 1.75em; }
-/* line 218, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 228, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .node-product-display .field-slideshow {
   width: auto !important; }
-/* line 221, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 231, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .node-product-display ul.field-slideshow-pager {
   margin-top: 1em; }
-  /* line 223, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 233, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   .node-product-display ul.field-slideshow-pager li {
     margin: 0 .25em .25em 0; }
 
-/* line 229, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 239, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .related-products .views-row {
           /*
 float: left;
 width: 25%;*/ }
-/* line 233, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 243, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .related-products .clearfix:after {
   clear: none; }
-/* line 236, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 246, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 .related-products h2.title {
   margin-bottom: 1em; }
 
-/* line 240, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 250, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 #block-views-products-related-block {
   clear: none;
   z-index: 1; }
-  /* line 243, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 253, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   #block-views-products-related-block .clearfix:after {
     clear: none; }
-  /* line 246, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 256, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   #block-views-products-related-block h2.block-title {
     margin-bottom: 1em; }
 
-/* line 250, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+/* line 260, ../scss/kickstart-ufy-alpha-default-narrow.scss */
 #block-views-products-related-block-1 {
   clear: none; }
-  /* line 252, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 262, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   #block-views-products-related-block-1 .clearfix:after {
     clear: both; }
-  /* line 255, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 265, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   #block-views-products-related-block-1:after {
     clear: none; }
-  /* line 258, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  /* line 268, ../scss/kickstart-ufy-alpha-default-narrow.scss */
   #block-views-products-related-block-1 .content {
     clear: none; }
-    /* line 260, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+    /* line 270, ../scss/kickstart-ufy-alpha-default-narrow.scss */
     #block-views-products-related-block-1 .content:after {
       clear: none; }
+
+/*
+ * Front page styles
+ */
+/* line 282, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.front .section-content .region-content {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: transparent; }
+  /* line 285, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  .front .section-content .region-content:before, .front .section-content .region-content:after {
+    content: none; }
+  /* line 288, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  .front .section-content .region-content .region-inner {
+    margin: 0;
+    padding: 0; }
+  /* line 293, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+  .front .section-content .region-content .cta-buttons .content a {
+    float: left;
+    margin: .5em 0;
+    padding: 1em 2%;
+    text-align: center;
+    width: 27.65%; }
+    /* line 299, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+    .front .section-content .region-content .cta-buttons .content a.first, .front .section-content .region-content .cta-buttons .content a.middle {
+      margin-right: 2%; }
+
+/* line 309, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.latest-hats-block .views-row,
+.latest-beards-block .views-row {
+  float: left;
+  width: 48%; }
+/* line 313, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.latest-hats-block .views-row-odd,
+.latest-beards-block .views-row-odd {
+  margin-right: 4%; }
+
+/* Related products */
+/* line 320, ../scss/kickstart-ufy-alpha-default-narrow.scss */
+.related-products .views-row {
+  margin-right: 50%; }

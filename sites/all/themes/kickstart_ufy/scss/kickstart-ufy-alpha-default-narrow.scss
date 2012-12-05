@@ -167,6 +167,16 @@
   }
 }
 
+/* Gallery teaser on home page */
+.gallery-teaser {
+  float: right;
+  width: 47%;
+  .views-row {
+  }
+  .view-footer {
+  }
+}
+
 /*
  * Taxonomy / product listings / search pages
  */
@@ -260,5 +270,54 @@
     &:after {
       clear: none;
     }
+  }
+}
+
+/*
+ * Front page styles
+ */
+
+.front {
+  .section-content {
+    .region-content {
+      @include single-box-shadow(none);
+      background: transparent;
+      &:before, &:after {
+        content: none;
+      }
+      .region-inner {
+        margin: 0;
+        padding: 0;
+      }
+      .cta-buttons {
+        .content a {
+          float: left;
+          margin: .5em 0;
+          padding: 1em 2%;
+          text-align: center;
+          width: 27.65%;
+          &.first, &.middle {
+            margin-right: 2%;
+          }
+        }
+      }
+    }
+  }
+}
+.latest-hats-block,
+.latest-beards-block {
+  .views-row {
+    float: left;
+    width: 48%;
+  }
+  .views-row-odd {
+    margin-right: 4%;
+  }
+}
+
+/* Related products */
+.related-products {
+  .views-row {
+    margin-right: 50%;
   }
 }
