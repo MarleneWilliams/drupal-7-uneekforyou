@@ -9,7 +9,6 @@
 
 // Import the old global styles 
 @import "kickstart-global";
-
 /*
  * Elements
  */
@@ -398,23 +397,25 @@ div.messages {
 /* Front page slideshow */
 .front {
 	.section-content {
-		.region-preface-first {
+		.region-preface-third {
+			@include single-box-shadow(transparent, 0, 0, 0, 0, true);
+			background-color: transparent;
 			margin-bottom: 2em;
 			&:before, &:after {
 				content: none;
 			}
 		}
-		.region-preface-first-inner {
-			background-color: $black;
+		.region-preface-third-inner {
+			background-color: transparent;
 			padding: 0;
 			.galleria-stage {
-				bottom: 40px;
+				bottom: 60px;
 			}
 			.galleria-thumbnails-container {
 				height: auto;
 				.galleria-thumbnails {
 					.galleria-image {
-						border: 4px solid $black;
+						/*border: 4px solid $black;*/
 						margin: 0;
 					}
 				}
@@ -671,7 +672,7 @@ div.messages {
 	    		@include button-default;
 	    		margin: .5em 0;
 	    		padding: 1em;
-	    		width: 100%;
+	    		width: auto;
     			color: $white;
     			display: block;
 					font-size: 1.25em;
@@ -733,4 +734,3 @@ div.messages {
 		}
 	}
 }
-

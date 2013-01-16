@@ -45,3 +45,33 @@
 /* line 39, ../scss/kickstart-ufy-alpha-default-wide.scss */
 .region-sidebar-first .field_product_commerce_price_amount_float h2 {
   padding-bottom: 1.75em; }
+
+/*
+ * Functionality
+ */
+/* Front page slideshow */
+/* line 53, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.front .section-content .region-preface-third {
+  margin-bottom: 2em; }
+  /* line 55, ../scss/kickstart-ufy-alpha-default-wide.scss */
+  .front .section-content .region-preface-third:before, .front .section-content .region-preface-third:after {
+    content: none; }
+/* line 60, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.front .section-content .region-preface-third-inner .galleria-stage {
+  bottom: 60px; }
+/* line 64, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.front .section-content .region-preface-third-inner .galleria-image,
+.front .section-content .region-preface-third-inner .galleria-container {
+  height: 645px !important; }
+/* line 68, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.front .section-content .region-preface-third-inner .galleria-image img {
+  top: 0 !important; }
+/* line 72, ../scss/kickstart-ufy-alpha-default-wide.scss */
+.front .section-content .region-preface-third-inner .galleria-thumbnails-container {
+  height: auto; }
+  /* line 74, ../scss/kickstart-ufy-alpha-default-wide.scss */
+  .front .section-content .region-preface-third-inner .galleria-thumbnails-container .galleria-thumbnails {
+    height: 57px !important; }
+    /* line 76, ../scss/kickstart-ufy-alpha-default-wide.scss */
+    .front .section-content .region-preface-third-inner .galleria-thumbnails-container .galleria-thumbnails .galleria-image {
+      margin: 0; }

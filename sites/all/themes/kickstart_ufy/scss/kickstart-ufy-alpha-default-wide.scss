@@ -41,3 +41,43 @@
     }
   }
 }
+
+
+/*
+ * Functionality
+ */
+
+/* Front page slideshow */
+.front {
+  .section-content {
+    .region-preface-third {
+      margin-bottom: 2em;
+      &:before, &:after {
+        content: none;
+      }
+    }
+    .region-preface-third-inner {
+      .galleria-stage {
+        bottom: 60px;
+      }
+      .galleria-image,
+      .galleria-container {
+        height: 645px !important;
+      }
+      .galleria-image {
+        img {
+          top: 0 !important;
+        }
+      }
+      .galleria-thumbnails-container {
+        height: auto;
+        .galleria-thumbnails {
+          height: 57px !important;
+          .galleria-image {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
