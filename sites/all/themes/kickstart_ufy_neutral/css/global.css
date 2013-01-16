@@ -1,0 +1,3940 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
+/*
+ * Global styles for the UneekForYou theme
+ *
+ *------------------------------------------------------*/
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+/* Override Omega */
+/* Include Default Variables & Mixins */
+@font-face {
+  font-family: "Lobster";
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot');
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('eot'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
+
+/* End Variables & Mixins */
+/*------------------------------------------------
+[Table of contents]
+0. Reset
+1. Global
+  1.1. Zones
+  1.2. Regions
+2. Section header
+  2.1. Zone user
+    2.1.1. Region user first
+    2.1.2. Region user second
+  2.2. Zone branding
+  2.3. Zone menu
+  2.4. Zone header
+3. Section content
+  3.1. Zone preface
+  3.2. Zone content
+    3.2.1. Sidebar first
+    3.2.2. Content
+    3.2.3. Sidebar second
+  3.3. Zone postscript
+4. Section footer
+  4.1. Zone footer
+  4.2. Zone footer2
+5. Commerce specific
+  5.1. Search & Collection page
+  5.2. All products page
+  5.3. Product page
+  5.4. Checkout process
+6. Kickstart specific
+  6.1. Homepage elements
+7. Blog
+8. Comments
+9. User account
+------------------------------------------------*/
+/**************************************************
+* --
+* - 0. Reset
+* --
+**************************************************/
+/**
+ * Flexible Media and Cross browser improvements
+ * - This can cause issues in table cells where no width is set on the column,
+ *   only in some versions of webkit and IE 7/8.
+ * - Google maps break also, see below for fixes.
+ */
+/* line 56, ../scss/kickstart-global.scss */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
+
+/* line 62, ../scss/kickstart-global.scss */
+figure {
+  margin: 0;
+  padding: 0; }
+
+/* line 68, ../scss/kickstart-global.scss */
+object,
+embed,
+video {
+  max-width: 100%; }
+
+/* Kill flexible images in IE6-8 */
+/* line 72, ../scss/kickstart-global.scss */
+.ie6-8 img {
+  max-width: none; }
+
+/* Override max-width 100% for map displays */
+/* line 80, ../scss/kickstart-global.scss */
+.gmap img,
+.view-gmap img,
+.openlayers-map img,
+#getlocations_map_canvas img,
+#locationmap_map img {
+  max-width: none !important; }
+
+/* Improve IE's resizing of images */
+/* line 84, ../scss/kickstart-global.scss */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* line 90, ../scss/kickstart-global.scss */
+table thead th {
+  font-weight: bold; }
+/* line 95, ../scss/kickstart-global.scss */
+table th,
+table td {
+  padding: 5px 10px; }
+
+/* line 99, ../scss/kickstart-global.scss */
+ul {
+  margin-left: 10px; }
+  /* line 101, ../scss/kickstart-global.scss */
+  ul li {
+    margin-left: 10px; }
+
+/**
+ * Reset Omega text shadow
+ */
+/* line 108, ../scss/kickstart-global.scss */
+button, input[type="reset"], input[type="submit"], input[type="button"] {
+  text-shadow: 0 0 0 transparent; }
+
+/**
+ * Remove Cloud-zoom lens default border/margin.
+ */
+/* line 114, ../scss/kickstart-global.scss */
+.cloud-zoom-lens {
+  border: 0;
+  margin: 0; }
+
+/**************************************************
+* --
+* 1. Global
+* --
+**************************************************/
+/* line 123, ../scss/kickstart-global.scss */
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; }
+
+/* line 130, ../scss/kickstart-global.scss */
+body {
+  background: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden; }
+
+/* line 140, ../scss/kickstart-global.scss */
+.region {
+  margin: 0 10px; }
+
+/* line 143, ../scss/kickstart-global.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0; }
+
+/* line 148, ../scss/kickstart-global.scss */
+a:link, a:visited {
+  color: #2698f2;
+  text-decoration: none; }
+
+/* line 152, ../scss/kickstart-global.scss */
+a:hover {
+  color: #000000; }
+
+/* line 155, ../scss/kickstart-global.scss */
+h1#page-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-left: 10px;
+  text-transform: uppercase; }
+
+/* line 161, ../scss/kickstart-global.scss */
+.node-page {
+  margin: 0 10px; }
+
+/* line 178, ../scss/kickstart-global.scss */
+textarea,
+select,
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+  background: #fbfafa;
+  border: 1px solid #e0e0e0;
+  color: #4c4c4c;
+  margin: 1px;
+  max-width: 100%;
+  padding: 5px; }
+
+/* line 188, ../scss/kickstart-global.scss */
+select {
+  height: inherit;
+  padding: 0; }
+
+/* Tweaks for Safari + Chrome. */
+@media (-webkit-min-device-pixel-ratio: 0) {
+  /* line 198, ../scss/kickstart-global.scss */
+  select,
+  select[size] {
+    background-image: url("../images/select-arrow.gif");
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding: 3px;
+    padding-right: 20px; } }
+/**************************************************
+* --
+* 2. Section header
+* --
+**************************************************/
+/**********************************************
+* 2.1. Zone user
+**********************************************/
+/* line 214, ../scss/kickstart-global.scss */
+.zone-user-wrapper {
+  background-color: #888888;
+  height: 34px;
+  width: 100%; }
+
+/* line 219, ../scss/kickstart-global.scss */
+.zone-user {
+  height: 100%; }
+
+/*******************************************
+* 2.1.1. Region user first
+*******************************************/
+/* line 225, ../scss/kickstart-global.scss */
+#region-user-first {
+  float: left; }
+
+/* User menu */
+/* line 229, ../scss/kickstart-global.scss */
+.block-menu-user-menu .content {
+  float: left;
+  position: relative;
+  overflow: hidden;
+  width: 100%; }
+  /* line 234, ../scss/kickstart-global.scss */
+  .block-menu-user-menu .content ul.menu {
+    list-style: none;
+    margin-top: 2px;
+    position: relative;
+    left: 50%;
+    text-align: center; }
+    /* line 241, ../scss/kickstart-global.scss */
+    .block-menu-user-menu .content ul.menu li {
+      display: block;
+      float: left;
+      font-size: 0.9em;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 3px;
+      position: relative;
+      right: 50%; }
+      /* line 252, ../scss/kickstart-global.scss */
+      .block-menu-user-menu .content ul.menu li a {
+        display: block;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -khtml-border-radius: 4px;
+        border-radius: 4px;
+        padding: 5px 6px;
+        text-decoration: none; }
+        /* line 260, ../scss/kickstart-global.scss */
+        .block-menu-user-menu .content ul.menu li a.active {
+          text-decoration: underline; }
+        /* line 265, ../scss/kickstart-global.scss */
+        .block-menu-user-menu .content ul.menu li a.active:hover, .block-menu-user-menu .content ul.menu li a:hover {
+          color: white;
+          text-decoration: underline; }
+
+/*******************************************
+* 2.1.2. Region user second
+*******************************************/
+/* line 276, ../scss/kickstart-global.scss */
+#region-user-second {
+  background-color: #FFFFFF;
+  float: right;
+  height: 100%;
+  margin: 0; }
+  /* line 281, ../scss/kickstart-global.scss */
+  #region-user-second .region-user-second-inner {
+    height: 100%; }
+
+/**
+* Cart block
+*/
+/* line 290, ../scss/kickstart-global.scss */
+.block-shopping-cart-block,
+.block-shopping-cart-block .block-inner,
+.block-shopping-cart-block .content {
+  height: 100%;
+  white-space: nowrap; }
+
+/* line 294, ../scss/kickstart-global.scss */
+.block-shopping-cart-block {
+  margin: 0 auto;
+  margin-left: 50px; }
+  /* line 298, ../scss/kickstart-global.scss */
+  .block-shopping-cart-block .content {
+    background: white url("../images/picto_cart.png") 5px 5px no-repeat;
+    float: right;
+    margin-left: -60px;
+    padding-left: 50px; }
+    /* line 307, ../scss/kickstart-global.scss */
+    .block-shopping-cart-block .content .view-shopping-cart .view-content,
+    .block-shopping-cart-block .content .view-shopping-cart .view-footer,
+    .block-shopping-cart-block .content .view-shopping-cart .view-empty {
+      display: inline;
+      float: left;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400; }
+    /* line 315, ../scss/kickstart-global.scss */
+    .block-shopping-cart-block .content .view-shopping-cart .view-content ul,
+    .block-shopping-cart-block .content .view-shopping-cart .view-content li {
+      margin: 0;
+      padding: 0; }
+    /* line 320, ../scss/kickstart-global.scss */
+    .block-shopping-cart-block .content .view-shopping-cart .view-footer {
+      display: block;
+      float: none; }
+    /* line 325, ../scss/kickstart-global.scss */
+    .block-shopping-cart-block .content .view-shopping-cart .view-empty,
+    .block-shopping-cart-block .content .view-shopping-cart .line-item-quantity {
+      margin: 0;
+      vertical-align: middle; }
+    /* line 329, ../scss/kickstart-global.scss */
+    .block-shopping-cart-block .content .view-shopping-cart .view-empty p {
+      float: left;
+      line-height: 30px; }
+    /* line 333, ../scss/kickstart-global.scss */
+    .block-shopping-cart-block .content .view-shopping-cart .line-item-summary {
+      display: inline;
+      float: left;
+      height: 34px;
+      line-height: 30px;
+      margin: 0; }
+      /* line 340, ../scss/kickstart-global.scss */
+      .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
+        color: #2698f2;
+        text-decoration: none; }
+      /* line 344, ../scss/kickstart-global.scss */
+      .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
+        color: #888888;
+        float: left;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        height: 100%;
+        line-height: 30px;
+        padding: 0 12px 0 6px; }
+      /* line 353, ../scss/kickstart-global.scss */
+      .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total-label {
+        display: none; }
+      /* line 356, ../scss/kickstart-global.scss */
+      .block-shopping-cart-block .content .view-shopping-cart .line-item-summary ul.links {
+        background-color: #999999;
+        clear: none;
+        color: white;
+        display: block;
+        float: left;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 300;
+        height: 100%;
+        line-height: 30px;
+        margin: 0 0 0 5px;
+        padding: 0 10px; }
+        /* line 368, ../scss/kickstart-global.scss */
+        .block-shopping-cart-block .content .view-shopping-cart .line-item-summary ul.links li {
+          margin: 0;
+          padding: 0; }
+          /* line 372, ../scss/kickstart-global.scss */
+          .block-shopping-cart-block .content .view-shopping-cart .line-item-summary ul.links li a {
+            color: white;
+            font-weight: 700; }
+            /* line 375, ../scss/kickstart-global.scss */
+            .block-shopping-cart-block .content .view-shopping-cart .line-item-summary ul.links li a:hover {
+              text-decoration: underline; }
+
+/*.block-shopping-cart-block .content .view-shopping-cart .view-empty p {
+  display: none;
+}*/
+/**********************************************
+* 2.2. Zone branding
+**********************************************/
+/* line 391, ../scss/kickstart-global.scss */
+.zone-branding .region-branding {
+  margin: 50px 0 15px 0; }
+  /* line 394, ../scss/kickstart-global.scss */
+  .zone-branding .region-branding .logo-img {
+    float: none;
+    margin: 0;
+    text-align: center; }
+
+/**
+* Search block
+*/
+/* line 403, ../scss/kickstart-global.scss */
+#block-views-exp-display-products-page {
+  margin-bottom: 10px;
+  padding-top: 28px; }
+
+/* line 408, ../scss/kickstart-global.scss */
+#block-views-exp-display-products-page .views-exposed-widgets {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 0;
+  position: relative;
+  width: 60%; }
+
+/* line 415, ../scss/kickstart-global.scss */
+#block-views-exp-display-products-page .views-exposed-widget {
+  padding: 0;
+  position: relative; }
+
+/* line 420, ../scss/kickstart-global.scss */
+#block-views-exp-display-products-page #edit-search-api-views-fulltext {
+  border-color: #d7d7d7;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  height: 36px;
+  position: relative;
+  padding: 5px 28px 5px 5px;
+  width: 100%; }
+
+/* line 430, ../scss/kickstart-global.scss */
+#block-views-exp-display-products-page #edit-search-api-views-fulltext-wrapper {
+  float: none; }
+
+/* line 433, ../scss/kickstart-global.scss */
+#block-views-exp-display-products-page .views-submit-button {
+  position: absolute;
+  right: 5px;
+  top: 6px;
+  z-index: 100; }
+  /* line 439, ../scss/kickstart-global.scss */
+  #block-views-exp-display-products-page .views-submit-button .form-submit {
+    background: transparent url("../images/picto_magnifying_glass.png") 98% center no-repeat;
+    border: 0;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -khtml-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0;
+    position: relative;
+    text-indent: -9999px; }
+
+/**********************************************
+* 2.3. Zone menu
+**********************************************/
+/**
+* Navigation
+*/
+/* line 454, ../scss/kickstart-global.scss */
+.menu-toggle {
+  background: #666;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  clip: inherit;
+  display: block;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 10px;
+  top: -46px;
+  width: 36px; }
+  /* line 467, ../scss/kickstart-global.scss */
+  .menu-toggle:hover {
+    background: #777; }
+  /* line 471, ../scss/kickstart-global.scss */
+  .menu-toggle .toggle-help {
+    color: #999;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 0 10px 0;
+    position: absolute;
+    left: 45px;
+    top: 6px; }
+  /* line 483, ../scss/kickstart-global.scss */
+  .menu-toggle .line {
+    border-bottom: 2px solid #cccccc;
+    display: block;
+    margin: 4px auto 4px auto;
+    width: 26px; }
+  /* line 489, ../scss/kickstart-global.scss */
+  .menu-toggle .first-line {
+    padding-top: 4px; }
+  /* line 492, ../scss/kickstart-global.scss */
+  .menu-toggle .last-line {
+    padding-bottom: 0; }
+
+/* line 496, ../scss/kickstart-global.scss */
+.navigation {
+  background: #444444;
+  display: none;
+  padding-bottom: 10px;
+  /* Main menu */
+  /* Secondary menu */ }
+  /* line 501, ../scss/kickstart-global.scss */
+  .navigation h2 {
+    color: #999;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2em;
+    font-variant: small-caps;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 0 10px 0; }
+  /* line 511, ../scss/kickstart-global.scss */
+  .navigation .primary-menu,
+  .navigation .second-menu {
+    display: block;
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 10px 0 0 0; }
+    /* line 517, ../scss/kickstart-global.scss */
+    .navigation .primary-menu ul li,
+    .navigation .second-menu ul li {
+      display: inline-block;
+      margin: 0 0 7px 0;
+      padding: 0;
+      width: 100%; }
+      /* line 522, ../scss/kickstart-global.scss */
+      .navigation .primary-menu ul li a,
+      .navigation .second-menu ul li a {
+        display: block;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        padding: 12px 16px;
+        text-decoration: none; }
+        /* line 528, ../scss/kickstart-global.scss */
+        .navigation .primary-menu ul li a:hover,
+        .navigation .second-menu ul li a:hover {
+          text-decoration: none; }
+  /* line 536, ../scss/kickstart-global.scss */
+  .navigation .primary-menu ul li a {
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    color: #888888;
+    text-transform: capitalize; }
+    /* line 543, ../scss/kickstart-global.scss */
+    .navigation .primary-menu ul li a.active, .navigation .primary-menu ul li a:hover {
+      background-color: white;
+      border: 1px solid #cccccc; }
+    /* line 547, ../scss/kickstart-global.scss */
+    .navigation .primary-menu ul li a.active {
+      color: black; }
+    /* line 550, ../scss/kickstart-global.scss */
+    .navigation .primary-menu ul li a:hover {
+      color: #999999; }
+  /* line 556, ../scss/kickstart-global.scss */
+  .navigation .second-menu {
+    clear: left; }
+    /* line 559, ../scss/kickstart-global.scss */
+    .navigation .second-menu ul li a {
+      background-color: #eeeeee;
+      border: 1px solid #cccccc;
+      color: #888888;
+      padding: 12px 18px;
+      text-transform: capitalize; }
+      /* line 567, ../scss/kickstart-global.scss */
+      .navigation .second-menu ul li a.active, .navigation .second-menu ul li a:hover {
+        background-color: white;
+        border: 1px solid #cccccc; }
+      /* line 571, ../scss/kickstart-global.scss */
+      .navigation .second-menu ul li a.active {
+        color: black; }
+      /* line 574, ../scss/kickstart-global.scss */
+      .navigation .second-menu ul li a:hover {
+        color: #999999; }
+
+/* line 582, ../scss/kickstart-global.scss */
+.zone-menu .block-menu {
+  display: block;
+  font-size: 1em;
+  margin: 0;
+  padding: 10px 0 0 0; }
+  /* line 589, ../scss/kickstart-global.scss */
+  .zone-menu .block-menu ul.menu li {
+    display: inline-block;
+    float: left;
+    list-style: none;
+    margin: 0 0 7px 0;
+    padding: 0;
+    width: 100%; }
+    /* line 597, ../scss/kickstart-global.scss */
+    .zone-menu .block-menu ul.menu li a {
+      background-color: #eeeeee;
+      border: 1px solid #cccccc;
+      color: #888888;
+      display: block;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      padding: 12px 16px;
+      text-decoration: none;
+      text-transform: capitalize; }
+      /* line 609, ../scss/kickstart-global.scss */
+      .zone-menu .block-menu ul.menu li a.active, .zone-menu .block-menu ul.menu li a:hover {
+        background-color: white;
+        border: 1px solid #cccccc; }
+      /* line 613, ../scss/kickstart-global.scss */
+      .zone-menu .block-menu ul.menu li a.active {
+        color: black; }
+      /* line 616, ../scss/kickstart-global.scss */
+      .zone-menu .block-menu ul.menu li a:hover {
+        color: #999999;
+        text-decoration: none; }
+
+/**************************************************
+* --
+* 3. Section content
+* --
+**************************************************/
+/* line 631, ../scss/kickstart-global.scss */
+.section-content {
+  min-height: 500px;
+  height: 100%; }
+
+/**********************************************
+* 3.1. Zone preface
+**********************************************/
+/* line 638, ../scss/kickstart-global.scss */
+.zone-preface {
+  background-color: #ffffff;
+  margin-bottom: 0;
+  padding-top: 20px;
+  position: relative; }
+
+/* line 645, ../scss/kickstart-global.scss */
+.breadcrumb,
+#region-breadcrumb .pseudo-breadcrumb {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px; }
+
+/**
+* Pseudo Breadcrumb
+*/
+/* line 651, ../scss/kickstart-global.scss */
+#region-breadcrumb {
+  margin: 0px 10px;
+  padding-bottom: 0;
+  position: relative; }
+  /* line 656, ../scss/kickstart-global.scss */
+  #region-breadcrumb .pseudo-breadcrumb-total-results {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    margin: 0 0 0 10px; }
+    /* line 661, ../scss/kickstart-global.scss */
+    #region-breadcrumb .pseudo-breadcrumb-total-results em {
+      color: #2698f2;
+      font-style: normal; }
+  /* line 667, ../scss/kickstart-global.scss */
+  #region-breadcrumb .pseudo-breadcrumb {
+    background-color: #eeeeee;
+    border: 1px solid #d7d7d7;
+    margin: 20px 0;
+    padding: 10px 21px 35px 5px; }
+    /* line 673, ../scss/kickstart-global.scss */
+    #region-breadcrumb .pseudo-breadcrumb li {
+      color: #898a8c;
+      float: left;
+      font-weight: bold;
+      line-height: 23px;
+      text-decoration: none; }
+      /* line 680, ../scss/kickstart-global.scss */
+      #region-breadcrumb .pseudo-breadcrumb li a {
+        background: url("../images/btn_close.png") 0px 4px no-repeat;
+        color: #898a8c;
+        display: block;
+        float: left;
+        font-weight: bold;
+        padding: 0 5px 0 0;
+        text-decoration: none;
+        text-indent: -9999px;
+        width: 20px; }
+
+/**
+* Breadcrumb
+*/
+/* line 698, ../scss/kickstart-global.scss */
+.breadcrumb {
+  background-color: #eeeeee;
+  border: 1px solid #d7d7d7;
+  color: #898a8c;
+  margin: 20px 0;
+  padding: 13px 27px; }
+  /* line 704, ../scss/kickstart-global.scss */
+  .breadcrumb a {
+    color: #898a8c;
+    font-weight: bold;
+    text-decoration: none; }
+    /* line 708, ../scss/kickstart-global.scss */
+    .breadcrumb a:hover {
+      text-decoration: underline; }
+
+/**********************************************
+* 3.2. Zone content
+**********************************************/
+/* line 716, ../scss/kickstart-global.scss */
+.zone-content-wrapper {
+  height: 100%; }
+  /* line 719, ../scss/kickstart-global.scss */
+  .zone-content-wrapper .zone-content {
+    margin-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative; }
+
+/*******************************************
+* 3.2.1. Sidebar first
+*******************************************/
+/* Search api facet blocks */
+/* line 730, ../scss/kickstart-global.scss */
+.region-sidebar-first .block-facetapi {
+  border-top: 1px solid black;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  margin-left: 15px;
+  padding-top: 15px;
+  padding-left: 15px; }
+  /* line 738, ../scss/kickstart-global.scss */
+  .region-sidebar-first .block-facetapi h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 30px;
+    padding-bottom: 8%; }
+  /* line 746, ../scss/kickstart-global.scss */
+  .region-sidebar-first .block-facetapi ul {
+    list-style: none;
+    list-style-image: none; }
+    /* line 750, ../scss/kickstart-global.scss */
+    .region-sidebar-first .block-facetapi ul li {
+      background: none;
+      line-height: 22px;
+      list-style: none;
+      list-style-image: none;
+      margin: 0; }
+      /* line 757, ../scss/kickstart-global.scss */
+      .region-sidebar-first .block-facetapi ul li a {
+        color: #8e8e8e;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+        text-decoration: none; }
+        /* line 762, ../scss/kickstart-global.scss */
+        .region-sidebar-first .block-facetapi ul li a:hover {
+          text-decoration: underline; }
+        /* line 765, ../scss/kickstart-global.scss */
+        .region-sidebar-first .block-facetapi ul li a.facetapi-active {
+          background: url("../images/btn_close.png") left top no-repeat;
+          display: block;
+          float: left;
+          padding: 0 1px 0 0;
+          text-decoration: none;
+          text-indent: -9999px;
+          width: 20px; }
+        /* line 774, ../scss/kickstart-global.scss */
+        .region-sidebar-first .block-facetapi ul li a.facetapi-inactive {
+          padding-left: 21px; }
+
+/* Price range */
+/* line 784, ../scss/kickstart-global.scss */
+#search-api-ranges-block-slider-view-form,
+#search-api-ranges-block-slider-view-form .range-box-left,
+#search-api-ranges-block-slider-view-form .range-box-right {
+  position: relative; }
+
+/* line 788, ../scss/kickstart-global.scss */
+#search-api-ranges-block-slider-view-form .text-range {
+  display: none;
+  font-size: 12px;
+  margin: 5px 0;
+  text-align: center;
+  text-transform: uppercase; }
+/* line 795, ../scss/kickstart-global.scss */
+#search-api-ranges-block-slider-view-form .range-slider-box {
+  display: none; }
+/* line 798, ../scss/kickstart-global.scss */
+#search-api-ranges-block-slider-view-form .range-box {
+  float: left; }
+/* line 801, ../scss/kickstart-global.scss */
+#search-api-ranges-block-slider-view-form label {
+  float: left;
+  line-height: 24px;
+  margin-right: 5px;
+  text-align: left;
+  white-space: nowrap;
+  width: 40%; }
+  /* line 808, ../scss/kickstart-global.scss */
+  #search-api-ranges-block-slider-view-form label:after {
+    content: ":"; }
+/* line 814, ../scss/kickstart-global.scss */
+#search-api-ranges-block-slider-view-form #edit-range-from,
+#search-api-ranges-block-slider-view-form #edit-range-to {
+  float: left;
+  width: 80px; }
+/* line 818, ../scss/kickstart-global.scss */
+#search-api-ranges-block-slider-view-form #edit-submit {
+  background: #cecece;
+  border: 0;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 2em;
+  padding: 5px 12px; }
+
+/*******************************************
+* 3.2.2. Content
+*******************************************/
+/**
+* Blocks
+*/
+/* line 835, ../scss/kickstart-global.scss */
+#block-views-demo-content-slideshow-block-1 {
+  /* HP blocks: Slideshow */
+  position: relative; }
+  /* line 840, ../scss/kickstart-global.scss */
+  #block-views-demo-content-slideshow-block-1 .bx-wrapper,
+  #block-views-demo-content-slideshow-block-1 .bx-wrapper .bx-window {
+    overflow: hidden;
+    *zoom: 1;
+    height: auto;
+    padding-bottom: 0;
+    overflow: visible !important;
+    width: 100% !important; }
+  /* line 849, ../scss/kickstart-global.scss */
+  #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider {
+    width: 100%; }
+    /* line 852, ../scss/kickstart-global.scss */
+    #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li {
+      overflow: hidden;
+      *zoom: 1;
+      margin: 0 auto;
+      width: 100%; }
+      /* line 857, ../scss/kickstart-global.scss */
+      #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li a {
+        display: block; }
+      /* line 861, ../scss/kickstart-global.scss */
+      #block-views-demo-content-slideshow-block-1 .bx-wrapper ul.event-slider li img {
+        height: auto;
+        overflow: hidden;
+        width: 100%; }
+  /* line 870, ../scss/kickstart-global.scss */
+  #block-views-demo-content-slideshow-block-1 .views-field-nothing,
+  #block-views-demo-content-slideshow-block-1 .bx-prev,
+  #block-views-demo-content-slideshow-block-1 .bx-next {
+    display: none;
+    text-indent: -9999px; }
+
+/*******************************************
+* 3.2.3. Sidebar second
+*******************************************/
+/* line 880, ../scss/kickstart-global.scss */
+#block-views-blog-category-list-block .block-title,
+#block-views-blog-block-1 .block-title {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase; }
+
+/* line 886, ../scss/kickstart-global.scss */
+#block-views-blog-category-list-block table {
+  width: 100%; }
+  /* line 888, ../scss/kickstart-global.scss */
+  #block-views-blog-category-list-block table td {
+    width: 50%; }
+
+/* line 892, ../scss/kickstart-global.scss */
+#block-views-blog-block-1 .views-row {
+  border-bottom: 1px solid #e0e3e6;
+  padding: 4px 4px 10px 4px; }
+  /* line 895, ../scss/kickstart-global.scss */
+  #block-views-blog-block-1 .views-row .views-field-title {
+    line-height: 13px;
+    padding-bottom: 4px;
+    text-transform: uppercase; }
+  /* line 900, ../scss/kickstart-global.scss */
+  #block-views-blog-block-1 .views-row .views-row-last {
+    border-bottom: 0; }
+
+/**********************************************
+* 3.3. Zone postscript
+**********************************************/
+/* line 908, ../scss/kickstart-global.scss */
+.region-postscript-first,
+.region-postscript-second {
+  margin-bottom: 5px; }
+
+/* line 911, ../scss/kickstart-global.scss */
+.region-postscript-third {
+  margin-right: 0; }
+
+/* line 914, ../scss/kickstart-global.scss */
+.zone-postscript .grid-8 {
+  float: left;
+  margin: 0 1.5%;
+  padding: 0;
+  width: 30%; }
+
+/* line 921, ../scss/kickstart-global.scss */
+#zone-postscript {
+  margin-top: 20px;
+  margin-bottom: 24px;
+  /* HP blocks */ }
+  /* line 927, ../scss/kickstart-global.scss */
+  #zone-postscript .view-ad-push .views-row,
+  #zone-postscript .block-blog-block .block-inner {
+    background-color: #cccccc;
+    border: 1px solid #b1b1b1;
+    padding: 10px; }
+    /* line 934, ../scss/kickstart-global.scss */
+    #zone-postscript .view-ad-push .views-row .field-content a,
+    #zone-postscript .view-ad-push .views-row .content a,
+    #zone-postscript .block-blog-block .block-inner .field-content a,
+    #zone-postscript .block-blog-block .block-inner .content a {
+      border: 4px solid white;
+      display: block; }
+    /* line 938, ../scss/kickstart-global.scss */
+    #zone-postscript .view-ad-push .views-row .field-content img,
+    #zone-postscript .view-ad-push .views-row .content img,
+    #zone-postscript .block-blog-block .block-inner .field-content img,
+    #zone-postscript .block-blog-block .block-inner .content img {
+      display: block;
+      margin: auto; }
+    /* line 944, ../scss/kickstart-global.scss */
+    #zone-postscript .view-ad-push .views-row .views-field-field-tagline,
+    #zone-postscript .view-ad-push .views-row .views-field-title,
+    #zone-postscript .block-blog-block .block-inner .views-field-field-tagline,
+    #zone-postscript .block-blog-block .block-inner .views-field-title {
+      margin: 10px auto 0 auto; }
+  /* line 950, ../scss/kickstart-global.scss */
+  #zone-postscript .view-ad-push .views-row .views-field-field-image {
+    display: block; }
+  /* line 953, ../scss/kickstart-global.scss */
+  #zone-postscript .view-ad-push .views-row .views-field-field-headline {
+    font-family: Georgia, "Times New Roman", serif; }
+  /* line 959, ../scss/kickstart-global.scss */
+  #zone-postscript .block-blog-block .block-inner .block-title {
+    background: transparent url("../images/bg_block_homepage_title.png") -18px top no-repeat;
+    color: white;
+    display: none;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    height: 50px;
+    line-height: 44px;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding-left: 25px;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    text-align: left;
+    width: 112px;
+    z-index: 1; }
+  /* line 977, ../scss/kickstart-global.scss */
+  #zone-postscript .block-blog-block .block-inner .views-field-title .field-content {
+    display: block;
+    width: 100%; }
+    /* line 980, ../scss/kickstart-global.scss */
+    #zone-postscript .block-blog-block .block-inner .views-field-title .field-content p {
+      margin-bottom: 0; }
+  /* line 987, ../scss/kickstart-global.scss */
+  #zone-postscript .view-ad-push .views-row .views-field-field-tagline,
+  #zone-postscript .block-blog-block .views-field-title {
+    display: block; }
+    /* line 990, ../scss/kickstart-global.scss */
+    #zone-postscript .view-ad-push .views-row .views-field-field-tagline .field-content,
+    #zone-postscript .block-blog-block .views-field-title .field-content {
+      color: white;
+      /*font-size: 12px;*/
+      line-height: 18px;
+      padding: 0px; }
+      /* line 997, ../scss/kickstart-global.scss */
+      #zone-postscript .view-ad-push .views-row .views-field-field-tagline .field-content a,
+      #zone-postscript .block-blog-block .views-field-title .field-content a {
+        background: #666;
+        color: white;
+        display: block;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+        min-height: 45px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: capitalize;
+        padding: 5px; }
+
+/**************************************************
+* --
+* 4. Section footer
+* --
+**************************************************/
+/* line 1017, ../scss/kickstart-global.scss */
+.section-footer {
+  background-color: white; }
+
+/**********************************************
+* 4.1. Zone footer
+**********************************************/
+/* line 1023, ../scss/kickstart-global.scss */
+.zone-footer-wrapper {
+  padding-top: 32px;
+  padding-bottom: 36px; }
+
+/**
+* Menu footer navigation
+*/
+/* line 1030, ../scss/kickstart-global.scss */
+.block-menu-menu-footer-navigation {
+  width: auto; }
+
+/* line 1034, ../scss/kickstart-global.scss */
+.section-footer ul.menu,
+.section-footer ul.menu li {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0px 25px 0 0; }
+
+/* line 1041, ../scss/kickstart-global.scss */
+.section-footer ul.menu {
+  width: 100%; }
+  /* line 1043, ../scss/kickstart-global.scss */
+  .section-footer ul.menu li.expanded {
+    list-style: none;
+    list-style-image: none;
+    padding-bottom: 10px; }
+    /* line 1049, ../scss/kickstart-global.scss */
+    .section-footer ul.menu li.expanded span,
+    .section-footer ul.menu li.expanded a {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      text-decoration: none; }
+    /* line 1054, ../scss/kickstart-global.scss */
+    .section-footer ul.menu li.expanded span {
+      color: #666666; }
+    /* line 1057, ../scss/kickstart-global.scss */
+    .section-footer ul.menu li.expanded ul.menu {
+      margin: 10px 0 0; }
+      /* line 1060, ../scss/kickstart-global.scss */
+      .section-footer ul.menu li.expanded ul.menu li {
+        display: block;
+        float: none;
+        padding: 0; }
+        /* line 1065, ../scss/kickstart-global.scss */
+        .section-footer ul.menu li.expanded ul.menu li a {
+          color: #999999;
+          font-family: "Open Sans", sans-serif;
+          font-weight: normal; }
+          /* line 1070, ../scss/kickstart-global.scss */
+          .section-footer ul.menu li.expanded ul.menu li a.active {
+            color: #000; }
+            /* line 1072, ../scss/kickstart-global.scss */
+            .section-footer ul.menu li.expanded ul.menu li a.active:hover {
+              text-decoration: underline; }
+          /* line 1076, ../scss/kickstart-global.scss */
+          .section-footer ul.menu li.expanded ul.menu li a:hover {
+            text-decoration: underline; }
+
+/**
+* Connect with us
+*/
+/* line 1089, ../scss/kickstart-global.scss */
+#block-menu-menu-social-connection h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 16px;
+  padding: 8px 15px; }
+/* line 1096, ../scss/kickstart-global.scss */
+#block-menu-menu-social-connection .content ul.menu {
+  list-style: none; }
+  /* line 1098, ../scss/kickstart-global.scss */
+  #block-menu-menu-social-connection .content ul.menu li {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    line-height: 15px;
+    margin-top: 2px;
+    margin-bottom: 15px;
+    margin-left: 0;
+    /* LTR */ }
+    /* line 1105, ../scss/kickstart-global.scss */
+    #block-menu-menu-social-connection .content ul.menu li:hover {
+      background-color: #cecece;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      -khtml-border-radius: 4px;
+      border-radius: 4px;
+      cursor: pointer; }
+    /* line 1111, ../scss/kickstart-global.scss */
+    #block-menu-menu-social-connection .content ul.menu li span,
+    #block-menu-menu-social-connection .content ul.menu li a {
+      color: #999999;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      display: block;
+      height: 35px;
+      line-height: 16px;
+      padding-top: 5px;
+      padding-left: 50px;
+      text-decoration: none; }
+    /* line 1123, ../scss/kickstart-global.scss */
+    #block-menu-menu-social-connection .content ul.menu li a.facebook {
+      background: url("../images/icon_facebook.png") 2% 50% no-repeat; }
+    /* line 1126, ../scss/kickstart-global.scss */
+    #block-menu-menu-social-connection .content ul.menu li a.twitter {
+      background: url("../images/icon_twitter.png") 2% 50% no-repeat; }
+    /* line 1129, ../scss/kickstart-global.scss */
+    #block-menu-menu-social-connection .content ul.menu li a.pinterest {
+      background: url("../images/icon_pinterest.png") 2% 50% no-repeat; }
+
+/**********************************************
+* 4.2. Zone footer2
+**********************************************/
+/* line 1138, ../scss/kickstart-global.scss */
+.zone-footer2-wrapper {
+  background-color: #cccccc;
+  min-height: 60px;
+  padding: 20px 0; }
+
+/* line 1143, ../scss/kickstart-global.scss */
+body.activebar-container .zone-footer2-wrapper {
+  min-height: 100px; }
+
+/**
+* Powered by Drupal Commerce
+*/
+/* line 1149, ../scss/kickstart-global.scss */
+.block-powered-drupal-commerce a {
+  color: #1d76bc;
+  font-weight: 600;
+  text-decoration: none; }
+
+/**
+* Payment blocks
+*/
+/* line 1157, ../scss/kickstart-global.scss */
+#block-menu-menu-payment-methods {
+  background-color: #ffffff;
+  color: #3f3f3f;
+  padding: 10px; }
+  /* line 1162, ../scss/kickstart-global.scss */
+  #block-menu-menu-payment-methods h2 {
+    display: none; }
+  /* line 1165, ../scss/kickstart-global.scss */
+  #block-menu-menu-payment-methods ul.menu {
+    height: 40px;
+    margin-bottom: 0; }
+    /* line 1169, ../scss/kickstart-global.scss */
+    #block-menu-menu-payment-methods ul.menu li {
+      display: inline;
+      float: left;
+      margin: 0;
+      text-align: center;
+      width: 24%;
+      padding: 0; }
+      /* line 1176, ../scss/kickstart-global.scss */
+      #block-menu-menu-payment-methods ul.menu li:first-child {
+        padding-left: 10px; }
+      /* line 1180, ../scss/kickstart-global.scss */
+      #block-menu-menu-payment-methods ul.menu li a {
+        display: block;
+        height: 30px;
+        margin: 5px 0px;
+        text-indent: -9999px;
+        width: 50px; }
+      /* line 1187, ../scss/kickstart-global.scss */
+      #block-menu-menu-payment-methods ul.menu li .visa {
+        background: url("../images/picto_visa_premier.png") left top no-repeat; }
+      /* line 1190, ../scss/kickstart-global.scss */
+      #block-menu-menu-payment-methods ul.menu li .paypal {
+        background: url("../images/picto_paypal.png") left top no-repeat; }
+      /* line 1193, ../scss/kickstart-global.scss */
+      #block-menu-menu-payment-methods ul.menu li .mastercard {
+        background: url("../images/picto_mastercard.png") left top no-repeat; }
+      /* line 1196, ../scss/kickstart-global.scss */
+      #block-menu-menu-payment-methods ul.menu li .american-express {
+        background: url("../images/picto_american_express.png") left top no-repeat; }
+
+/**************************************************
+* --
+* 5. Commerce specific
+* --
+**************************************************/
+/**********************************************
+* 5.1. Search & Collection page
+**********************************************/
+/**
+* Collection page
+*/
+/* line 1213, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-header {
+  background-color: #888;
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-bottom: 35px;
+  position: relative; }
+  /* line 1221, ../scss/kickstart-global.scss */
+  .view-collection-taxonomy-term .view-header .taxonomy-title {
+    clear: both;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 3em;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    text-decoration: none;
+    text-shadow: 0 1px 1px #c3c3c3;
+    text-transform: capitalize; }
+  /* line 1236, ../scss/kickstart-global.scss */
+  .view-collection-taxonomy-term .view-header .views-row {
+    border: 1px solid #d7d7d7;
+    margin: 0;
+    margin-bottom: 20px; }
+  /* line 1241, ../scss/kickstart-global.scss */
+  .view-collection-taxonomy-term .view-header .collection-terms {
+    padding-top: 6em; }
+    /* line 1245, ../scss/kickstart-global.scss */
+    .view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list {
+      clear: none;
+      display: inline;
+      float: left;
+      margin-right: 6px;
+      margin-bottom: 7px; }
+      /* line 1252, ../scss/kickstart-global.scss */
+      .view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list h3 {
+        margin-bottom: 0; }
+        /* line 1255, ../scss/kickstart-global.scss */
+        .view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list h3 a {
+          background-color: #cecece;
+          border: 1px solid #cecece;
+          -moz-border-radius: 8px;
+          -webkit-border-radius: 8px;
+          -khtml-border-radius: 8px;
+          border-radius: 8px;
+          color: #000000;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          padding: 5px 15px;
+          text-decoration: none; }
+          /* line 1265, ../scss/kickstart-global.scss */
+          .view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list h3 a:hover {
+            background-color: #FFFFFF;
+            border: 1px solid #cecece;
+            color: #000000; }
+      /* line 1272, ../scss/kickstart-global.scss */
+      .view-collection-taxonomy-term .view-header .collection-terms .view-content .item-list ul {
+        display: none; }
+
+/* line 1280, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-content .item-list .products-per-collection li.views-row {
+  float: left; }
+/* line 1283, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-content .item-list .products-per-collection li.views-row.last {
+  padding-right: 0; }
+/* line 1287, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-content .item-list .products-per-collection li .commerce-product-field {
+  color: #000000;
+  font-size: 14px;
+  margin-bottom: 5px;
+  text-decoration: none; }
+/* line 1293, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-content .item-list .products-per-collection li header {
+  background: url("../images/bg_product_attributes_top.png") center top no-repeat;
+  padding-top: 20px; }
+  /* line 1296, ../scss/kickstart-global.scss */
+  .view-collection-taxonomy-term .view-content .item-list .products-per-collection li header h2 {
+    font-size: 14px;
+    height: 35px;
+    line-height: 16px;
+    margin: 0 4px; }
+    /* line 1301, ../scss/kickstart-global.scss */
+    .view-collection-taxonomy-term .view-content .item-list .products-per-collection li header h2 a {
+      color: #000000;
+      font-size: 14px;
+      text-decoration: none; }
+/* line 1308, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-content .item-list .products-per-collection li a header {
+  display: none; }
+/* line 1311, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-content .item-list .products-per-collection li .field-type-commerce-price {
+  color: #858787;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400; }
+  /* line 1316, ../scss/kickstart-global.scss */
+  .view-collection-taxonomy-term .view-content .item-list .products-per-collection li .field-type-commerce-price .price_prefix p {
+    display: inline; }
+/* line 1320, ../scss/kickstart-global.scss */
+.view-collection-taxonomy-term .view-content .item-list .products-per-collection li .views-field-field-extractor-field-product ul li {
+  border: 1px solid #cbcdcc;
+  float: left;
+  margin: 0 0.5em 0 0;
+  padding: 2px; }
+  /* line 1326, ../scss/kickstart-global.scss */
+  .view-collection-taxonomy-term .view-content .item-list .products-per-collection li .views-field-field-extractor-field-product ul li .commerce-fancy-attributes-color {
+    border: none; }
+
+/**********************************************
+* 5.2. All products page
+**********************************************/
+/* line 1336, ../scss/kickstart-global.scss */
+.page-products .view-display-products {
+  margin-top: 20px; }
+  /* line 1339, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li.views-row {
+    display: inline;
+    float: left;
+    min-height: 380px;
+    height: auto;
+    margin: 0;
+    padding-right: 5px;
+    padding-bottom: 30px;
+    width: 230px; }
+    /* line 1348, ../scss/kickstart-global.scss */
+    .page-products .view-display-products li.views-row.last {
+      padding-right: 0; }
+  /* line 1352, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li:nth-child(3n) {
+    padding-right: 0; }
+  /* line 1355, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li:nth-child(3n+4) {
+    clear: left;
+    float: left; }
+  /* line 1360, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li .commerce-product-field {
+    margin-bottom: 5px; }
+  /* line 1363, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li header {
+    background: transparent url("../images/bg_product_attributes_top.png") center top no-repeat; }
+    /* line 1365, ../scss/kickstart-global.scss */
+    .page-products .view-display-products li header h2 {
+      font-size: 14px;
+      height: 35px;
+      line-height: 16px;
+      margin: 0 4px;
+      padding-top: 20px; }
+    /* line 1372, ../scss/kickstart-global.scss */
+    .page-products .view-display-products li header a {
+      color: #000;
+      font-size: 14px;
+      text-decoration: none; }
+  /* line 1378, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li a header {
+    display: none; }
+  /* line 1382, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li .content .commerce-product-field {
+    font-size: 14px;
+    text-decoration: none; }
+  /* line 1386, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li .content .commerce-product-field-commerce-price {
+    font-family: "Open Sans", sans-serif; }
+    /* line 1388, ../scss/kickstart-global.scss */
+    .page-products .view-display-products li .content .commerce-product-field-commerce-price .field-type-commerce-price {
+      color: #858787;
+      font-weight: 400; }
+      /* line 1392, ../scss/kickstart-global.scss */
+      .page-products .view-display-products li .content .commerce-product-field-commerce-price .field-type-commerce-price .price_prefix p {
+        display: inline; }
+  /* line 1398, ../scss/kickstart-global.scss */
+  .page-products .view-display-products li .views-field-field-extractor-field-product ul li {
+    border: 1px solid #cbcdcc;
+    float: left;
+    margin: 0 0.5em 0 0;
+    padding: 2px; }
+    /* line 1404, ../scss/kickstart-global.scss */
+    .page-products .view-display-products li .views-field-field-extractor-field-product ul li .commerce-fancy-attributes-color {
+      border: none; }
+
+/** TODO: Check if used on commerce_kickstart
+.page-products .commerce-product-extra-field-title {
+  background: url('../images/bg_search_product_name.png') left top no-repeat;
+  margin-top: 4px;
+  padding-top: 17px;
+  font-size: 14px;
+  text-decoration: none;
+}/*
+
+/**
+* Search sort block
+*/
+/* line 1424, ../scss/kickstart-global.scss */
+.block-search-api-sorts:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden; }
+/* line 1431, ../scss/kickstart-global.scss */
+.block-search-api-sorts .block-inner {
+  float: right;
+  clear: right; }
+  /* line 1435, ../scss/kickstart-global.scss */
+  .block-search-api-sorts .block-inner h2.block-title {
+    display: inline;
+    float: left;
+    font-size: 13px;
+    line-height: 32px;
+    margin-right: 5px;
+    text-transform: uppercase; }
+/* line 1444, ../scss/kickstart-global.scss */
+.block-search-api-sorts .content {
+  float: left; }
+  /* line 1446, ../scss/kickstart-global.scss */
+  .block-search-api-sorts .content ul.search-api-sorts {
+    margin: 0; }
+    /* line 1448, ../scss/kickstart-global.scss */
+    .block-search-api-sorts .content ul.search-api-sorts li {
+      color: white;
+      display: inline;
+      float: left;
+      margin: 0;
+      margin-left: 5px;
+      text-align: center;
+      text-decoration: none; }
+      /* line 1458, ../scss/kickstart-global.scss */
+      .block-search-api-sorts .content ul.search-api-sorts li span,
+      .block-search-api-sorts .content ul.search-api-sorts li a {
+        background-color: #8e8e8e;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -khtml-border-radius: 8px;
+        border-radius: 8px;
+        display: block;
+        padding: 5px 12px; }
+      /* line 1464, ../scss/kickstart-global.scss */
+      .block-search-api-sorts .content ul.search-api-sorts li a {
+        background-color: #cecece;
+        color: white;
+        text-decoration: none; }
+      /* line 1469, ../scss/kickstart-global.scss */
+      .block-search-api-sorts .content ul.search-api-sorts li span a {
+        background: none;
+        display: block;
+        position: absolute;
+        top: 4px;
+        right: 0;
+        margin-right: 5px;
+        padding: 0;
+        height: 13px;
+        width: 13px; }
+      /* line 1480, ../scss/kickstart-global.scss */
+      .block-search-api-sorts .content ul.search-api-sorts li .search-api-sort-active {
+        color: white;
+        position: relative;
+        padding-right: 25px;
+        text-decoration: none; }
+        /* line 1486, ../scss/kickstart-global.scss */
+        .block-search-api-sorts .content ul.search-api-sorts li .search-api-sort-active .search-api-sort-remove {
+          display: block;
+          float: left;
+          text-indent: -9999px;
+          width: 0; }
+        /* line 1493, ../scss/kickstart-global.scss */
+        .block-search-api-sorts .content ul.search-api-sorts li .search-api-sort-active .sort-asc img,
+        .block-search-api-sorts .content ul.search-api-sorts li .search-api-sort-active .sort-desc img {
+          vertical-align: baseline; }
+
+/**********************************************
+* 5.3. Product page
+**********************************************/
+/**
+* Add to cart popin.
+*/
+/* line 1507, ../scss/kickstart-global.scss */
+div.commerce_kickstart_add_to_cart_overlay {
+  background: transparent url("../images/bg_add_to_cart_overlay.png") left top;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200; }
+
+/* line 1516, ../scss/kickstart-global.scss */
+div.messages.commerce-kickstart-add-to-cart {
+  background-color: #E4F5FE;
+  border-color: #D7D7D7;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0 2px 15px #57595a;
+  -webkit-box-shadow: 0 2px 15px #57595a;
+  box-shadow: 0 2px 15px #57595a;
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#57595A', direction='180', strength='5');
+  color: #aeaaa5;
+  overflow: hidden;
+  margin-left: -30% !important;
+  /* width/2 */
+  padding: 0;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  text-align: center;
+  width: 60%;
+  z-index: 201;
+  /*.placeholder {
+    background: transparent url('../images/bg_add_to_cart.png') left center no-repeat;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-left: 35px;
+    border: 1px solid red !important;
+  }
+  .commerce-product-title {
+    clear: both;
+    color: #696458;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .field:after,
+  .entity-commerce-product:after {
+  content: none;
+  }*/ }
+  /* line 1536, ../scss/kickstart-global.scss */
+  div.messages.commerce-kickstart-add-to-cart .message-inner .added-product-title {
+    color: #696458;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 30px 10px 10px;
+    text-transform: uppercase;
+    width: 180px; }
+  /* line 1545, ../scss/kickstart-global.scss */
+  div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper {
+    background-color: #e4eef3;
+    float: right;
+    padding: 40px 30px;
+    width: 166px; }
+    /* line 1550, ../scss/kickstart-global.scss */
+    div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper:after {
+      display: block;
+      clear: both;
+      content: ".";
+      height: 0;
+      visibility: hidden; }
+    /* line 1557, ../scss/kickstart-global.scss */
+    div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button {
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px;
+      border-radius: 3px;
+      color: white;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-align: center; }
+      /* line 1564, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button.checkout {
+        background-color: #2698f2; }
+      /* line 1567, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button.continue {
+        background-color: #b3b3b3; }
+        /* line 1570, ../scss/kickstart-global.scss */
+        div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button.continue .commerce-kickstart-add-to-cart-close {
+          background: none;
+          display: block;
+          padding: 10px;
+          position: static;
+          white-space: nowrap;
+          width: auto; }
+      /* line 1579, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button a {
+        color: white;
+        display: block;
+        font-weight: bold;
+        padding: 10px; }
+      /* line 1585, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .button-wrapper .button:hover {
+        cursor: pointer; }
+  /* line 1590, ../scss/kickstart-global.scss */
+  div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display {
+    clear: both;
+    float: none;
+    width: 180px; }
+    /* line 1595, ../scss/kickstart-global.scss */
+    div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content {
+      margin-bottom: 15px;
+      padding: 15px 10px 0 15px;
+      text-align: left;
+      width: 90%; }
+      /* line 1601, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content:after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden; }
+      /* line 1609, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product h2 {
+        display: none; }
+      /* line 1614, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field-name-field-images img {
+        border: #d7d7d7 solid 1px;
+        text-align: left;
+        width: auto; }
+      /* line 1620, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .commerce-product-sku .commerce-product-sku-label {
+        color: #878380;
+        display: inline;
+        font-weight: bold;
+        padding-right: 5px; }
+      /* line 1627, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .commerce-product-sku,
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field {
+        clear: both;
+        color: #878380;
+        font-size: 12px;
+        margin-right: 20px;
+        /* LTR */ }
+      /* line 1634, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .commerce-product-title-label,
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .commerce-product-status-label {
+        display: inline; }
+      /* line 1639, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-quantity {
+        font-size: 12px; }
+        /* line 1642, ../scss/kickstart-global.scss */
+        div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-quantity .views-label-quantity {
+          color: #878380;
+          font-weight: bold;
+          padding-right: 5px; }
+      /* line 1648, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-price {
+        clear: both;
+        display: inline;
+        font-size: 20px;
+        font-weight: 300; }
+        /* line 1654, ../scss/kickstart-global.scss */
+        div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-price .views-label-commerce-price {
+          color: #878380;
+          float: left;
+          padding-top: 25px;
+          padding-right: 5px; }
+        /* line 1660, ../scss/kickstart-global.scss */
+        div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-price .field {
+          color: #2698f2;
+          display: inline;
+          float: right;
+          font-size: 20px;
+          padding-top: 25px; }
+      /* line 1668, ../scss/kickstart-global.scss */
+      div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .field-label {
+        color: #878380;
+        padding-right: 5px; }
+  /* line 1674, ../scss/kickstart-global.scss */
+  div.messages.commerce-kickstart-add-to-cart .message-inner .commerce-kickstart-add-to-cart-close {
+    background: url("../images/btn_close.png") no-repeat 0 0;
+    display: block;
+    height: 17px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 18px; }
+  /* line 1704, ../scss/kickstart-global.scss */
+  div.messages.commerce-kickstart-add-to-cart .views-field-title {
+    text-align: left;
+    /* LTR */ }
+
+/* line 1710, ../scss/kickstart-global.scss */
+.node-product-type .commerce-product-sku {
+  color: #b1b1b1;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 400; }
+  /* line 1715, ../scss/kickstart-global.scss */
+  .node-product-type .commerce-product-sku .commerce-product-sku-label {
+    font-weight: normal; }
+/* line 1719, ../scss/kickstart-global.scss */
+.node-product-type .commerce-product-field {
+  color: #54A8E5;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 20px; }
+  /* line 1727, ../scss/kickstart-global.scss */
+  .node-product-type .commerce-product-field .cloud-zoom-container #wrap {
+    float: inherit;
+    z-index: 2 !important;
+    /* Fix overlay */ }
+  /* line 1731, ../scss/kickstart-global.scss */
+  .node-product-type .commerce-product-field .cloud-zoom-container .cloud-zoom-gallery-thumbs {
+    clear: both; }
+    /* line 1734, ../scss/kickstart-global.scss */
+    .node-product-type .commerce-product-field .cloud-zoom-container .cloud-zoom-gallery-thumbs .cloud-zoom-gallery {
+      border: 1px solid #5b5b5b;
+      display: inline-block;
+      float: none;
+      margin: 5px 0; }
+/* line 1743, ../scss/kickstart-global.scss */
+.node-product-type .field-name-body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 20px; }
+  /* line 1752, ../scss/kickstart-global.scss */
+  .node-product-type .field-name-body .read-more,
+  .node-product-type .field-name-body .read-less,
+  .node-product-type .field-name-body .read-more a,
+  .node-product-type .field-name-body .read-less a {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400; }
+  /* line 1758, ../scss/kickstart-global.scss */
+  .node-product-type .field-name-body .read-more a,
+  .node-product-type .field-name-body .read-less a {
+    color: #898a8c;
+    display: block;
+    height: 18px;
+    margin-top: 10px;
+    padding-right: 20px;
+    text-decoration: none;
+    text-indent: 25px;
+    text-transform: capitalize; }
+    /* line 1768, ../scss/kickstart-global.scss */
+    .node-product-type .field-name-body .read-more a:hover,
+    .node-product-type .field-name-body .read-less a:hover {
+      cursor: pointer;
+      text-decoration: underline; }
+  /* line 1773, ../scss/kickstart-global.scss */
+  .node-product-type .field-name-body .read-more a {
+    background: url("../images/btn_read_more.png") left top no-repeat; }
+  /* line 1776, ../scss/kickstart-global.scss */
+  .node-product-type .field-name-body .read-less a {
+    background: url("../images/btn_read_less.png") left top no-repeat; }
+/* line 1780, ../scss/kickstart-global.scss */
+.node-product-type .field-type-commerce-product-reference {
+  background: url("../images/bg_product_attributes_bottom.png") center bottom no-repeat;
+  margin-bottom: 15px;
+  padding-bottom: 50px; }
+  /* line 1785, ../scss/kickstart-global.scss */
+  .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart {
+    background: url("../images/bg_product_attributes_top.png") center top no-repeat;
+    padding-top: 40px; }
+    /* line 1790, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item {
+      position: relative;
+      /* Positions the throbber */ }
+      /* line 1793, ../scss/kickstart-global.scss */
+      .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item:after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden; }
+      /* line 1800, ../scss/kickstart-global.scss */
+      .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item div#edit-attributes-field-color {
+        float: left;
+        width: 50%; }
+      /* line 1804, ../scss/kickstart-global.scss */
+      .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item .ajax-progress-throbber {
+        /* Positions the throbber */
+        display: none;
+        position: absolute; }
+      /* line 1808, ../scss/kickstart-global.scss */
+      .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item .description {
+        position: relative; }
+    /* line 1813, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .form-item.form-item-attributes-field-color {
+      float: left;
+      margin-right: 5px;
+      width: auto; }
+    /* line 1818, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .commerce-fancy-attributes-color {
+      height: 20px;
+      width: 20px; }
+    /* line 1822, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .description .field {
+      border: 1px solid #cbcdcc;
+      padding: 3px; }
+    /* line 1826, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .description-selected .field {
+      border-color: #2698f2; }
+    /* line 1831, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart label {
+      float: left;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      margin-right: 5px;
+      white-space: nowrap;
+      width: 45%; }
+      /* line 1839, ../scss/kickstart-global.scss */
+      .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart label:after {
+        content: " :"; }
+    /* line 1843, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-item {
+      margin: 0;
+      padding-bottom: 1em; }
+    /* line 1847, ../scss/kickstart-global.scss */
+    .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit {
+      background: #2698f2 url("../images/bg_add_to_cart.png") 90% 50% no-repeat;
+      border: 0;
+      -moz-border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -khtml-border-radius: 8px;
+      border-radius: 8px;
+      color: #ffffff;
+      font-family: "Open Sans", sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      margin-top: 40px;
+      margin-left: 5px;
+      padding: 5px 50px 5px 10px; }
+      /* line 1859, ../scss/kickstart-global.scss */
+      .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit:hover {
+        cursor: pointer; }
+
+/*.node-product-type .product-title {
+  clear: both;
+  font-family: $headerfont;
+  font-size: 24px;
+  font-weight: 700;
+}*/
+/* line 1873, ../scss/kickstart-global.scss */
+.service-links {
+  float: right;
+  width: 315px; }
+  /* line 1877, ../scss/kickstart-global.scss */
+  .service-links ul li {
+    display: inline;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 90px; }
+
+/**********************************************
+* 5.4. Checkout process
+**********************************************/
+/**
+* Checkout progress
+*/
+/* line 1891, ../scss/kickstart-global.scss */
+ol.inline.commerce-checkout-progress {
+  margin-bottom: 0;
+  margin-left: 10px; }
+  /* line 1894, ../scss/kickstart-global.scss */
+  ol.inline.commerce-checkout-progress li {
+    background-color: #efefef;
+    color: #898A8C;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 0 0px 10px 0;
+    padding: 15px 20px 15px 35px;
+    position: relative;
+    width: auto; }
+    /* line 1904, ../scss/kickstart-global.scss */
+    ol.inline.commerce-checkout-progress li:after {
+      background: transparent url("../images/bg_checkout_progress.png") right center no-repeat;
+      content: " ";
+      font-size: 0;
+      display: block;
+      float: right;
+      position: absolute;
+      top: 0;
+      right: -25px;
+      height: 50px;
+      width: 25px;
+      z-index: 2; }
+    /* line 1917, ../scss/kickstart-global.scss */
+    ol.inline.commerce-checkout-progress li.last:after {
+      background: #efefef url("../images/bg_checkout_progress_last.png") right center no-repeat; }
+    /* line 1921, ../scss/kickstart-global.scss */
+    ol.inline.commerce-checkout-progress li.active, ol.inline.commerce-checkout-progress li.last.active {
+      background-color: #3aa1f3;
+      color: #ffffff; }
+      /* line 1925, ../scss/kickstart-global.scss */
+      ol.inline.commerce-checkout-progress li.active:after, ol.inline.commerce-checkout-progress li.last.active:after {
+        background: transparent url("../images/bg_checkout_progress_active.png") right center no-repeat; }
+    /* line 1931, ../scss/kickstart-global.scss */
+    ol.inline.commerce-checkout-progress li.previous, ol.inline.commerce-checkout-progress li.visited {
+      color: #3aae3f; }
+      /* line 1933, ../scss/kickstart-global.scss */
+      ol.inline.commerce-checkout-progress li.previous a, ol.inline.commerce-checkout-progress li.visited a {
+        color: #3aae3f; }
+    /* line 1936, ../scss/kickstart-global.scss */
+    ol.inline.commerce-checkout-progress li a {
+      font-size: 16px;
+      font-weight: 700; }
+
+/**
+* Shopping cart page
+*/
+/* line 1951, ../scss/kickstart-global.scss */
+#views-form-commerce-cart-form-default table,
+#commerce-checkout-form-checkout .view-commerce-cart-summary table,
+#commerce-checkout-form-review .view-commerce-cart-summary table,
+.page-user-orders .view-commerce-line-item-table table,
+.view-commerce-backoffice-user-orders table {
+  border-collapse: collapse;
+  width: 100%; }
+  /* line 1955, ../scss/kickstart-global.scss */
+  #views-form-commerce-cart-form-default table th,
+  #commerce-checkout-form-checkout .view-commerce-cart-summary table th,
+  #commerce-checkout-form-review .view-commerce-cart-summary table th,
+  .page-user-orders .view-commerce-line-item-table table th,
+  .view-commerce-backoffice-user-orders table th {
+    color: #777777;
+    font-size: 13px;
+    padding: 0 10px 10px;
+    text-align: left;
+    text-transform: uppercase; }
+  /* line 1963, ../scss/kickstart-global.scss */
+  #views-form-commerce-cart-form-default table tr.even,
+  #views-form-commerce-cart-form-default table tr.odd,
+  #commerce-checkout-form-checkout .view-commerce-cart-summary table tr.even,
+  #commerce-checkout-form-checkout .view-commerce-cart-summary table tr.odd,
+  #commerce-checkout-form-review .view-commerce-cart-summary table tr.even,
+  #commerce-checkout-form-review .view-commerce-cart-summary table tr.odd,
+  .page-user-orders .view-commerce-line-item-table table tr.even,
+  .page-user-orders .view-commerce-line-item-table table tr.odd,
+  .view-commerce-backoffice-user-orders table tr.even,
+  .view-commerce-backoffice-user-orders table tr.odd {
+    background-color: transparent;
+    border: 0; }
+  /* line 1967, ../scss/kickstart-global.scss */
+  #views-form-commerce-cart-form-default table td,
+  #commerce-checkout-form-checkout .view-commerce-cart-summary table td,
+  #commerce-checkout-form-review .view-commerce-cart-summary table td,
+  .page-user-orders .view-commerce-line-item-table table td,
+  .view-commerce-backoffice-user-orders table td {
+    background-color: transparent;
+    border-bottom: 1px solid #cccccc;
+    margin: 0;
+    padding: 25px 10px; }
+  /* line 1978, ../scss/kickstart-global.scss */
+  #views-form-commerce-cart-form-default table .views-field-edit-delete,
+  #views-form-commerce-cart-form-default table .views-field-commerce-total,
+  #commerce-checkout-form-checkout .view-commerce-cart-summary table .views-field-edit-delete,
+  #commerce-checkout-form-checkout .view-commerce-cart-summary table .views-field-commerce-total,
+  #commerce-checkout-form-review .view-commerce-cart-summary table .views-field-edit-delete,
+  #commerce-checkout-form-review .view-commerce-cart-summary table .views-field-commerce-total,
+  .page-user-orders .view-commerce-line-item-table table .views-field-edit-delete,
+  .page-user-orders .view-commerce-line-item-table table .views-field-commerce-total,
+  .view-commerce-backoffice-user-orders table .views-field-edit-delete,
+  .view-commerce-backoffice-user-orders table .views-field-commerce-total {
+    text-align: right; }
+/* line 1983, ../scss/kickstart-global.scss */
+#views-form-commerce-cart-form-default .commerce-line-item-actions,
+#commerce-checkout-form-checkout .view-commerce-cart-summary .commerce-line-item-actions,
+#commerce-checkout-form-review .view-commerce-cart-summary .commerce-line-item-actions,
+.page-user-orders .view-commerce-line-item-table .commerce-line-item-actions,
+.view-commerce-backoffice-user-orders .commerce-line-item-actions {
+  clear: both; }
+/* line 1988, ../scss/kickstart-global.scss */
+#views-form-commerce-cart-form-default table.commerce-price-formatted-components td,
+#commerce-checkout-form-checkout .view-commerce-cart-summary table.commerce-price-formatted-components td,
+#commerce-checkout-form-review .view-commerce-cart-summary table.commerce-price-formatted-components td,
+.page-user-orders .view-commerce-line-item-table table.commerce-price-formatted-components td,
+.view-commerce-backoffice-user-orders table.commerce-price-formatted-components td {
+  white-space: normal; }
+
+/* line 1994, ../scss/kickstart-global.scss */
+.page-user-orders .view-commerce-line-item-table table td {
+  white-space: normal; }
+
+/* Order total table */
+/* line 1998, ../scss/kickstart-global.scss */
+.field-name-commerce-order-total {
+  float: none; }
+  /* line 2001, ../scss/kickstart-global.scss */
+  .field-name-commerce-order-total .field-items {
+    background-color: #E5E5E5;
+    float: right;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    min-width: 280px;
+    width: 280px; }
+    /* line 2009, ../scss/kickstart-global.scss */
+    .field-name-commerce-order-total .field-items table.commerce-price-formatted-components {
+      width: 100%; }
+      /* line 2012, ../scss/kickstart-global.scss */
+      .field-name-commerce-order-total .field-items table.commerce-price-formatted-components tr, .field-name-commerce-order-total .field-items table.commerce-price-formatted-components even,
+      .field-name-commerce-order-total .field-items table.commerce-price-formatted-components tr, .field-name-commerce-order-total .field-items table.commerce-price-formatted-components odd {
+        background: none;
+        border: 0;
+        padding: 10px !important; }
+      /* line 2018, ../scss/kickstart-global.scss */
+      .field-name-commerce-order-total .field-items table.commerce-price-formatted-components td {
+        border-bottom: 1px solid #cccccc;
+        padding: 10px !important;
+        width: auto !important; }
+        /* line 2023, ../scss/kickstart-global.scss */
+        .field-name-commerce-order-total .field-items table.commerce-price-formatted-components td.component-title {
+          text-align: left; }
+
+/* Checkout button */
+/* line 2038, ../scss/kickstart-global.scss */
+.page-checkout #commerce-checkout-form-checkout .checkout-buttons input#edit-cancel,
+.page-checkout #commerce-checkout-form-checkout .checkout-buttons input#edit-back,
+.page-checkout #commerce-checkout-form-shipping .checkout-buttons input#edit-cancel,
+.page-checkout #commerce-checkout-form-shipping .checkout-buttons input#edit-back,
+.page-checkout #commerce-checkout-form-review .checkout-buttons input#edit-cancel,
+.page-checkout #commerce-checkout-form-review .checkout-buttons input#edit-back {
+  background: none;
+  border: none transparent;
+  border-bottom: 1px solid #888888;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  border-radius: 0px;
+  color: #666666;
+  font-weight: normal;
+  margin: 0 20px 0 5px;
+  padding: 0 0 1px 0;
+  overlay: 0; }
+/* line 2049, ../scss/kickstart-global.scss */
+.page-checkout #commerce-checkout-form-checkout .checkout-buttons input#edit-continue,
+.page-checkout #commerce-checkout-form-shipping .checkout-buttons input#edit-continue,
+.page-checkout #commerce-checkout-form-review .checkout-buttons input#edit-continue {
+  background: #2698f2 none 0 0 no-repeat;
+  border: 0;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 0 10px 0 0;
+  padding: 10px 15px; }
+
+/* line 2065, ../scss/kickstart-global.scss */
+.page-cart #views-form-commerce-cart-form-default {
+  /* Button styling */ }
+  /* line 2066, ../scss/kickstart-global.scss */
+  .page-cart #views-form-commerce-cart-form-default table {
+    /*.views-field-line-item-title {
+      width: 400px; // used ??
+    }*/
+    /*.views-field-nothing {
+      position: relative; >> commerce kickstart
+    }*/ }
+    /* line 2067, ../scss/kickstart-global.scss */
+    .page-cart #views-form-commerce-cart-form-default table tbody {
+      /*td {
+          // used ?
+
+        .entity-commerce-product {
+
+          display: inline;
+          &:after {
+            clear: none;
+          }
+
+          h2 {
+            display: none;
+            font-size: 0;
+            text-indent: -9999px;
+          }
+          .content {
+            .field:after {
+              clear: none;
+              margin-bottom: 3px;
+            }
+            .field-name-field-images {
+              display: inline;
+              float: left;
+              margin-right: 8px;
+
+              img {
+                border: 1px solid #9d9d9d;
+              }
+            }
+            .commerce-product-sku-label,
+            .field-label {
+              font-size: 11px;
+              font-weight: normal;
+              line-height: 22px;
+              text-transform: uppercase;
+              vertical-align: bottom;
+            }
+            .field-label-inline .field-items {
+              float: inherit;
+            }
+            .commerce-product-title {
+              font-weight: bold;
+            }
+          }
+        }
+      }*/ }
+      /* line 2114, ../scss/kickstart-global.scss */
+      .page-cart #views-form-commerce-cart-form-default table tbody a.view_product_details {
+        color: #7d7d7d;
+        font-size: 11px;
+        margin-top: 5px; }
+  /* line 2128, ../scss/kickstart-global.scss */
+  .page-cart #views-form-commerce-cart-form-default .views-field-edit-delete input.delete-line-item {
+    background: none;
+    border: none transparent;
+    border-bottom: 1px solid #888888;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -khtml-border-radius: 0px;
+    border-radius: 0px;
+    color: #666666;
+    font-weight: normal;
+    padding: 0 0 1px 0; }
+  /* line 2138, ../scss/kickstart-global.scss */
+  .page-cart #views-form-commerce-cart-form-default .commerce-line-item-actions input#edit-submit {
+    background: none;
+    border: none transparent;
+    border-bottom: 1px solid #888888;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -khtml-border-radius: 0px;
+    border-radius: 0px;
+    color: #666666;
+    font-weight: normal;
+    margin-right: 20px;
+    padding: 0 0 1px 0; }
+  /* line 2148, ../scss/kickstart-global.scss */
+  .page-cart #views-form-commerce-cart-form-default .commerce-line-item-actions input#edit-checkout {
+    background: #2698f2 none 0 0 no-repeat;
+    border: 0;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 6px 12px; }
+
+/**
+* Checkout page
+* Review order page
+* Checkout complete page
+*/
+/* line 2167, ../scss/kickstart-global.scss */
+.page-checkout {
+  /* Checkout complete */ }
+  /* line 2170, ../scss/kickstart-global.scss */
+  .page-checkout #commerce-checkout-form-checkout fieldset,
+  .page-checkout #commerce-checkout-form-review fieldset {
+    padding: 10px; }
+    /* line 2175, ../scss/kickstart-global.scss */
+    .page-checkout #commerce-checkout-form-checkout fieldset.customer_profile_billing .form-item, .page-checkout #commerce-checkout-form-checkout fieldset.customer_profile_shipping .form-item,
+    .page-checkout #commerce-checkout-form-review fieldset.customer_profile_billing .form-item,
+    .page-checkout #commerce-checkout-form-review fieldset.customer_profile_shipping .form-item {
+      width: 100%; }
+    /* line 2179, ../scss/kickstart-global.scss */
+    .page-checkout #commerce-checkout-form-checkout fieldset.customer_profile_billing .locality-block .form-item, .page-checkout #commerce-checkout-form-checkout fieldset.customer_profile_shipping .locality-block .form-item,
+    .page-checkout #commerce-checkout-form-review fieldset.customer_profile_billing .locality-block .form-item,
+    .page-checkout #commerce-checkout-form-review fieldset.customer_profile_shipping .locality-block .form-item {
+      margin-bottom: 0;
+      width: inherit; }
+      /* line 2183, ../scss/kickstart-global.scss */
+      .page-checkout #commerce-checkout-form-checkout fieldset.customer_profile_billing .locality-block .form-item label, .page-checkout #commerce-checkout-form-checkout fieldset.customer_profile_shipping .locality-block .form-item label,
+      .page-checkout #commerce-checkout-form-review fieldset.customer_profile_billing .locality-block .form-item label,
+      .page-checkout #commerce-checkout-form-review fieldset.customer_profile_shipping .locality-block .form-item label {
+        clear: both;
+        float: none;
+        width: inherit; }
+    /* line 2191, ../scss/kickstart-global.scss */
+    .page-checkout #commerce-checkout-form-checkout fieldset legend,
+    .page-checkout #commerce-checkout-form-review fieldset legend {
+      border-bottom: 1px solid #d7d7d7;
+      margin: 0 0 10px 0;
+      padding: 0px;
+      width: 100%; }
+      /* line 2196, ../scss/kickstart-global.scss */
+      .page-checkout #commerce-checkout-form-checkout fieldset legend span,
+      .page-checkout #commerce-checkout-form-review fieldset legend span {
+        font-weight: 600;
+        padding-left: 10px;
+        text-transform: uppercase; }
+    /* line 2202, ../scss/kickstart-global.scss */
+    .page-checkout #commerce-checkout-form-checkout fieldset label,
+    .page-checkout #commerce-checkout-form-review fieldset label {
+      float: none;
+      width: inherit; }
+  /* line 2209, ../scss/kickstart-global.scss */
+  .page-checkout #commerce-checkout-form-complete {
+    margin: 0 10px;
+    padding-top: 15px; }
+
+/**
+* Shipping page
+*/
+/* line 2217, ../scss/kickstart-global.scss */
+.page-checkout-shipping .form-item-commerce-shipping-shipping-service {
+  clear: left;
+  float: left;
+  margin: 0;
+  padding: 25px 8px;
+  position: relative;
+  width: 400px; }
+  /* line 2225, ../scss/kickstart-global.scss */
+  .page-checkout-shipping .form-item-commerce-shipping-shipping-service label {
+    float: none;
+    font-weight: 400;
+    padding: 0 0 0 10px;
+    width: inherit; }
+  /* line 2231, ../scss/kickstart-global.scss */
+  .page-checkout-shipping .form-item-commerce-shipping-shipping-service .ajax-progress-throbber {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  /* line 2237, ../scss/kickstart-global.scss */
+  .page-checkout-shipping .form-item-commerce-shipping-shipping-service:hover, .page-checkout-shipping .form-item-commerce-shipping-shipping-service:hover .option {
+    background-color: #ececec;
+    cursor: pointer; }
+
+/**
+* Review order page
+*/
+/* line 2246, ../scss/kickstart-global.scss */
+.page-checkout-review #commerce-checkout-form-review {
+  /* Payment information */ }
+  /* line 2247, ../scss/kickstart-global.scss */
+  .page-checkout-review #commerce-checkout-form-review .checkout-help {
+    margin: 0 0 10px 10px; }
+  /* line 2250, ../scss/kickstart-global.scss */
+  .page-checkout-review #commerce-checkout-form-review .checkout_review table {
+    width: 100%; }
+    /* line 2254, ../scss/kickstart-global.scss */
+    .page-checkout-review #commerce-checkout-form-review .checkout_review table tbody tr {
+      background-color: transparent;
+      border: 0; }
+    /* line 2258, ../scss/kickstart-global.scss */
+    .page-checkout-review #commerce-checkout-form-review .checkout_review table tbody tr.pane-title td {
+      border-bottom: 1px solid #d7d7d7;
+      font-weight: 600;
+      padding: 5px 10px;
+      text-transform: uppercase; }
+      /* line 2264, ../scss/kickstart-global.scss */
+      .page-checkout-review #commerce-checkout-form-review .checkout_review table tbody tr.pane-title td .pane-data-full {
+        padding: 20px; }
+    /* line 2269, ../scss/kickstart-global.scss */
+    .page-checkout-review #commerce-checkout-form-review .checkout_review table tbody tr.pane-data td.pane-data-full {
+      border-bottom: 0;
+      padding: 20px;
+      padding-bottom: 10px; }
+      /* line 2274, ../scss/kickstart-global.scss */
+      .page-checkout-review #commerce-checkout-form-review .checkout_review table tbody tr.pane-data td.pane-data-full .view-commerce-cart-summary {
+        margin-top: 5px; }
+  /* line 2281, ../scss/kickstart-global.scss */
+  .page-checkout-review #commerce-checkout-form-review table.commerce-price-formatted-components {
+    margin: 0; }
+  /* line 2285, ../scss/kickstart-global.scss */
+  .page-checkout-review #commerce-checkout-form-review fieldset.commerce_payment .fieldset-wrapper {
+    padding: 0 10px; }
+    /* line 2287, ../scss/kickstart-global.scss */
+    .page-checkout-review #commerce-checkout-form-review fieldset.commerce_payment .fieldset-wrapper label {
+      float: none; }
+
+/* Page user review order */
+/** unused
+.page-user-orders td.views-field-created,
+.page-user-orders td.views-field-changed {
+  color: #898A8C;
+  font-size: 13px;
+}
+**/
+/* line 2305, ../scss/kickstart-global.scss */
+.page-user-orders .field-name-commerce-order-total {
+  overflow: hidden;
+  *zoom: 1; }
+  /* line 2308, ../scss/kickstart-global.scss */
+  .page-user-orders .field-name-commerce-order-total:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  /* line 2315, ../scss/kickstart-global.scss */
+  .page-user-orders .field-name-commerce-order-total .commerce-price-formatted-components tr.component-type-commerce-price-formatted-amount {
+    background-color: transparent;
+    color: #000000; }
+/* line 2321, ../scss/kickstart-global.scss */
+.page-user-orders .field-name-commerce-customer-billing,
+.page-user-orders .field-name-commerce-customer-shipping {
+  float: left;
+  margin: 5px 3% 0 0;
+  width: 45%; }
+  /* line 2325, ../scss/kickstart-global.scss */
+  .page-user-orders .field-name-commerce-customer-billing .field-label,
+  .page-user-orders .field-name-commerce-customer-shipping .field-label {
+    background-color: #E5E5E5;
+    font-size: 14px;
+    padding: 7px 10px; }
+  /* line 2330, ../scss/kickstart-global.scss */
+  .page-user-orders .field-name-commerce-customer-billing .field-items,
+  .page-user-orders .field-name-commerce-customer-shipping .field-items {
+    padding: 5px; }
+/* line 2334, ../scss/kickstart-global.scss */
+.page-user-orders .commerce-backoffice-order-status-form {
+  clear: both;
+  padding: 20px 0; }
+  /* line 2339, ../scss/kickstart-global.scss */
+  .page-user-orders .commerce-backoffice-order-status-form .form-type-select,
+  .page-user-orders .commerce-backoffice-order-status-form .form-submit {
+    display: inline; }
+
+/* line 2345, ../scss/kickstart-global.scss */
+.view-commerce-backoffice-user-orders th a {
+  color: #777777;
+  text-decoration: none; }
+  /* line 2348, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-user-orders th a img {
+    vertical-align: baseline; }
+
+/*
+.page-user-orders .view-commerce-user-orders table thead th a {
+  color: #777777;
+  text-decoration: none;
+}*/
+/* Order history */
+/* line 2359, ../scss/kickstart-global.scss */
+.view-commerce-backoffice-order-messages {
+  /* Order activity stream */
+  /* Order states */
+  /* Need generic markup */ }
+  /* line 2360, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-order-messages table {
+    width: 100%; }
+  /* line 2363, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-order-messages th {
+    color: #777777;
+    font-size: 13px;
+    padding: 0 10px 10px;
+    text-align: left;
+    text-transform: uppercase; }
+  /* line 2370, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-order-messages td {
+    background-color: transparent;
+    padding: 25px 10px; }
+  /* line 2375, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-order-messages tr.even,
+  .view-commerce-backoffice-order-messages tr.odd {
+    background-color: transparent; }
+  /* line 2379, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-order-messages .views-field-timestamp {
+    color: #898A8C;
+    font-size: 13px; }
+  /* line 2384, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-order-messages h2.title {
+    background-color: #E5E5E5;
+    font-size: 14px;
+    padding: 7px 10px; }
+  /* line 2393, ../scss/kickstart-global.scss */
+  .view-commerce-backoffice-order-messages .commerce_order_state,
+  .view-commerce-backoffice-order-messages .commerce_order_payment_entered {
+    border: 1px solid #e5e5e5;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    padding: 4px 7px; }
+
+/* Comment form */
+/* line 2402, ../scss/kickstart-global.scss */
+#commerce-backoffice-order-message-form fieldset {
+  position: relative;
+  margin: 0;
+  margin-top: 40px;
+  padding-top: 20px; }
+  /* line 2408, ../scss/kickstart-global.scss */
+  #commerce-backoffice-order-message-form fieldset legend {
+    position: absolute;
+    top: -10px; }
+  /* line 2413, ../scss/kickstart-global.scss */
+  #commerce-backoffice-order-message-form fieldset .fieldset-wrapper {
+    background-color: #ececec;
+    padding: 15px; }
+    /* line 2417, ../scss/kickstart-global.scss */
+    #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .form-item label {
+      float: left;
+      padding-right: 8px;
+      text-align: right;
+      width: 110px; }
+      /* line 2422, ../scss/kickstart-global.scss */
+      #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .form-item label:after {
+        clear: both;
+        content: ":"; }
+    /* line 2427, ../scss/kickstart-global.scss */
+    #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .form-textarea-wrapper {
+      float: left;
+      width: 65%; }
+    /* line 2431, ../scss/kickstart-global.scss */
+    #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .filter-wrapper {
+      clear: both; }
+      /* line 2433, ../scss/kickstart-global.scss */
+      #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .filter-wrapper .fieldset-wrapper {
+        font-size: 11px;
+        margin: 0 auto;
+        width: 80%; }
+      /* line 2438, ../scss/kickstart-global.scss */
+      #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .filter-wrapper .form-item {
+        margin-top: 0; }
+        /* line 2440, ../scss/kickstart-global.scss */
+        #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .filter-wrapper .form-item label {
+          float: inherit;
+          text-align: inherit;
+          width: inherit; }
+      /* line 2446, ../scss/kickstart-global.scss */
+      #commerce-backoffice-order-message-form fieldset .fieldset-wrapper .filter-wrapper .form-submit {
+        font: normal 16px/21px "Open Sans", Arial, sans-serif;
+        line-height: 30px;
+        padding: 4px 15px; }
+
+/**************************************************
+* --
+* 6. Kickstart specific
+* --
+**************************************************/
+/**********************************************
+* 6.1. Homepage elements
+**********************************************/
+/* line 2463, ../scss/kickstart-global.scss */
+.front .zone-content {
+  margin-bottom: 0; }
+
+/* line 2466, ../scss/kickstart-global.scss */
+.front .region-content-inner {
+  min-height: 100%;
+  padding: 0; }
+
+/**************************************************
+* --
+* 7. Blog
+* --
+**************************************************/
+/* line 2477, ../scss/kickstart-global.scss */
+.page-blog .region-content .view-content .views-row,
+.page-blog .region-content .view-content .views-row-even {
+  clear: none;
+  float: none; }
+/* line 2481, ../scss/kickstart-global.scss */
+.page-blog .region-content .view-content .views-row {
+  border: 1px solid #e0e3e6;
+  display: block;
+  margin: 15px 0px;
+  padding: 0px;
+  width: auto; }
+  /* line 2487, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row .node-blog-post {
+    padding: 10px 15px;
+    position: relative; }
+  /* line 2491, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 0;
+    text-transform: uppercase; }
+    /* line 2497, ../scss/kickstart-global.scss */
+    .page-blog .region-content .view-content .views-row h2 a {
+      color: #656565;
+      text-decoration: none; }
+  /* line 2502, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row .submitted {
+    color: #A0A0A0;
+    font-size: 12px;
+    margin: 5px 0;
+    text-transform: uppercase; }
+    /* line 2507, ../scss/kickstart-global.scss */
+    .page-blog .region-content .view-content .views-row .submitted a {
+      color: #A0A0A0; }
+  /* line 2512, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row .content .field-name-field-image {
+    margin: 0 0 15px; }
+  /* line 2515, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row .content .field-type-taxonomy-term-reference .field-items .field-item {
+    padding-right: 3px; }
+  /* line 2518, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row .content .field-name-field-tags {
+    border-top: 1px dotted #777777;
+    font-size: 11px;
+    margin-bottom: 5px;
+    padding: 3px; }
+  /* line 2524, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row .content .field-name-field-blog-category {
+    font-size: 11px;
+    padding: 3px; }
+  /* line 2529, ../scss/kickstart-global.scss */
+  .page-blog .region-content .view-content .views-row .node-links {
+    font-size: 12px; }
+    /* line 2531, ../scss/kickstart-global.scss */
+    .page-blog .region-content .view-content .views-row .node-links a {
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none; }
+    /* line 2536, ../scss/kickstart-global.scss */
+    .page-blog .region-content .view-content .views-row .node-links ul li {
+      margin: 0; }
+
+/* line 2545, ../scss/kickstart-global.scss */
+.node-type-blog-post h1#page-title,
+.node-type-blog-post .comment-wrapper .title {
+  color: #656565;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-transform: uppercase; }
+/* line 2552, ../scss/kickstart-global.scss */
+.node-type-blog-post .submitted {
+  color: #A0A0A0;
+  font-size: 12px;
+  margin: 5px 0;
+  text-transform: uppercase; }
+  /* line 2557, ../scss/kickstart-global.scss */
+  .node-type-blog-post .submitted a {
+    color: #A0A0A0; }
+/* line 2562, ../scss/kickstart-global.scss */
+.node-type-blog-post .content .field-name-field-image {
+  margin: 0 0 15px; }
+/* line 2565, ../scss/kickstart-global.scss */
+.node-type-blog-post .content .field-type-taxonomy-term-reference .field-items .field-item {
+  padding-right: 3px; }
+/* line 2568, ../scss/kickstart-global.scss */
+.node-type-blog-post .content .field-name-field-tags {
+  border-top: 1px dotted #777777;
+  font-size: 11px;
+  margin-bottom: 5px;
+  padding: 3px; }
+/* line 2574, ../scss/kickstart-global.scss */
+.node-type-blog-post .content .field-name-field-blog-category {
+  font-size: 11px;
+  padding: 3px; }
+
+/**************************************************
+* --
+* 8. Comments
+* --
+**************************************************/
+/* line 2586, ../scss/kickstart-global.scss */
+article.comment {
+  padding: 10px 4px 5px 4px; }
+  /* line 2589, ../scss/kickstart-global.scss */
+  article.comment header em {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    border-radius: 3px;
+    float: right;
+    font-size: 12px;
+    font-style: normal;
+    padding: 2px 4px;
+    text-transform: uppercase; }
+    /* line 2596, ../scss/kickstart-global.scss */
+    article.comment header em.new {
+      background-color: #207cca;
+      color: #ffffff; }
+    /* line 2600, ../scss/kickstart-global.scss */
+    article.comment header em.unpublished {
+      font-weight: 700; }
+  /* line 2604, ../scss/kickstart-global.scss */
+  article.comment footer.comment-submitted {
+    border-bottom: 1px dotted #e0e3e6;
+    font-size: 12px;
+    margin: 5px 0;
+    text-transform: uppercase; }
+  /* line 2610, ../scss/kickstart-global.scss */
+  article.comment .field-name-comment-body {
+    padding: 0px 10px; }
+  /* line 2613, ../scss/kickstart-global.scss */
+  article.comment .comment-links {
+    font-size: 13px;
+    padding: 5px;
+    text-transform: uppercase; }
+
+/* Comment form */
+/* line 2620, ../scss/kickstart-global.scss */
+.comment-wrapper {
+  padding: 0px 12px; }
+  /* line 2623, ../scss/kickstart-global.scss */
+  .comment-wrapper .title {
+    border-bottom: 1px dotted #656565;
+    color: #656565;
+    font-weight: 400;
+    margin-bottom: 0;
+    text-transform: uppercase; }
+  /* line 2630, ../scss/kickstart-global.scss */
+  .comment-wrapper h2.comment-form {
+    border-bottom: 1px solid #e0e3e6;
+    margin-top: 20px; }
+
+/* line 2635, ../scss/kickstart-global.scss */
+.comment-form {
+  background-color: #ececec;
+  padding: 15px; }
+  /* line 2638, ../scss/kickstart-global.scss */
+  .comment-form .form-item label {
+    float: left;
+    padding-right: 8px;
+    text-align: right;
+    width: 110px; }
+    /* line 2643, ../scss/kickstart-global.scss */
+    .comment-form .form-item label:after {
+      clear: both;
+      content: ":"; }
+  /* line 2648, ../scss/kickstart-global.scss */
+  .comment-form #edit-author--2 {
+    margin: 0; }
+    /* line 2650, ../scss/kickstart-global.scss */
+    .comment-form #edit-author--2 label {
+      display: inline; }
+  /* line 2654, ../scss/kickstart-global.scss */
+  .comment-form .form-textarea-wrapper {
+    float: left;
+    width: 65%; }
+  /* line 2658, ../scss/kickstart-global.scss */
+  .comment-form .filter-wrapper {
+    clear: both; }
+    /* line 2660, ../scss/kickstart-global.scss */
+    .comment-form .filter-wrapper .fieldset-wrapper {
+      font-size: 11px;
+      margin: 0 auto;
+      width: 80%; }
+    /* line 2665, ../scss/kickstart-global.scss */
+    .comment-form .filter-wrapper .form-item {
+      margin-top: 0; }
+      /* line 2667, ../scss/kickstart-global.scss */
+      .comment-form .filter-wrapper .form-item label {
+        float: inherit;
+        text-align: inherit;
+        width: inherit; }
+    /* line 2673, ../scss/kickstart-global.scss */
+    .comment-form .filter-wrapper .form-submit {
+      font: normal 16px/21px "Open Sans", Arial, sans-serif;
+      line-height: 30px;
+      padding: 4px 15px; }
+
+/* Comment links */
+/* line 2681, ../scss/kickstart-global.scss */
+.links.node-links {
+  float: right;
+  margin-top: 10px;
+  margin-right: 15px;
+  padding: 5px;
+  white-space: nowrap; }
+
+/* line 2688, ../scss/kickstart-global.scss */
+.node-teaser .links.node-links {
+  float: none; }
+
+/* line 2691, ../scss/kickstart-global.scss */
+.node-links .links {
+  background-color: #ececec;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+  padding: 3px 5px; }
+
+/* line 2697, ../scss/kickstart-global.scss */
+.node-teaser .links.node-links .links {
+  background-color: transparent; }
+  /* line 2700, ../scss/kickstart-global.scss */
+  .node-teaser .links.node-links .links li {
+    margin: 0;
+    padding: 0; }
+  /* line 2706, ../scss/kickstart-global.scss */
+  .node-teaser .links.node-links .links .node-readmore a,
+  .node-teaser .links.node-links .links .comment-comments a,
+  .node-teaser .links.node-links .links .comment-new-comments a {
+    border: 1px solid #275a84;
+    border-right-width: 0;
+    color: #4386be;
+    margin: 4px 0;
+    padding: 4px 8px; }
+  /* line 2713, ../scss/kickstart-global.scss */
+  .node-teaser .links.node-links .links .comment-new-comments {
+    border-left-width: 0;
+    border-right-width: 1px;
+    margin-left: -1px; }
+    /* line 2717, ../scss/kickstart-global.scss */
+    .node-teaser .links.node-links .links .comment-new-comments:hover {
+      background-color: transparent; }
+    /* line 2720, ../scss/kickstart-global.scss */
+    .node-teaser .links.node-links .links .comment-new-comments a {
+      color: #ff2424; }
+  /* line 2724, ../scss/kickstart-global.scss */
+  .node-teaser .links.node-links .links li:hover a {
+    background-color: #e7f3fd;
+    cursor: pointer; }
+  /* line 2728, ../scss/kickstart-global.scss */
+  .node-teaser .links.node-links .links .first a {
+    -moz-border-radius-topleft: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-top-left: 3px;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-bottom-left-radius: 3px;
+    -moz-border-radius-bottom-left: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    padding-right: 8px; }
+  /* line 2735, ../scss/kickstart-global.scss */
+  .node-teaser .links.node-links .links .last a {
+    -moz-border-radius-topright: 3px;
+    border-top-right-radius: 3px;
+    -moz-border-radius-top-right: 3px;
+    -webkit-border-top-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+    -moz-border-radius-bottom-right: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-right-width: 1px;
+    padding-right: 8px; }
+
+/**************************************************
+* --
+* 9. User account
+* --
+**************************************************/
+/* line 2750, ../scss/kickstart-global.scss */
+.page-user,
+.page-checkout {
+  /* Registration form */
+  /* Login form, create an account block */
+  /* Password form */
+  /* actions links */ }
+  /* line 2754, ../scss/kickstart-global.scss */
+  .page-user #user_register_form,
+  .page-user #user_login_form,
+  .page-user .create-account,
+  .page-user #user_pass_form,
+  .page-checkout #user_register_form,
+  .page-checkout #user_login_form,
+  .page-checkout .create-account,
+  .page-checkout #user_pass_form {
+    clear: both;
+    float: none;
+    width: auto; }
+  /* line 2763, ../scss/kickstart-global.scss */
+  .page-user #user-register-form .form-submit,
+  .page-user #user-profile-form .form-submit,
+  .page-user #user_login_form .form-submit,
+  .page-user #user_pass_form .form-submit,
+  .page-checkout #user-register-form .form-submit,
+  .page-checkout #user-profile-form .form-submit,
+  .page-checkout #user_login_form .form-submit,
+  .page-checkout #user_pass_form .form-submit {
+    background: #199107;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #60aa20), color-stop(1, #199107));
+    background: -moz-linear-gradient(top center, #60aa20 0%, #199107 100%);
+    border: 0;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    color: #ffffff;
+    padding: 10px 15px; }
+    /* line 2771, ../scss/kickstart-global.scss */
+    .page-user #user-register-form .form-submit:hover,
+    .page-user #user-profile-form .form-submit:hover,
+    .page-user #user_login_form .form-submit:hover,
+    .page-user #user_pass_form .form-submit:hover,
+    .page-checkout #user-register-form .form-submit:hover,
+    .page-checkout #user-profile-form .form-submit:hover,
+    .page-checkout #user_login_form .form-submit:hover,
+    .page-checkout #user_pass_form .form-submit:hover {
+      background: #60aa20; }
+  /* line 2779, ../scss/kickstart-global.scss */
+  .page-user #user-register-form h1,
+  .page-user #user_login_form h1,
+  .page-user .create-account h2,
+  .page-user #user_pass_form h1,
+  .page-checkout #user-register-form h1,
+  .page-checkout #user_login_form h1,
+  .page-checkout .create-account h2,
+  .page-checkout #user_pass_form h1 {
+    font: normal 300 38px/38px "Open Sans", Arial, sans-serif; }
+  /* line 2785, ../scss/kickstart-global.scss */
+  .page-user form#user-register-form .form-item-pass,
+  .page-user form#user-profile-form .form-item-pass,
+  .page-checkout form#user-register-form .form-item-pass,
+  .page-checkout form#user-profile-form .form-item-pass {
+    position: relative; }
+    /* line 2788, ../scss/kickstart-global.scss */
+    .page-user form#user-register-form .form-item-pass .password-parent,
+    .page-user form#user-profile-form .form-item-pass .password-parent,
+    .page-checkout form#user-register-form .form-item-pass .password-parent,
+    .page-checkout form#user-profile-form .form-item-pass .password-parent {
+      width: inherit; }
+      /* line 2791, ../scss/kickstart-global.scss */
+      .page-user form#user-register-form .form-item-pass .password-parent .password-strength,
+      .page-user form#user-profile-form .form-item-pass .password-parent .password-strength,
+      .page-checkout form#user-register-form .form-item-pass .password-parent .password-strength,
+      .page-checkout form#user-profile-form .form-item-pass .password-parent .password-strength {
+        background-color: #eeeeee;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        border-radius: 5px;
+        margin-top: 0;
+        padding: 10px;
+        position: absolute;
+        bottom: -50px;
+        width: 90%; }
+    /* line 2801, ../scss/kickstart-global.scss */
+    .page-user form#user-register-form .form-item-pass .confirm-parent,
+    .page-user form#user-profile-form .form-item-pass .confirm-parent,
+    .page-checkout form#user-register-form .form-item-pass .confirm-parent,
+    .page-checkout form#user-profile-form .form-item-pass .confirm-parent {
+      width: inherit; }
+      /* line 2804, ../scss/kickstart-global.scss */
+      .page-user form#user-register-form .form-item-pass .confirm-parent div.password-confirm,
+      .page-user form#user-profile-form .form-item-pass .confirm-parent div.password-confirm,
+      .page-checkout form#user-register-form .form-item-pass .confirm-parent div.password-confirm,
+      .page-checkout form#user-profile-form .form-item-pass .confirm-parent div.password-confirm {
+        background-color: #eeeeee;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -khtml-border-radius: 5px;
+        border-radius: 5px;
+        margin-top: 0;
+        padding: 5px 10px 10px 10px;
+        position: absolute;
+        bottom: -80px;
+        width: 90%; }
+        /* line 2813, ../scss/kickstart-global.scss */
+        .page-user form#user-register-form .form-item-pass .confirm-parent div.password-confirm .ok,
+        .page-user form#user-profile-form .form-item-pass .confirm-parent div.password-confirm .ok,
+        .page-checkout form#user-register-form .form-item-pass .confirm-parent div.password-confirm .ok,
+        .page-checkout form#user-profile-form .form-item-pass .confirm-parent div.password-confirm .ok {
+          color: #60aa20;
+          font-weight: bold; }
+        /* line 2817, ../scss/kickstart-global.scss */
+        .page-user form#user-register-form .form-item-pass .confirm-parent div.password-confirm .error,
+        .page-user form#user-profile-form .form-item-pass .confirm-parent div.password-confirm .error,
+        .page-checkout form#user-register-form .form-item-pass .confirm-parent div.password-confirm .error,
+        .page-checkout form#user-profile-form .form-item-pass .confirm-parent div.password-confirm .error {
+          color: #EA2C2C;
+          font-weight: bold; }
+    /* line 2823, ../scss/kickstart-global.scss */
+    .page-user form#user-register-form .form-item-pass .password-suggestions,
+    .page-user form#user-profile-form .form-item-pass .password-suggestions,
+    .page-checkout form#user-register-form .form-item-pass .password-suggestions,
+    .page-checkout form#user-profile-form .form-item-pass .password-suggestions {
+      width: inherit; }
+      /* line 2826, ../scss/kickstart-global.scss */
+      .page-user form#user-register-form .form-item-pass .password-suggestions ul,
+      .page-user form#user-profile-form .form-item-pass .password-suggestions ul,
+      .page-checkout form#user-register-form .form-item-pass .password-suggestions ul,
+      .page-checkout form#user-profile-form .form-item-pass .password-suggestions ul {
+        margin-left: 20px; }
+  /* line 2831, ../scss/kickstart-global.scss */
+  .page-user form#user-register-form .form-actions,
+  .page-user form#user-profile-form .form-actions,
+  .page-checkout form#user-register-form .form-actions,
+  .page-checkout form#user-profile-form .form-actions {
+    margin-top: 90px; }
+    /* line 2834, ../scss/kickstart-global.scss */
+    .page-user form#user-register-form .form-actions .form-submit,
+    .page-user form#user-profile-form .form-actions .form-submit,
+    .page-checkout form#user-register-form .form-actions .form-submit,
+    .page-checkout form#user-profile-form .form-actions .form-submit {
+      float: left; }
+    /* line 2837, ../scss/kickstart-global.scss */
+    .page-user form#user-register-form .form-actions .back-to-login,
+    .page-user form#user-profile-form .form-actions .back-to-login,
+    .page-checkout form#user-register-form .form-actions .back-to-login,
+    .page-checkout form#user-profile-form .form-actions .back-to-login {
+      float: right;
+      margin: 0; }
+      /* line 2840, ../scss/kickstart-global.scss */
+      .page-user form#user-register-form .form-actions .back-to-login .login-account,
+      .page-user form#user-profile-form .form-actions .back-to-login .login-account,
+      .page-checkout form#user-register-form .form-actions .back-to-login .login-account,
+      .page-checkout form#user-profile-form .form-actions .back-to-login .login-account {
+        display: block;
+        float: left; }
+  /* line 2848, ../scss/kickstart-global.scss */
+  .page-user form#user-login,
+  .page-checkout form#user-login {
+    /* Login form */ }
+    /* line 2850, ../scss/kickstart-global.scss */
+    .page-user form#user-login #user_login_form,
+    .page-checkout form#user-login #user_login_form {
+      border: 0;
+      border-bottom: 1px solid #444444;
+      padding-right: 0;
+      padding-bottom: 20px; }
+      /* line 2856, ../scss/kickstart-global.scss */
+      .page-user form#user-login #user_login_form .login-password,
+      .page-checkout form#user-login #user_login_form .login-password {
+        color: #2698f2; }
+        /* line 2858, ../scss/kickstart-global.scss */
+        .page-user form#user-login #user_login_form .login-password:hover,
+        .page-checkout form#user-login #user_login_form .login-password:hover {
+          color: #2698f2;
+          text-decoration: underline; }
+    /* line 2864, ../scss/kickstart-global.scss */
+    .page-user form#user-login .create-account,
+    .page-checkout form#user-login .create-account {
+      margin-top: 20px; }
+  /* line 2870, ../scss/kickstart-global.scss */
+  .page-user form#user-pass .form-actions,
+  .page-checkout form#user-pass .form-actions {
+    float: left;
+    margin-right: 20px; }
+  /* line 2874, ../scss/kickstart-global.scss */
+  .page-user form#user-pass .back-to-login,
+  .page-checkout form#user-pass .back-to-login {
+    float: right;
+    margin: 1em 0;
+    padding-top: 9px; }
+  /* line 2882, ../scss/kickstart-global.scss */
+  .page-user a.login-register,
+  .page-user a.login-account,
+  .page-checkout a.login-register,
+  .page-checkout a.login-account {
+    background: #207cca;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2698f2), color-stop(1, #207cca));
+    background: -moz-linear-gradient(top center, #2698f2 0%, #207cca 100%);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    margin-left: 0px;
+    padding: 15px 20px; }
+    /* line 2891, ../scss/kickstart-global.scss */
+    .page-user a.login-register:hover,
+    .page-user a.login-account:hover,
+    .page-checkout a.login-register:hover,
+    .page-checkout a.login-account:hover {
+      background: #2698f2; }
+  /* line 2895, ../scss/kickstart-global.scss */
+  .page-user a.login-register,
+  .page-checkout a.login-register {
+    display: block;
+    float: left;
+    margin-top: 20px; }
+  /* line 2900, ../scss/kickstart-global.scss */
+  .page-user a.login-account,
+  .page-checkout a.login-account {
+    display: block;
+    font-size: 14px;
+    padding: 10px 15px; }
+
+/* User home */
+/* line 2910, ../scss/kickstart-global.scss */
+.page-user .block-system-main {
+  margin: 10px; }
+/* line 2914, ../scss/kickstart-global.scss */
+.page-user .profile h3 {
+  border-bottom: 0 transparent;
+  background-color: #ECECEC;
+  clear: both;
+  color: #898A8C;
+  font-size: 1.1em;
+  margin-top: 20px;
+  padding: 5px 10px;
+  text-transform: uppercase; }
+/* line 2925, ../scss/kickstart-global.scss */
+.page-user .profile ul.user-information {
+  width: 100%; }
+  /* line 2927, ../scss/kickstart-global.scss */
+  .page-user .profile ul.user-information li {
+    border-bottom: 1px solid #444444;
+    float: left;
+    height: 150px;
+    list-style: none;
+    list-style-image: none;
+    min-height: 150px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 30px;
+    width: 100%; }
+    /* line 2939, ../scss/kickstart-global.scss */
+    .page-user .profile ul.user-information li h4 {
+      font-size: 14px;
+      text-transform: uppercase; }
+    /* line 2943, ../scss/kickstart-global.scss */
+    .page-user .profile ul.user-information li a {
+      border: 1px solid #d8d8d8;
+      padding: 5px 10px;
+      position: absolute;
+      bottom: 10px; }
+      /* line 2948, ../scss/kickstart-global.scss */
+      .page-user .profile ul.user-information li a:hover {
+        cursor: pointer;
+        text-decoration: underline; }
+    /* line 2953, ../scss/kickstart-global.scss */
+    .page-user .profile ul.user-information li .view-commerce-backoffice-user-orders td {
+      padding: 10px; }
+/* line 2958, ../scss/kickstart-global.scss */
+.page-user .profile ul.user-recent-orders {
+  list-style: none;
+  list-style-image: none; }
+  /* line 2962, ../scss/kickstart-global.scss */
+  .page-user .profile ul.user-recent-orders li {
+    list-style: none;
+    list-style-image: none; }
+/* line 2969, ../scss/kickstart-global.scss */
+.page-user .tabs ul {
+  /* User primary menu/tabs */
+  /* User secondary menu/tabs */ }
+  /* line 2971, ../scss/kickstart-global.scss */
+  .page-user .tabs ul.primary {
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+    margin: 0 0 30px 0; }
+    /* line 2975, ../scss/kickstart-global.scss */
+    .page-user .tabs ul.primary li {
+      float: left;
+      padding: 10px 0; }
+      /* line 2978, ../scss/kickstart-global.scss */
+      .page-user .tabs ul.primary li a {
+        background-color: transparent;
+        border: 0 none;
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        -khtml-border-radius: 0px;
+        border-radius: 0px;
+        color: #898A8C; }
+        /* line 2984, ../scss/kickstart-global.scss */
+        .page-user .tabs ul.primary li a .active {
+          color: #000000;
+          font-weight: bold; }
+  /* line 2992, ../scss/kickstart-global.scss */
+  .page-user .tabs ul.secondary {
+    border-bottom: 0 transparent; }
+    /* line 2995, ../scss/kickstart-global.scss */
+    .page-user .tabs ul.secondary li {
+      border-right: 0 transparent;
+      float: left;
+      padding: 0.5em 0; }
+      /* line 3000, ../scss/kickstart-global.scss */
+      .page-user .tabs ul.secondary li a {
+        color: #898A8C;
+        border: 1px solid #d8d8d8;
+        padding: 5px 10px; }
+        /* line 3005, ../scss/kickstart-global.scss */
+        .page-user .tabs ul.secondary li a.active {
+          color: #000000;
+          font-weight: bold;
+          text-decoration: underline; }
+
+/* Address book */
+/* line 3018, ../scss/kickstart-global.scss */
+.page-user-addressbook ul.action-links {
+  list-style: none;
+  margin: 1.5em 0 2em 0.5em; }
+  /* line 3022, ../scss/kickstart-global.scss */
+  .page-user-addressbook ul.action-links li a {
+    background: -moz-linear-gradient(center top, white 0%, #dddddd 100%) repeat scroll 0 0 transparent;
+    border-color: #dddddd #bbbbbb #999999;
+    -moz-border-radius: 11px;
+    -webkit-border-radius: 11px;
+    -khtml-border-radius: 11px;
+    border-radius: 11px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 10px 4px;
+    text-decoration: none;
+    text-shadow: 0 1px 1px white; }
+/* line 3036, ../scss/kickstart-global.scss */
+.page-user-addressbook .view-commerce-addressbook-defaults .views-field {
+  background-color: #F0F0F0;
+  border: 1px solid #d8d8d8;
+  float: left;
+  margin: 0 15px 20px 0;
+  padding: 20px;
+  min-width: 200px; }
+/* line 3044, ../scss/kickstart-global.scss */
+.page-user-addressbook .view-commerce-addressbook td {
+  display: block;
+  padding: 0; }
+  /* line 3048, ../scss/kickstart-global.scss */
+  .page-user-addressbook .view-commerce-addressbook td .views-field {
+    border: 1px solid #d8d8d8;
+    margin: 0 15px 15px 0;
+    padding: 20px;
+    position: relative; }
+    /* line 3054, ../scss/kickstart-global.scss */
+    .page-user-addressbook .view-commerce-addressbook td .views-field .field-name-commerce-customer-address {
+      color: #5F6061;
+      font-size: 13px;
+      margin-bottom: 15px; }
+    /* line 3059, ../scss/kickstart-global.scss */
+    .page-user-addressbook .view-commerce-addressbook td .views-field .ajax-progress-throbber {
+      /* Positions the throbber */
+      position: absolute;
+      top: 0;
+      right: 0; }
+/* line 3067, ../scss/kickstart-global.scss */
+.page-user-addressbook #commerce-addressbook-billing-list,
+.page-user-addressbook #commerce-addressbook-shipping-list {
+  clear: both; }
+
+/* Add comment */
+/* line 3073, ../scss/kickstart-global.scss */
+html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
+  background-image: url("../images/icon_add.png");
+  background-position: 0 50%;
+  padding: 0 0 0 30px; }
+
+/* line 3078, ../scss/kickstart-global.scss */
+#commerce-backoffice-message-form .fieldset-legend a {
+  color: #2698F2;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+/* Connector */
+/* line 3087, ../scss/kickstart-global.scss */
+.not-logged-in #block-connector-one-click-block {
+  margin-left: 10px;
+  /* LTR */ }
+
+/* line 3091, ../scss/kickstart-global.scss */
+.not-logged-in #block-connector-one-click-block .connector-button {
+  color: transparent;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -khtml-border-radius: 0px;
+  border-radius: 0px; }
+
+/* line 3101, ../scss/kickstart-global.scss */
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-facebook {
+  background: url("../images/btn_facebook.png") no-repeat; }
+/* line 3104, ../scss/kickstart-global.scss */
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-twitter {
+  background: url("../images/btn_twitter.png") no-repeat; }
+/* line 3107, ../scss/kickstart-global.scss */
+.not-logged-in #block-connector-one-click-block #edit-oauthconnector-google {
+  background: url("../images/btn_google.png") no-repeat; }
+
+/* Maintenance Page Styles */
+/* line 3113, ../scss/kickstart-global.scss */
+.in-maintenance {
+  margin: 0; }
+  /* line 3116, ../scss/kickstart-global.scss */
+  .in-maintenance .body-wrapper {
+    border-top: 5px solid #8e8e8e; }
+  /* line 3120, ../scss/kickstart-global.scss */
+  .in-maintenance #branding,
+  .in-maintenance #page {
+    margin: 0 auto;
+    width: 960px; }
+  /* line 3124, ../scss/kickstart-global.scss */
+  .in-maintenance #branding {
+    padding: 20px 0 10px 0; }
+  /* line 3127, ../scss/kickstart-global.scss */
+  .in-maintenance #page .page-wrapper {
+    background: #fff;
+    padding: 10px 10px 20px 10px; }
+
+/* Temp fixes */
+/* line 3134, ../scss/kickstart-global.scss */
+.hidden {
+  display: none !important; }
+
+/*
+ * Elements
+ */
+/* line 17, ../scss/global.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: #df822a; }
+
+/* line 21, ../scss/global.scss */
+h1#page-title {
+  font-family: "Lobster", georgia, serif;
+  font-size: 4.5em;
+  font-weight: normal;
+  text-transform: none; }
+
+/* line 29, ../scss/global.scss */
+a, a:link, a:visited {
+  color: #7e9249;
+  text-decoration: underline; }
+
+/* line 33, ../scss/global.scss */
+a:hover, a:active, a:focus {
+  border-bottom: 0 none;
+  color: #7d8c89;
+  text-decoration: none; }
+
+/* line 39, ../scss/global.scss */
+button, input[type="reset"], input[type="submit"], input[type="button"] {
+  /*  @include background-image(linear-gradient(lighten($blue, 20%), $blue));*/
+  background-color: #b1c5c3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px 0 white;
+  -moz-box-shadow: inset 0 1px 1px 0 white;
+  box-shadow: inset 0 1px 1px 0 white;
+  text-shadow: 1px 1px 2px gray, 1px 1px 2px 0 gray;
+  text-shadow: 1px 1px 2px 0 gray, 1px 1px 2px 0 gray;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border: #b1c5c3 1px solid;
+  color: black;
+  padding: 0.25em 0.75em;
+  padding: 0.5em 1em; }
+  /* line 45, ../scss/mixins.scss */
+  button:hover, button:focus, button:active, input[type="reset"]:hover, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active, input[type="button"]:hover, input[type="button"]:focus, input[type="button"]:active {
+    background-color: #c0d0ce;
+    -webkit-box-shadow: inset 0 -1px 1px 0 #cedbda;
+    -moz-box-shadow: inset 0 -1px 1px 0 #cedbda;
+    box-shadow: inset 0 -1px 1px 0 #cedbda; }
+
+/* line 44, ../scss/global.scss */
+button:active, button:focus, input:active, input:focus, select:active, select:focus, textarea:active, textarea:focus {
+  -webkit-box-shadow: 0 0 2px 0 #b1c5c3;
+  -moz-box-shadow: 0 0 2px 0 #b1c5c3;
+  box-shadow: 0 0 2px 0 #b1c5c3; }
+
+/*
+ * Layout / page sections
+ */
+/* DS layouts */
+/* line 55, ../scss/global.scss */
+.ds-2col-fluid > .group-left {
+  float: none;
+  width: 100%; }
+
+/* line 59, ../scss/global.scss */
+.ds-2col-fluid > .group-right {
+  float: none;
+  width: 100%; }
+
+/* Global */
+/* line 65, ../scss/global.scss */
+body {
+  background-color: #e1dfcf;
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FFFFFFFF', endColorstr='#FFE1DFCF');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iNTAlIiB4Mj0iMTAwJSIgeTI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2UxZGZjZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZTFkZmNmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #e1dfcf), color-stop(50%, #ffffff), color-stop(100%, #e1dfcf));
+  background-image: -webkit-linear-gradient(left, #e1dfcf 0%, #ffffff 50%, #e1dfcf 100%);
+  background-image: -moz-linear-gradient(left, #e1dfcf 0%, #ffffff 50%, #e1dfcf 100%);
+  background-image: -o-linear-gradient(left, #e1dfcf 0%, #ffffff 50%, #e1dfcf 100%);
+  background-image: linear-gradient(left, #e1dfcf 0%, #ffffff 50%, #e1dfcf 100%); }
+
+/* line 73, ../scss/global.scss */
+.page {
+  background: transparent url(../images/diagonal_waves_clear.png); }
+
+/* Toolbar */
+/* line 78, ../scss/global.scss */
+#toolbar {
+  z-index: 1001; }
+
+/* User menu */
+/* line 84, ../scss/global.scss */
+.section-header .zone-user-wrapper {
+  -webkit-box-shadow: #999999 0px 0px 4px;
+  -moz-box-shadow: #999999 0px 0px 4px;
+  box-shadow: #999999 0px 0px 4px;
+  background-color: #7d8c89;
+  background-image: url(../images/light_toast_clear.png);
+  z-index: 1000; }
+  /* line 93, ../scss/global.scss */
+  .section-header .zone-user-wrapper .block-shopping-cart-block .content .view-shopping-cart .line-item-summary ul.links {
+    background-color: #7d8c89; }
+
+/* Branding */
+/* line 105, ../scss/global.scss */
+.zone-branding .region-branding {
+  margin-top: 30px; }
+/* line 109, ../scss/global.scss */
+.zone-branding .branding-data .site-name-slogan {
+  float: none; }
+/* line 112, ../scss/global.scss */
+.zone-branding .branding-data .site-name {
+  text-shadow: white 1px 1px 2px;
+  margin-top: .25em;
+  text-align: center; }
+  /* line 116, ../scss/global.scss */
+  .zone-branding .branding-data .site-name a, .zone-branding .branding-data .site-name a:link, .zone-branding .branding-data .site-name a:visited {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    color: #df822a;
+    font-family: "Lobster", georgia, serif;
+    font-size: 1.5em;
+    font-weight: normal;
+    padding: 0 0 0 0.25em;
+    text-decoration: none; }
+  /* line 125, ../scss/global.scss */
+  .zone-branding .branding-data .site-name a:hover, .zone-branding .branding-data .site-name a:active, .zone-branding .branding-data .site-name a:focus {
+    color: #e69c56; }
+/* line 133, ../scss/global.scss */
+.zone-branding .block-views .views-exposed-form .views-submit-button .form-submit {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+/* Navigation */
+/* line 143, ../scss/global.scss */
+.zone-menu .menu-toggle {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #7e9249;
+  left: 0;
+  top: -3.8em; }
+  /* line 148, ../scss/global.scss */
+  .zone-menu .menu-toggle:hover {
+    background-color: #7d8c89;
+    color: #7d8c89; }
+  /* line 152, ../scss/global.scss */
+  .zone-menu .menu-toggle .line {
+    border-color: white; }
+  /* line 155, ../scss/global.scss */
+  .zone-menu .menu-toggle .toggle-help {
+    color: #7e9249; }
+    /* line 157, ../scss/global.scss */
+    .zone-menu .menu-toggle .toggle-help:hover {
+      color: #7d8c89; }
+/* line 162, ../scss/global.scss */
+.zone-menu .navigation {
+  background-color: #7e9249;
+  border: white 1px dotted;
+  margin: 0;
+  padding: 0; }
+  /* line 168, ../scss/global.scss */
+  .zone-menu .navigation .primary-menu,
+  .zone-menu .navigation .second-menu {
+    margin: 0;
+    padding: 0; }
+    /* line 171, ../scss/global.scss */
+    .zone-menu .navigation .primary-menu h2,
+    .zone-menu .navigation .second-menu h2 {
+      display: none; }
+    /* line 174, ../scss/global.scss */
+    .zone-menu .navigation .primary-menu ul,
+    .zone-menu .navigation .second-menu ul {
+      margin-left: 0;
+      padding: 0; }
+      /* line 177, ../scss/global.scss */
+      .zone-menu .navigation .primary-menu ul li,
+      .zone-menu .navigation .second-menu ul li {
+        margin: 0; }
+        /* line 179, ../scss/global.scss */
+        .zone-menu .navigation .primary-menu ul li a, .zone-menu .navigation .primary-menu ul li a:link, .zone-menu .navigation .primary-menu ul li a:visited,
+        .zone-menu .navigation .second-menu ul li a,
+        .zone-menu .navigation .second-menu ul li a:link,
+        .zone-menu .navigation .second-menu ul li a:visited {
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          -o-transition: all 0.3s;
+          transition: all 0.3s;
+          background-color: transparent;
+          border: 0 none;
+          border-bottom: 1px dotted white;
+          color: white;
+          font-family: "Lobster", georgia, serif;
+          font-size: 1.2em;
+          font-weight: normal; }
+        /* line 189, ../scss/global.scss */
+        .zone-menu .navigation .primary-menu ul li a:hover, .zone-menu .navigation .primary-menu ul li a:focus, .zone-menu .navigation .primary-menu ul li a:active, .zone-menu .navigation .primary-menu ul li a.active, .zone-menu .navigation .primary-menu ul li a.active-trail,
+        .zone-menu .navigation .second-menu ul li a:hover,
+        .zone-menu .navigation .second-menu ul li a:focus,
+        .zone-menu .navigation .second-menu ul li a:active,
+        .zone-menu .navigation .second-menu ul li a.active,
+        .zone-menu .navigation .second-menu ul li a.active-trail {
+          background-color: white;
+          border: 0 none;
+          border-bottom: 1px dotted white;
+          color: #7d8c89; }
+        /* line 195, ../scss/global.scss */
+        .zone-menu .navigation .primary-menu ul li a.active, .zone-menu .navigation .primary-menu ul li a.active-trail,
+        .zone-menu .navigation .second-menu ul li a.active,
+        .zone-menu .navigation .second-menu ul li a.active-trail {
+          font-weight: bold; }
+  /* line 203, ../scss/global.scss */
+  .zone-menu .navigation .second-menu ul li.last a {
+    border: 0 none; }
+
+/* line 211, ../scss/global.scss */
+.breadcrumb {
+  background-color: transparent;
+  border: 0 none;
+  color: gray;
+  margin: 0 0 1.5em 0;
+  padding: 0; }
+
+/* line 219, ../scss/global.scss */
+.front .breadcrumb {
+  display: none; }
+
+/* Content */
+/* line 226, ../scss/global.scss */
+.section-content .region {
+  background: white;
+  margin-bottom: 1em;
+  -webkit-box-shadow: #cccccc 0px 1px 5px;
+  -moz-box-shadow: #cccccc 0px 1px 5px;
+  box-shadow: #cccccc 0px 1px 5px; }
+  /* line 230, ../scss/global.scss */
+  .section-content .region .region-inner {
+    padding: 1.5em; }
+/* line 241, ../scss/global.scss */
+.section-content .zone-preface {
+  background-color: transparent; }
+
+/* Sidebar first */
+/* line 248, ../scss/global.scss */
+.region-sidebar-first h2 {
+  clear: both;
+  padding-bottom: .25em; }
+/* line 255, ../scss/global.scss */
+.region-sidebar-first .block-cart .view-commerce-cart-block table tr {
+  background-color: #f0fcff;
+  border-bottom: 0 none; }
+/* line 262, ../scss/global.scss */
+.region-sidebar-first .block-facetapi {
+  border-top: 1px solid #e6e6e6;
+  margin-top: 1em;
+  margin-bottom: 1.25em;
+  margin-left: 0;
+  padding-top: 1em;
+  padding-left: 0; }
+  /* line 269, ../scss/global.scss */
+  .region-sidebar-first .block-facetapi .form-item, .region-sidebar-first .block-facetapi .form-actions {
+    margin-top: 0; }
+  /* line 272, ../scss/global.scss */
+  .region-sidebar-first .block-facetapi h2 {
+    clear: both;
+    padding-bottom: .25em; }
+  /* line 278, ../scss/global.scss */
+  .region-sidebar-first .block-facetapi ul li a, .region-sidebar-first .block-facetapi ul li a:link, .region-sidebar-first .block-facetapi ul li a:visited, .region-sidebar-first .block-facetapi ul li a.facetapi-inactive {
+    color: #7e9249;
+    padding-left: .25em;
+    text-decoration: underline; }
+  /* line 283, ../scss/global.scss */
+  .region-sidebar-first .block-facetapi ul li a:hover, .region-sidebar-first .block-facetapi ul li a:active, .region-sidebar-first .block-facetapi ul li a:focus {
+    color: #7d8c89;
+    text-decoration: none; }
+
+/* Postscripts */
+/* line 294, ../scss/global.scss */
+.zone-postscript-wrapper .region-inner {
+  min-height: 91%; }
+  /* line 296, ../scss/global.scss */
+  .zone-postscript-wrapper .region-inner .block-title {
+    margin-bottom: 1.5em; }
+
+/* Footer */
+/* line 313, ../scss/global.scss */
+.section-footer .zone-footer2-wrapper {
+  background-color: #7d8c89;
+  color: black; }
+  /* line 305, ../scss/global.scss */
+  .section-footer .zone-footer2-wrapper ul.menu li ul.menu li a, .section-footer .zone-footer2-wrapper ul.menu li ul.menu li a:link, .section-footer .zone-footer2-wrapper ul.menu li ul.menu li a:visited, .section-footer .zone-footer2-wrapper ul.menu li.expanded ul.menu li a, .section-footer .zone-footer2-wrapper ul.menu li.expanded ul.menu li a:link, .section-footer .zone-footer2-wrapper ul.menu li.expanded ul.menu li a:visited {
+    color: white;
+    text-decoration: underline; }
+  /* line 309, ../scss/global.scss */
+  .section-footer .zone-footer2-wrapper ul.menu li ul.menu li a:hover, .section-footer .zone-footer2-wrapper ul.menu li ul.menu li a:active, .section-footer .zone-footer2-wrapper ul.menu li ul.menu li a:focus, .section-footer .zone-footer2-wrapper ul.menu li.expanded ul.menu li a:hover, .section-footer .zone-footer2-wrapper ul.menu li.expanded ul.menu li a:active, .section-footer .zone-footer2-wrapper ul.menu li.expanded ul.menu li a:focus {
+    text-decoration: none; }
+  /* line 323, ../scss/global.scss */
+  .section-footer .zone-footer2-wrapper ul.menu li span, .section-footer .zone-footer2-wrapper ul.menu li.expanded span {
+    color: black; }
+
+/*
+ * Messages
+ */
+/* line 336, ../scss/global.scss */
+div.messages.commerce-kickstart-add-to-cart {
+  z-index: 999; }
+
+/*
+ * Menus
+ */
+/* Quicklinks */
+/* line 346, ../scss/global.scss */
+.block-menu-quicklinks {
+  float: left; }
+  /* line 349, ../scss/global.scss */
+  .block-menu-quicklinks .menu li {
+    list-style: none;
+    margin: 0;
+    padding: 0.5em 1em; }
+  /* line 354, ../scss/global.scss */
+  .block-menu-quicklinks .menu .first {
+    padding-left: 0; }
+  /* line 357, ../scss/global.scss */
+  .block-menu-quicklinks .menu a, .block-menu-quicklinks .menu a:link, .block-menu-quicklinks .menu a:visited {
+    color: white; }
+  /* line 361, ../scss/global.scss */
+  .block-menu-quicklinks .menu:after {
+    clear: both; }
+
+/* Sidebar menu */
+/* line 370, ../scss/global.scss */
+.region-sidebar-first .menu-block-wrapper ul li {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0.25 0; }
+
+/*
+ * Galleries
+ */
+/* line 383, ../scss/global.scss */
+.field-name-field-gallery-image {
+  float: left;
+  height: 300px;
+  padding: 1em;
+  text-align: center;
+  width: 200px; }
+
+/* Gallery teaser on home page */
+/* line 393, ../scss/global.scss */
+.gallery-teaser .views-row {
+  float: left;
+  height: 17em;
+  margin: 0 2% 0 0;
+  text-align: center;
+  width: 48%; }
+/* line 400, ../scss/global.scss */
+.gallery-teaser .view-footer {
+  clear: both;
+  text-align: right; }
+
+/*
+ * Slideshows
+ */
+/* line 411, ../scss/global.scss */
+.skin-default .views-slideshow-galleria .galleria-container {
+  background-color: transparent; }
+  /* line 413, ../scss/global.scss */
+  .skin-default .views-slideshow-galleria .galleria-container .galleria-stage {
+    left: 0px;
+    right: 0;
+    top: 0; }
+  /* line 418, ../scss/global.scss */
+  .skin-default .views-slideshow-galleria .galleria-container .galleria-thumbnails-container {
+    left: 0;
+    right: 0; }
+/* line 424, ../scss/global.scss */
+.skin-default .views-slideshow-controls-bottom {
+  display: none; }
+
+/* line 437, ../scss/global.scss */
+.galleria-thumbnails .galleria-image {
+  background-color: transparent;
+  border: 0 none; }
+
+/* Front page slideshow */
+/* line 446, ../scss/global.scss */
+.front .section-content .region-preface-third {
+  -webkit-box-shadow: inset 0 0 0 0 transparent;
+  -moz-box-shadow: inset 0 0 0 0 transparent;
+  box-shadow: inset 0 0 0 0 transparent;
+  background-color: transparent;
+  margin-bottom: 2em; }
+  /* line 450, ../scss/global.scss */
+  .front .section-content .region-preface-third:before, .front .section-content .region-preface-third:after {
+    content: none; }
+/* line 454, ../scss/global.scss */
+.front .section-content .region-preface-third-inner {
+  background-color: transparent;
+  padding: 0; }
+  /* line 457, ../scss/global.scss */
+  .front .section-content .region-preface-third-inner .galleria-stage {
+    bottom: 60px; }
+  /* line 460, ../scss/global.scss */
+  .front .section-content .region-preface-third-inner .galleria-thumbnails-container {
+    height: auto; }
+    /* line 463, ../scss/global.scss */
+    .front .section-content .region-preface-third-inner .galleria-thumbnails-container .galleria-thumbnails .galleria-image {
+      /*border: 4px solid $black;*/
+      margin: 0; }
+
+/*
+ * Taxonomy / product listings / search pages
+ */
+/* line 477, ../scss/global.scss */
+.view-collection-taxonomy-term .view-header {
+  background-color: transparent; }
+  /* line 479, ../scss/global.scss */
+  .view-collection-taxonomy-term .view-header .taxonomy-title {
+    color: #df822a;
+    font-family: Georgia, serif;
+    font-size: 1.4em;
+    font-style: italic;
+    font-weight: 700;
+    left: auto;
+    line-height: 1.4em;
+    margin: 0;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    top: 0; }
+
+/* line 500, ../scss/global.scss */
+.block-search-sorts .content ul.search-api-sorts li a {
+  background-color: #7e9249;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+/* line 504, ../scss/global.scss */
+.block-search-sorts .content ul.search-api-sorts li a:hover, .block-search-sorts .content ul.search-api-sorts li a:active {
+  background-color: #7d8c89; }
+/* line 507, ../scss/global.scss */
+.block-search-sorts .content ul.search-api-sorts li .search-api-sort-active {
+  background-color: #7d8c89; }
+  /* line 509, ../scss/global.scss */
+  .block-search-sorts .content ul.search-api-sorts li .search-api-sort-active a {
+    margin-right: .5em; }
+    /* line 511, ../scss/global.scss */
+    .block-search-sorts .content ul.search-api-sorts li .search-api-sort-active a img {
+      height: 13px;
+      padding-right: 13px;
+      position: relative;
+      text-indent: -9999px;
+      width: 0; }
+    /* line 519, ../scss/global.scss */
+    .block-search-sorts .content ul.search-api-sorts li .search-api-sort-active a.sort-desc img {
+      background: transparent url(../images/arrow-desc.png) no-repeat; }
+    /* line 524, ../scss/global.scss */
+    .block-search-sorts .content ul.search-api-sorts li .search-api-sort-active a.sort-asc img {
+      background: transparent url(../images/arrow-asc.png) no-repeat;
+      top: .25em; }
+
+/* line 538, ../scss/global.scss */
+.block-facetapi .search-api-ranges-widget #search-api-ranges-block-slider-view-form input#edit-submit {
+  /*  @include background-image(linear-gradient(lighten($blue, 20%), $blue));*/
+  background-color: #b1c5c3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 1px 0 white;
+  -moz-box-shadow: inset 0 1px 1px 0 white;
+  box-shadow: inset 0 1px 1px 0 white;
+  text-shadow: 1px 1px 2px gray, 1px 1px 2px 0 gray;
+  text-shadow: 1px 1px 2px 0 gray, 1px 1px 2px 0 gray;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border: #b1c5c3 1px solid;
+  color: black;
+  padding: 0.25em 0.75em;
+  margin-top: 1.75em; }
+  /* line 45, ../scss/mixins.scss */
+  .block-facetapi .search-api-ranges-widget #search-api-ranges-block-slider-view-form input#edit-submit:hover, .block-facetapi .search-api-ranges-widget #search-api-ranges-block-slider-view-form input#edit-submit:focus, .block-facetapi .search-api-ranges-widget #search-api-ranges-block-slider-view-form input#edit-submit:active {
+    background-color: #c0d0ce;
+    -webkit-box-shadow: inset 0 -1px 1px 0 #cedbda;
+    -moz-box-shadow: inset 0 -1px 1px 0 #cedbda;
+    box-shadow: inset 0 -1px 1px 0 #cedbda; }
+
+/* line 546, ../scss/global.scss */
+.page-products h1#page-title {
+  line-height: 1em;
+  margin-bottom: 0;
+  margin-top: .25em; }
+/* line 552, ../scss/global.scss */
+.page-products .view-display-products li.views-row {
+  float: none;
+  text-align: center;
+  width: 100%; }
+  /* line 557, ../scss/global.scss */
+  .page-products .view-display-products li.views-row header h2 {
+    height: auto;
+    line-height: 1.25em;
+    margin: 0 0 0.5em 0; }
+  /* line 562, ../scss/global.scss */
+  .page-products .view-display-products li.views-row header a {
+    color: #7e9249;
+    font-size: 1.1em;
+    font-style: normal;
+    text-decoration: underline; }
+    /* line 567, ../scss/global.scss */
+    .page-products .view-display-products li.views-row header a:hover, .page-products .view-display-products li.views-row header a:active, .page-products .view-display-products li.views-row header a:focus {
+      color: #7d8c89;
+      text-decoration: none; }
+/* line 574, ../scss/global.scss */
+.page-products .view-display-products .field-type-commerce-price {
+  font-size: 1.25em; }
+
+/* Pagers */
+/* line 584, ../scss/global.scss */
+.content .item-list .pager li {
+  clear: none;
+  float: none; }
+
+/*
+ * Product displays
+ */
+/* line 596, ../scss/global.scss */
+.node-product-display .product-title {
+  font-family: "Lobster", georgia, serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  line-height: 1.25;
+  margin-bottom: .5em; }
+/* line 603, ../scss/global.scss */
+.node-product-display .field-type-commerce-price {
+  color: #df822a;
+  font-family: "Lobster", georgia, serif;
+  font-size: 1.75em;
+  padding: 0em 0 0.5em 0; }
+/* line 609, ../scss/global.scss */
+.node-product-display .field-label {
+  clear: left;
+  display: block;
+  float: left;
+  font-weight: bold;
+  padding-right: .5em; }
+/* line 616, ../scss/global.scss */
+.node-product-display .field-label-inline {
+  display: block; }
+/* line 619, ../scss/global.scss */
+.node-product-display .field-name-body {
+  clear: both;
+  padding-top: 1.5em; }
+
+/* line 627, ../scss/global.scss */
+.node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit {
+  background-color: #7e9249;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+  /* line 630, ../scss/global.scss */
+  .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit:hover, .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit:active, .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit:focus {
+    background-color: #8da352; }
+
+/*
+ * Additional media queries
+ */
+/* For super narrow layouts */
+@media only screen and (max-width: 320px) {
+  /* line 645, ../scss/global.scss */
+  #region-user-first,
+  #region-user-second {
+    background-color: #7d8c89;
+    float: none;
+    text-align: center; }
+
+  /* line 652, ../scss/global.scss */
+  .zone-branding .branding-data .site-name {
+    margin-top: 1.75em; } }
+/*
+ * Reusable styles
+ */
+/* Colorful-ul */
+/* line 666, ../scss/global.scss */
+.colorful-ul ul {
+  margin: 0 -1.5em -1.5em -1.5em; }
+  /* line 668, ../scss/global.scss */
+  .colorful-ul ul li {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0.5em 1.75em; }
+  /* line 675, ../scss/global.scss */
+  .colorful-ul ul .pink {
+    border-left: 0.25em #d80081 solid;
+    border-right: 0.25em #d80081 solid; }
+    /* line 678, ../scss/global.scss */
+    .colorful-ul ul .pink:hover, .colorful-ul ul .pink:active, .colorful-ul ul .pink:focus {
+      background-color: #ffe2f3; }
+  /* line 682, ../scss/global.scss */
+  .colorful-ul ul .blue {
+    border-left: 0.25em #009ecc solid;
+    border-right: 0.25em #009ecc solid; }
+    /* line 685, ../scss/global.scss */
+    .colorful-ul ul .blue:hover, .colorful-ul ul .blue:active, .colorful-ul ul .blue:focus {
+      background-color: #ccf3ff; }
+  /* line 689, ../scss/global.scss */
+  .colorful-ul ul .orange {
+    border-left: 0.25em #df822a solid;
+    border-right: 0.25em #df822a solid; }
+    /* line 692, ../scss/global.scss */
+    .colorful-ul ul .orange:hover, .colorful-ul ul .orange:active, .colorful-ul ul .orange:focus {
+      background-color: #f2cba6; }
+  /* line 696, ../scss/global.scss */
+  .colorful-ul ul .green {
+    border-left: 0.25em #36dc36 solid;
+    border-right: 0.25em #36dc36 solid; }
+    /* line 699, ../scss/global.scss */
+    .colorful-ul ul .green:hover, .colorful-ul ul .green:active, .colorful-ul ul .green:focus {
+      background-color: #b0f1b0; }
+  /* line 703, ../scss/global.scss */
+  .colorful-ul ul .yellow {
+    border-left: 0.25em #ffff3f solid;
+    border-right: 0.25em #ffff3f solid; }
+    /* line 706, ../scss/global.scss */
+    .colorful-ul ul .yellow:hover, .colorful-ul ul .yellow:active, .colorful-ul ul .yellow:focus {
+      background-color: #ffffaa; }
+
+/*
+ * Front page styles
+ */
+/* line 719, ../scss/global.scss */
+.front .section-content .region-content {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: transparent; }
+  /* line 722, ../scss/global.scss */
+  .front .section-content .region-content:before, .front .section-content .region-content:after {
+    content: none; }
+  /* line 725, ../scss/global.scss */
+  .front .section-content .region-content .region-inner {
+    margin: 0;
+    padding: 0; }
+  /* line 730, ../scss/global.scss */
+  .front .section-content .region-content .cta-buttons .content a {
+    /*  @include background-image(linear-gradient(lighten($blue, 20%), $blue));*/
+    background-color: #b1c5c3;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 1px 0 white;
+    -moz-box-shadow: inset 0 1px 1px 0 white;
+    box-shadow: inset 0 1px 1px 0 white;
+    text-shadow: 1px 1px 2px gray, 1px 1px 2px 0 gray;
+    text-shadow: 1px 1px 2px 0 gray, 1px 1px 2px 0 gray;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    border: #b1c5c3 1px solid;
+    color: black;
+    padding: 0.25em 0.75em;
+    margin: 0.5em 0;
+    padding: 1em;
+    width: auto;
+    display: block;
+    font-size: 1.25em;
+    text-decoration: none;
+    	    		/*&.first {
+    					  background-color: $blue; // Old browsers
+    					  @include filter-gradient(lighten($blue, 20%), $blue, vertical); // IE6-8
+    					  // IE9 SVG, needs conditional override of 'filter' to 'none'
+    					  $experimental-support-for-svg: true;
+    					  @include background-image(linear-gradient(top,  lighten($blue, 20%) 0%,lighten($blue, 5%) 50%,$blue 51%,lighten($blue, 20%) 100%));
+    
+    					  @include border-radius(3px);
+    					  @include single-box-shadow(lighten($blue, 30%), 0, 1px, 1px, 0, true);
+    					  @include single-text-shadow(1px, 1px, 2px, 0, $gray);
+    					  @include transition-default;
+    					  border: $blue 1px solid;
+    					  color: $white;
+    					  padding: .25em .75em;
+    					  &:hover, &:focus, &:active {
+    					    background-color: lighten($blue, 20%);
+    					    @include filter-gradient($blue, $blue, vertical); // IE6-8
+    					    // IE9 SVG, needs conditional override of 'filter' to 'none'
+    					    $experimental-support-for-svg: true;
+    					    @include background-image(linear-gradient(top,  lighten($blue, 22%) 0%,lighten($blue, 7%) 50%,$blue 51%,lighten($blue, 22%) 100%));
+    					    @include single-box-shadow(lighten($blue, 10%), 0, -1px, 1px, 0, true);
+    					  }
+    	    		}*/ }
+    /* line 45, ../scss/mixins.scss */
+    .front .section-content .region-content .cta-buttons .content a:hover, .front .section-content .region-content .cta-buttons .content a:focus, .front .section-content .region-content .cta-buttons .content a:active {
+      background-color: #c0d0ce;
+      -webkit-box-shadow: inset 0 -1px 1px 0 #cedbda;
+      -moz-box-shadow: inset 0 -1px 1px 0 #cedbda;
+      box-shadow: inset 0 -1px 1px 0 #cedbda; }
+
+/* line 769, ../scss/global.scss */
+.latest-hats-block .views-row .product-title,
+.latest-beards-block .views-row .product-title {
+  font-size: 1em; }
+  /* line 771, ../scss/global.scss */
+  .latest-hats-block .views-row .product-title h2,
+  .latest-beards-block .views-row .product-title h2 {
+    font-size: 1em; }
+/* line 775, ../scss/global.scss */
+.latest-hats-block .views-row .field-type-commerce-price,
+.latest-beards-block .views-row .field-type-commerce-price {
+  font-size: 1.5em;
+  margin-top: 2em; }
+
+/* line 783, ../scss/global.scss */
+.related-products h2 {
+  font-size: 1.5em;
+  margin-top: 2em; }
+/* line 789, ../scss/global.scss */
+.related-products .views-row h3,
+.related-products .views-row .field-type-commerce-price {
+  font-size: 1em;
+  margin: 0; }

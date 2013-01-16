@@ -1,0 +1,34 @@
+//
+// Variables
+//
+
+// Importing old variables
+@import "kickstart-variables";
+
+// Importing Compass extensions
+@import "compass";
+@import "compass/css3";
+
+// Colors
+$pink:  		#d80081;
+$blue:  		#009ecc;
+// $orange:		#ff6633;
+$green:			#36dc36;
+$yellow:		#ffff3f;
+
+$lightcream:  #F9F5F2;
+$lightslate:  #B1C5C3;
+$orange:      #DF822A;
+$dustyyellow: #E3D39B;
+$forestgreen: #7E9249;
+$slate:       #7D8C89;
+
+$white:     #fff;
+$black:     #000;
+$gray:      lighten($black, 50%);
+
+$bgcolor:   #e1dfcf;
+
+// Font stacks
+$lobster:   "Lobster", georgia, serif;
+$open-sans: "Open Sans",sans-serif;

@@ -1,0 +1,53 @@
+//
+// Mixins
+//
+
+// Importing old mixins
+@import "kickstart-mixins";
+
+// Import variables
+@import "variables";
+
+// Font face
+@include font-face("Lobster",
+  font-files(
+    "Lobster-fontfacekit/Lobster_1.3-webfont.woff", woff,
+    "Lobster-fontfacekit/Lobster_1.3-webfont.ttf", ttf,
+    "Lobster-fontfacekit/Lobster_1.3-webfont.svg", svg),
+  "Lobster-fontfacekit/Lobster_1.3-webfont.eot");
+
+// Default transition
+@mixin transition-default {
+  @include single-transition(all, .3s, false, false);
+}
+
+// Inset text shadow
+@mixin inset-text {
+  @include text-shadow($white 1px 1px 2px);
+}
+
+// Default button style
+@mixin button-default {
+/*  @include background-image(linear-gradient(lighten($blue, 20%), $blue));*/
+  background-color: $lightslate; // Old browsers
+  // @include filter-gradient(lighten($lightslate, 20%), $lightslate, vertical); // IE6-8
+  // IE9 SVG, needs conditional override of 'filter' to 'none'
+  $experimental-support-for-svg: true;
+  // @include background-image(linear-gradient(top,  lighten($lightslate, 20%) 0%,lighten($lightslate, 5%) 50%,$lightslate 51%,lighten($lightslate, 20%) 100%));
+
+  @include border-radius(3px);
+  @include single-box-shadow(lighten($lightslate, 30%), 0, 1px, 1px, 0, true);
+  @include single-text-shadow(1px, 1px, 2px, 0, $gray);
+  @include transition-default;
+  border: $lightslate 1px solid;
+  color: $black;
+  padding: .25em .75em;
+  &:hover, &:focus, &:active {
+    background-color: lighten($lightslate, 5%);
+    // @include filter-gradient($lightslate, $lightslate, vertical); // IE6-8
+    // IE9 SVG, needs conditional override of 'filter' to 'none'
+    $experimental-support-for-svg: true;
+    // @include background-image(linear-gradient(top,  lighten($lightslate, 22%) 0%,lighten($lightslate, 7%) 50%,$lightslate 51%,lighten($lightslate, 22%) 100%));
+    @include single-box-shadow(lighten($lightslate, 10%), 0, -1px, 1px, 0, true);
+  }
+}

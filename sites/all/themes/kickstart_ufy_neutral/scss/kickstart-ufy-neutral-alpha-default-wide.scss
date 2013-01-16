@@ -1,0 +1,83 @@
+//
+// Imports
+//
+
+// Import the old wide styles 
+@import "kickstart-wide";
+
+// Mixins
+@import "mixins";
+
+
+/*
+ * Layout / page sections
+ */
+
+/* Navigation */
+.zone-menu {
+  .navigation {
+    .primary-menu,
+    .second-menu {
+      ul {
+        li {
+          font-size: 2em;
+          padding: 0 1.75em 0 0;
+          a, a:link, a:visited {
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Sidebar first */
+.region-sidebar-first {
+  h2 {
+    padding-bottom: .5em;
+  }
+  .field_product_commerce_price_amount_float {
+    h2 {
+      padding-bottom: 1.75em;
+    }
+  }
+}
+
+
+/*
+ * Functionality
+ */
+
+/* Front page slideshow */
+.front {
+  .section-content {
+    .region-preface-third {
+      margin-bottom: 2em;
+      &:before, &:after {
+        content: none;
+      }
+    }
+    .region-preface-third-inner {
+      .galleria-stage {
+        bottom: 60px;
+      }
+      .galleria-image,
+      .galleria-container {
+        height: 645px !important;
+      }
+      .galleria-image {
+        img {
+          top: 0 !important;
+        }
+      }
+      .galleria-thumbnails-container {
+        height: auto;
+        .galleria-thumbnails {
+          height: 57px !important;
+          .galleria-image {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

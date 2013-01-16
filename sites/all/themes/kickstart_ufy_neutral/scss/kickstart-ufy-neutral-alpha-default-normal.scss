@@ -1,0 +1,78 @@
+//
+// Imports
+//
+
+// Import the old normal styles 
+@import "kickstart-normal";
+
+
+/*
+ * Layout / page sections
+ */
+
+/* Navigation */
+.zone-menu {
+  .navigation {
+    .primary-menu,
+    .second-menu {
+      ul {
+        li {
+          font-size: 1.75em;
+          padding: 0 1.5em 0 0;
+          a, a:link, a:visited {
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Sidebar first */
+.region-sidebar-first {
+  .block-cart {
+    .view-commerce-cart-block {
+      table {
+        td {
+          display: table-cell;
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Taxonomy / product listings / search pages
+ */
+.page-products {
+  .view-display-products {
+    li.views-row {
+      margin: 0 2% 2em 0;
+      padding: 0;
+      width: 31%;
+      &:nth-child(3n) {
+        padding-right: 0;
+      }
+      &:nth-child(3n+4) {
+        clear: left;
+      }
+      &.views-row-odd {
+        margin-right: 2%;
+      }
+      &.views-row-even {
+        padding-right: 0;
+      }
+      .views-field-rendered-entity {
+        @include transition-default;
+        border: 1px solid transparent;
+        padding: .25em;
+        &:hover {
+          img {
+            // @include single-box-shadow(lighten($slate, 20%), 0, 0, 25px, 0, false);
+          }
+          // background-color: lighten($green, 40%);
+          border: 1px solid transparent;
+        }
+      }
+    }
+  }
+}
