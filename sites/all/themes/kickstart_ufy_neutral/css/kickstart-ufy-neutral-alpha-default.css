@@ -452,7 +452,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message
   .page-user form#user-login #user_login_form,
   .page-checkout form#user-login #user_login_form {
     border: 0;
-    border-right: 1px solid #444444;
+    border-right: 1px solid #444;
     padding-right: 20px;
     padding-bottom: 0; }
   /* line 446, ../scss/kickstart-ufy-neutral-alpha-default.scss */
@@ -597,7 +597,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message
   float: left; }
 /* line 60, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 .zone-branding .branding-data .site-name {
-  margin: 1em 0 0.5em 0;
+  margin: 1em 0 .5em 0;
   text-align: center; }
   /* line 63, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
   .zone-branding .branding-data .site-name a, .zone-branding .branding-data .site-name a:link, .zone-branding .branding-data .site-name a:visited {
@@ -657,7 +657,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message
           border: 0 none;
           color: #7e9249;
           font-size: 1em;
-          padding: 0.25em 0 0 0; }
+          padding: .25em 0 0 0; }
         /* line 119, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
         .zone-menu .navigation .primary-menu ul li a:hover, .zone-menu .navigation .primary-menu ul li a:focus, .zone-menu .navigation .primary-menu ul li a:active, .zone-menu .navigation .primary-menu ul li a.active, .zone-menu .navigation .primary-menu ul li a.active-trail,
         .zone-menu .navigation .second-menu ul li a:hover,
@@ -680,7 +680,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message
 
 /* line 141, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 .breadcrumb {
-  margin: 0.25em 0 1.5em 0; }
+  margin: .25em 0 1.5em 0; }
 
 /* Sidebar first */
 /* line 150, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
@@ -690,8 +690,8 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message
 .region-sidebar-first .block-cart .view-commerce-cart-block .view-footer ul.inline li {
   display: block;
   float: left;
-  margin: 0 0.25em 0 0;
-  padding: 0 0.5em 0 0;
+  margin: 0 .25em 0 0;
+  padding: 0 .5em 0 0;
   text-align: left; }
 
 /* Footer */
@@ -745,7 +745,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message
   margin-top: 1em; }
   /* line 237, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
   .node-product-display ul.field-slideshow-pager li {
-    margin: 0 0.25em 0.25em 0; }
+    margin: 0 .25em .25em 0; }
 
 /* line 243, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 .related-products .views-row {
@@ -805,7 +805,7 @@ width: 25%;*/ }
   /* line 297, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
   .front .section-content .region-content .cta-buttons .content a {
     float: left;
-    margin: 0.5em 0;
+    margin: .5em 0;
     padding: 1em 2%;
     text-align: center;
     width: 27.65%; }
@@ -823,8 +823,35 @@ width: 25%;*/ }
 .latest-beards-block .views-row-odd {
   margin-right: 4%; }
 
+/* line 322, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+.latest-items-block .view-content .views-row {
+  float: left;
+  margin-bottom: 2em;
+  width: 25%; }
+  /* line 326, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+  .latest-items-block .view-content .views-row .field-type-commerce-price {
+    margin-top: 0; }
+
+/* line 332, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+#block-views-display-products-block-3 .block-title {
+  margin: 1em 0 0.5em 0; }
+/* line 335, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+#block-views-display-products-block-3 .content {
+  -webkit-box-shadow: #cccccc 0px 1px 5px;
+  -moz-box-shadow: #cccccc 0px 1px 5px;
+  box-shadow: #cccccc 0px 1px 5px;
+  background-color: white;
+  padding: 1em 0; }
+  /* line 339, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+  #block-views-display-products-block-3 .content .content {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0; }
+
 /* Related products */
-/* line 324, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+/* line 349, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 .related-products .views-row {
   margin-right: 50%; }
 
@@ -965,7 +992,7 @@ width: 25%;*/ }
   /* line 141, ../scss/kickstart-normal.scss */
   #block-views-demo-content-slideshow-block-1 .views-field-nothing {
     background: #888;
-    border: 1px solid #cccccc;
+    border: 1px solid #CCC;
     color: #ffffff;
     padding-bottom: 5px;
     position: absolute;
@@ -976,7 +1003,7 @@ width: 25%;*/ }
   #block-views-demo-content-slideshow-block-1 .bx-next {
     color: #000000;
     background: #EEE;
-    border: 1px solid #cccccc;
+    border: 1px solid #CCC;
     text-decoration: none;
     display: block;
     margin-top: 15px;

@@ -507,7 +507,7 @@ select {
     top: 6px; }
   /* line 483, ../scss/kickstart-global.scss */
   .menu-toggle .line {
-    border-bottom: 2px solid #cccccc;
+    border-bottom: 2px solid #CCC;
     display: block;
     margin: 4px auto 4px auto;
     width: 26px; }
@@ -742,7 +742,7 @@ select {
 /* Search api facet blocks */
 /* line 730, ../scss/kickstart-global.scss */
 .region-sidebar-first .block-facetapi {
-  border-top: 1px solid black;
+  border-top: 1px solid #000000;
   margin-top: 15px;
   margin-bottom: 30px;
   margin-left: 15px;
@@ -900,7 +900,7 @@ select {
 
 /* line 892, ../scss/kickstart-global.scss */
 #block-views-blog-block-1 .views-row {
-  border-bottom: 1px solid #e0e3e6;
+  border-bottom: 1px solid #E0E3E6;
   padding: 4px 4px 10px 4px; }
   /* line 895, ../scss/kickstart-global.scss */
   #block-views-blog-block-1 .views-row .views-field-title {
@@ -946,7 +946,7 @@ select {
     #zone-postscript .view-ad-push .views-row .content a,
     #zone-postscript .block-blog-block .block-inner .field-content a,
     #zone-postscript .block-blog-block .block-inner .content a {
-      border: 4px solid white;
+      border: 4px solid #ffffff;
       display: block; }
     /* line 938, ../scss/kickstart-global.scss */
     #zone-postscript .view-ad-push .views-row .field-content img,
@@ -966,7 +966,7 @@ select {
     display: block; }
   /* line 953, ../scss/kickstart-global.scss */
   #zone-postscript .view-ad-push .views-row .views-field-field-headline {
-    font-family: Georgia, "Times New Roman", serif; }
+    font-family: Georgia, 'Times New Roman', serif; }
   /* line 959, ../scss/kickstart-global.scss */
   #zone-postscript .block-blog-block .block-inner .block-title {
     background: transparent url("../images/bg_block_homepage_title.png") -18px top no-repeat;
@@ -1094,7 +1094,7 @@ select {
 */
 /* line 1089, ../scss/kickstart-global.scss */
 #block-menu-menu-social-connection h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   line-height: 16px;
   padding: 8px 15px; }
@@ -1103,7 +1103,7 @@ select {
   list-style: none; }
   /* line 1098, ../scss/kickstart-global.scss */
   #block-menu-menu-social-connection .content ul.menu li {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     line-height: 15px;
     margin-top: 2px;
@@ -1122,7 +1122,7 @@ select {
     #block-menu-menu-social-connection .content ul.menu li span,
     #block-menu-menu-social-connection .content ul.menu li a {
       color: #999999;
-      font-family: "Open Sans", sans-serif;
+      font-family: 'Open Sans', sans-serif;
       font-weight: 400;
       display: block;
       height: 35px;
@@ -1240,7 +1240,7 @@ body.activebar-container .zone-footer2-wrapper {
     top: 0;
     left: 10px;
     text-decoration: none;
-    text-shadow: 0 1px 1px #c3c3c3;
+    text-shadow: 0 1px 1px #C3C3C3;
     text-transform: capitalize; }
   /* line 1236, ../scss/kickstart-global.scss */
   .view-collection-taxonomy-term .view-header .views-row {
@@ -1323,7 +1323,7 @@ body.activebar-container .zone-footer2-wrapper {
     display: inline; }
 /* line 1320, ../scss/kickstart-global.scss */
 .view-collection-taxonomy-term .view-content .item-list .products-per-collection li .views-field-field-extractor-field-product ul li {
-  border: 1px solid #cbcdcc;
+  border: 1px solid #CBCDCC;
   float: left;
   margin: 0 0.5em 0 0;
   padding: 2px; }
@@ -1394,7 +1394,7 @@ body.activebar-container .zone-footer2-wrapper {
         display: inline; }
   /* line 1398, ../scss/kickstart-global.scss */
   .page-products .view-display-products li .views-field-field-extractor-field-product ul li {
-    border: 1px solid #cbcdcc;
+    border: 1px solid #CBCDCC;
     float: left;
     margin: 0 0.5em 0 0;
     padding: 2px; }
@@ -1515,9 +1515,9 @@ div.messages.commerce-kickstart-add-to-cart {
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
   border-radius: 3px;
-  -moz-box-shadow: 0 2px 15px #57595a;
-  -webkit-box-shadow: 0 2px 15px #57595a;
-  box-shadow: 0 2px 15px #57595a;
+  -moz-box-shadow: 0 2px 15px #57595A;
+  -webkit-box-shadow: 0 2px 15px #57595A;
+  box-shadow: 0 2px 15px #57595A;
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#57595A', direction='180', strength='5');
   color: #aeaaa5;
   overflow: hidden;
@@ -1628,7 +1628,7 @@ div.messages.commerce-kickstart-add-to-cart {
         display: none; }
       /* line 1614, ../scss/kickstart-global.scss */
       div.messages.commerce-kickstart-add-to-cart .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-product .content .field-name-field-images img {
-        border: #d7d7d7 solid 1px;
+        border: #D7D7D7 solid 1px;
         text-align: left;
         width: auto; }
       /* line 1620, ../scss/kickstart-global.scss */
@@ -1803,7 +1803,7 @@ div.messages.commerce-kickstart-add-to-cart {
       width: 20px; }
     /* line 1822, ../scss/kickstart-global.scss */
     .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .description .field {
-      border: 1px solid #cbcdcc;
+      border: 1px solid #CBCDCC;
       padding: 3px; }
     /* line 1826, ../scss/kickstart-global.scss */
     .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .description-selected .field {
@@ -1957,7 +1957,7 @@ ol.inline.commerce-checkout-progress {
   .page-user-orders .view-commerce-line-item-table table td,
   .view-commerce-backoffice-user-orders table td {
     background-color: transparent;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #CCC;
     margin: 0;
     padding: 25px 10px; }
   /* line 1978, ../scss/kickstart-global.scss */
@@ -2014,7 +2014,7 @@ ol.inline.commerce-checkout-progress {
         padding: 10px !important; }
       /* line 2018, ../scss/kickstart-global.scss */
       .field-name-commerce-order-total .field-items table.commerce-price-formatted-components td {
-        border-bottom: 1px solid #cccccc;
+        border-bottom: 1px solid #CCC;
         padding: 10px !important;
         width: auto !important; }
         /* line 2023, ../scss/kickstart-global.scss */
@@ -2031,7 +2031,7 @@ ol.inline.commerce-checkout-progress {
 .page-checkout #commerce-checkout-form-review .checkout-buttons input#edit-back {
   background: none;
   border: none transparent;
-  border-bottom: 1px solid #888888;
+  border-bottom: 1px solid #888;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   -khtml-border-radius: 0px;
@@ -2045,7 +2045,7 @@ ol.inline.commerce-checkout-progress {
 .page-checkout #commerce-checkout-form-checkout .checkout-buttons input#edit-continue,
 .page-checkout #commerce-checkout-form-shipping .checkout-buttons input#edit-continue,
 .page-checkout #commerce-checkout-form-review .checkout-buttons input#edit-continue {
-  background: #2698f2 none 0 0 no-repeat;
+  background: #2698F2 none 0 0 no-repeat;
   border: 0;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
@@ -2127,7 +2127,7 @@ ol.inline.commerce-checkout-progress {
   .page-cart #views-form-commerce-cart-form-default .views-field-edit-delete input.delete-line-item {
     background: none;
     border: none transparent;
-    border-bottom: 1px solid #888888;
+    border-bottom: 1px solid #888;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
     -khtml-border-radius: 0px;
@@ -2139,7 +2139,7 @@ ol.inline.commerce-checkout-progress {
   .page-cart #views-form-commerce-cart-form-default .commerce-line-item-actions input#edit-submit {
     background: none;
     border: none transparent;
-    border-bottom: 1px solid #888888;
+    border-bottom: 1px solid #888;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
     -khtml-border-radius: 0px;
@@ -2150,7 +2150,7 @@ ol.inline.commerce-checkout-progress {
     padding: 0 0 1px 0; }
   /* line 2148, ../scss/kickstart-global.scss */
   .page-cart #views-form-commerce-cart-form-default .commerce-line-item-actions input#edit-checkout {
-    background: #2698f2 none 0 0 no-repeat;
+    background: #2698F2 none 0 0 no-repeat;
     border: 0;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -2383,7 +2383,7 @@ ol.inline.commerce-checkout-progress {
   /* line 2393, ../scss/kickstart-global.scss */
   .view-commerce-backoffice-order-messages .commerce_order_state,
   .view-commerce-backoffice-order-messages .commerce_order_payment_entered {
-    border: 1px solid #e5e5e5;
+    border: 1px solid #E5E5E5;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     -khtml-border-radius: 3px;
@@ -2470,7 +2470,7 @@ ol.inline.commerce-checkout-progress {
   float: none; }
 /* line 2481, ../scss/kickstart-global.scss */
 .page-blog .region-content .view-content .views-row {
-  border: 1px solid #e0e3e6;
+  border: 1px solid #E0E3E6;
   display: block;
   margin: 15px 0px;
   padding: 0px;
@@ -2587,7 +2587,7 @@ article.comment {
       font-weight: 700; }
   /* line 2604, ../scss/kickstart-global.scss */
   article.comment footer.comment-submitted {
-    border-bottom: 1px dotted #e0e3e6;
+    border-bottom: 1px dotted #E0E3E6;
     font-size: 12px;
     margin: 5px 0;
     text-transform: uppercase; }
@@ -2613,7 +2613,7 @@ article.comment {
     text-transform: uppercase; }
   /* line 2630, ../scss/kickstart-global.scss */
   .comment-wrapper h2.comment-form {
-    border-bottom: 1px solid #e0e3e6;
+    border-bottom: 1px solid #E0E3E6;
     margin-top: 20px; }
 
 /* line 2635, ../scss/kickstart-global.scss */
@@ -2910,7 +2910,7 @@ article.comment {
     .page-user form#user-login #user_login_form,
     .page-checkout form#user-login #user_login_form {
       border: 0;
-      border-bottom: 1px solid #444444;
+      border-bottom: 1px solid #444;
       padding-right: 0;
       padding-bottom: 20px; }
       /* line 2856, ../scss/kickstart-global.scss */
@@ -2991,7 +2991,7 @@ article.comment {
   width: 100%; }
   /* line 2927, ../scss/kickstart-global.scss */
   .page-user .profile ul.user-information li {
-    border-bottom: 1px solid #444444;
+    border-bottom: 1px solid #444;
     float: left;
     height: 150px;
     list-style: none;
@@ -3007,7 +3007,7 @@ article.comment {
       text-transform: uppercase; }
     /* line 2943, ../scss/kickstart-global.scss */
     .page-user .profile ul.user-information li a {
-      border: 1px solid #d8d8d8;
+      border: 1px solid #D8D8D8;
       padding: 5px 10px;
       position: absolute;
       bottom: 10px; }
@@ -3032,8 +3032,8 @@ article.comment {
   /* User secondary menu/tabs */ }
   /* line 2971, ../scss/kickstart-global.scss */
   .page-user .tabs ul.primary {
-    border-bottom: 1px solid #d8d8d8;
-    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #D8D8D8;
+    border-top: 1px solid #D8D8D8;
     margin: 0 0 30px 0; }
     /* line 2975, ../scss/kickstart-global.scss */
     .page-user .tabs ul.primary li {
@@ -3063,7 +3063,7 @@ article.comment {
       /* line 3000, ../scss/kickstart-global.scss */
       .page-user .tabs ul.secondary li a {
         color: #898A8C;
-        border: 1px solid #d8d8d8;
+        border: 1px solid #D8D8D8;
         padding: 5px 10px; }
         /* line 3005, ../scss/kickstart-global.scss */
         .page-user .tabs ul.secondary li a.active {
@@ -3079,7 +3079,7 @@ article.comment {
   /* line 3022, ../scss/kickstart-global.scss */
   .page-user-addressbook ul.action-links li a {
     background: -moz-linear-gradient(center top, white 0%, #dddddd 100%) repeat scroll 0 0 transparent;
-    border-color: #dddddd #bbbbbb #999999;
+    border-color: #DDDDDD #BBBBBB #999999;
     -moz-border-radius: 11px;
     -webkit-border-radius: 11px;
     -khtml-border-radius: 11px;
@@ -3091,11 +3091,11 @@ article.comment {
     font-weight: bold;
     padding: 3px 10px 4px;
     text-decoration: none;
-    text-shadow: 0 1px 1px white; }
+    text-shadow: 0 1px 1px #FFFFFF; }
 /* line 3036, ../scss/kickstart-global.scss */
 .page-user-addressbook .view-commerce-addressbook-defaults .views-field {
   background-color: #F0F0F0;
-  border: 1px solid #d8d8d8;
+  border: 1px solid #D8D8D8;
   float: left;
   margin: 0 15px 20px 0;
   padding: 20px;
@@ -3106,7 +3106,7 @@ article.comment {
   padding: 0; }
   /* line 3048, ../scss/kickstart-global.scss */
   .page-user-addressbook .view-commerce-addressbook td .views-field {
-    border: 1px solid #d8d8d8;
+    border: 1px solid #D8D8D8;
     margin: 0 15px 15px 0;
     padding: 20px;
     position: relative; }
@@ -3136,7 +3136,7 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
 /* line 3078, ../scss/kickstart-global.scss */
 #commerce-backoffice-message-form .fieldset-legend a {
   color: #2698F2;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   text-decoration: none;
   text-transform: uppercase; }
@@ -3175,7 +3175,7 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
   margin: 0; }
   /* line 3116, ../scss/kickstart-global.scss */
   .in-maintenance .body-wrapper {
-    border-top: 5px solid #8e8e8e; }
+    border-top: 5px solid #8E8E8E; }
   /* line 3120, ../scss/kickstart-global.scss */
   .in-maintenance #branding,
   .in-maintenance #page {
@@ -3239,8 +3239,8 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
   transition: all 0.3s;
   border: #b1c5c3 1px solid;
   color: black;
-  padding: 0.25em 0.75em;
-  padding: 0.5em 1em; }
+  padding: .25em .75em;
+  padding: .5em 1em; }
   /* line 45, ../scss/mixins.scss */
   button:hover, button:focus, button:active, input[type="reset"]:hover, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active, input[type="button"]:hover, input[type="button"]:focus, input[type="button"]:active {
     background-color: #c0d0ce;
@@ -3523,7 +3523,7 @@ div.messages.commerce-kickstart-add-to-cart {
   .block-menu-quicklinks .menu li {
     list-style: none;
     margin: 0;
-    padding: 0.5em 1em; }
+    padding: .5em 1em; }
   /* line 354, ../scss/global.scss */
   .block-menu-quicklinks .menu .first {
     padding-left: 0; }
@@ -3540,7 +3540,7 @@ div.messages.commerce-kickstart-add-to-cart {
   list-style: none;
   list-style-image: none;
   margin: 0;
-  padding: 0.25 0; }
+  padding: .25 0; }
 
 /*
  * Galleries
@@ -3689,7 +3689,7 @@ div.messages.commerce-kickstart-add-to-cart {
   transition: all 0.3s;
   border: #b1c5c3 1px solid;
   color: black;
-  padding: 0.25em 0.75em;
+  padding: .25em .75em;
   margin-top: 1.75em; }
   /* line 45, ../scss/mixins.scss */
   .block-facetapi .search-api-ranges-widget #search-api-ranges-block-slider-view-form input#edit-submit:hover, .block-facetapi .search-api-ranges-widget #search-api-ranges-block-slider-view-form input#edit-submit:focus, .block-facetapi .search-api-ranges-widget #search-api-ranges-block-slider-view-form input#edit-submit:active {
@@ -3748,7 +3748,7 @@ div.messages.commerce-kickstart-add-to-cart {
   color: #df822a;
   font-family: "Lobster", georgia, serif;
   font-size: 1.75em;
-  padding: 0em 0 0.5em 0; }
+  padding: 0em 0 .5em 0; }
 /* line 609, ../scss/global.scss */
 .node-product-display .field-label {
   clear: left;
@@ -3805,7 +3805,7 @@ div.messages.commerce-kickstart-add-to-cart {
     list-style: none;
     list-style-image: none;
     margin: 0;
-    padding: 0.5em 1.75em; }
+    padding: .5em 1.75em; }
   /* line 675, ../scss/global.scss */
   .colorful-ul ul .pink {
     border-left: 0.25em #d80081 solid;
@@ -3878,8 +3878,8 @@ div.messages.commerce-kickstart-add-to-cart {
     transition: all 0.3s;
     border: #b1c5c3 1px solid;
     color: black;
-    padding: 0.25em 0.75em;
-    margin: 0.5em 0;
+    padding: .25em .75em;
+    margin: .5em 0;
     padding: 1em;
     width: auto;
     display: block;
