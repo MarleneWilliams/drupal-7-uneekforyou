@@ -330,3 +330,7 @@ div.messages.commerce-kickstart-add-to-cart .message-inner .added-product-title 
     /* line 68, ../scss/kickstart-ufy-neutral-alpha-default-normal.scss */
     .page-products .view-display-products li.views-row .views-field-rendered-entity:hover {
       border: 1px solid transparent; }
+
+/* line 81, ../scss/kickstart-ufy-neutral-alpha-default-normal.scss */
+.latest-items-block .view-content .views-row {
+  width: 30%; }

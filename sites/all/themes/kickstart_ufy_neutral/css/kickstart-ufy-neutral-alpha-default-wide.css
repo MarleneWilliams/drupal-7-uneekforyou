@@ -75,3 +75,7 @@
     /* line 76, ../scss/kickstart-ufy-neutral-alpha-default-wide.scss */
     .front .section-content .region-preface-third-inner .galleria-thumbnails-container .galleria-thumbnails .galleria-image {
       margin: 0; }
+
+/* line 86, ../scss/kickstart-ufy-neutral-alpha-default-wide.scss */
+.latest-items-block .view-content .views-row {
+  width: 30.75%; }
