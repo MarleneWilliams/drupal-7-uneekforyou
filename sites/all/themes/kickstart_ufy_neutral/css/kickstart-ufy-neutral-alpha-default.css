@@ -820,29 +820,25 @@ width: 25%;*/ }
   width: 48%; }
 
 /* line 323, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
-.block-views-slideshow-collections-block-1 {
-  display: none; }
-
-/* line 328, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 .latest-items-block .view-content .views-row {
   float: left;
   margin-bottom: 2em;
   width: 28.75%; }
-  /* line 332, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+  /* line 327, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
   .latest-items-block .view-content .views-row .field-type-commerce-price {
     margin-top: 0; }
 
-/* line 338, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+/* line 333, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 #block-views-display-products-block-3 .block-title {
   margin: 1em 0 0.5em 0; }
-/* line 341, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+/* line 336, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 #block-views-display-products-block-3 .content {
   -webkit-box-shadow: #cccccc 0px 1px 5px;
   -moz-box-shadow: #cccccc 0px 1px 5px;
   box-shadow: #cccccc 0px 1px 5px;
   background-color: white;
   padding: 1em 0; }
-  /* line 345, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+  /* line 340, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
   #block-views-display-products-block-3 .content .content {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -851,7 +847,7 @@ width: 25%;*/ }
     padding: 0; }
 
 /* Related products */
-/* line 355, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
+/* line 350, ../scss/kickstart-ufy-neutral-alpha-default-narrow.scss */
 .related-products .views-row {
   margin-right: 50%; }
 
