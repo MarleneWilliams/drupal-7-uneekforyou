@@ -8,3 +8,6 @@ sites/*/private
 # Iignore SASS caches
 */.sass-cache/*
 *.sass-cache*
+
+# Ignore Bundler
+*.bundle
