@@ -1618,7 +1618,7 @@ div.messages.commerce-kickstart-add-to-cart {
               }
             }
             .commerce-product-sku .commerce-product-sku-label {
-              color: #878380;
+              // color: #878380;
               display: inline;
               font-weight: bold;
               padding-right: 5px;
@@ -1626,7 +1626,7 @@ div.messages.commerce-kickstart-add-to-cart {
             .commerce-product-sku,
             .field {
               clear: both;
-              color: #878380;
+              // color: #878380;
               font-size: 12px;
               margin-right: 20px; /* LTR */
             }
@@ -1708,12 +1708,12 @@ div.messages.commerce-kickstart-add-to-cart {
 
 .node-product-type {
   .commerce-product-sku {
-    color: #b1b1b1;
+    // color: #b1b1b1;
     font-family: $headerfont;
     font-size: 13px;
     font-weight: 400;
     .commerce-product-sku-label {
-      font-weight: normal;
+      // font-weight: normal;
     }
   }
   .commerce-product-field {

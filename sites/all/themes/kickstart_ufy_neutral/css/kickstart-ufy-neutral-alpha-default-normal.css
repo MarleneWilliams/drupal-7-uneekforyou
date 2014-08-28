@@ -1,12 +1,12 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
-@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
-@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 /* Include Default Variables & Mixins */
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 @font-face {
   font-family: "Lobster";
   src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot');
-  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('eot'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
 
 /* End Variables & Mixins */
 /**************************************************

@@ -1,5 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
-@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 /* This file will hold styles that are loaded using the same media query as the narrow grid. */
 /* If you are using the default media queries provided by Omega, these styles will also
  *  apply to the normal and widescreen layouts. You may override these styles in the normal
@@ -16,6 +14,8 @@
 * 3.2.1. Sidebar first
 *******************************************/
 /* Price range */
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,300,600,800);
+@import url(//fonts.googleapis.com/css?family=Gentium+Basic:400,700);
 /* line 18, ../scss/kickstart-narrow.scss */
 #search-api-ranges-block-slider-view-form label {
   float: none; }
@@ -82,7 +82,7 @@
 @font-face {
   font-family: "Lobster";
   src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot');
-  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('eot'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
+  src: url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.woff') format('woff'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.ttf') format('truetype'), url('/sites/all/themes/kickstart_ufy/fonts/Lobster-fontfacekit/Lobster_1.3-webfont.svg') format('svg'); }
 
 /*
  * Layout / page sections
